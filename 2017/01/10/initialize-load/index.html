@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -79,16 +79,22 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="12+ (void)load;+ (void)initialize; 一、调用时机在一个空白工程中增加SeconViewController类，然后在每个类中重写+ (void)load; + (void)initialize;方法，同时在对比main函数执行时间。 1、结果可知在main函数执行之前load方法执行了，而后面才走initialize方法，并且initialize方法当类初始化后才">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2018/03/01/hello-world/index.html">
+<meta property="og:title" content="initialize &amp;&amp; load">
+<meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2017/01/10/initialize-load/index.html">
 <meta property="og:site_name" content="Simon&#39;s Blogs">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2018-03-01T06:58:39.982Z">
+<meta property="og:description" content="12+ (void)load;+ (void)initialize; 一、调用时机在一个空白工程中增加SeconViewController类，然后在每个类中重写+ (void)load; + (void)initialize;方法，同时在对比main函数执行时间。 1、结果可知在main函数执行之前load方法执行了，而后面才走initialize方法，并且initialize方法当类初始化后才">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-b4d8a590c70c0ad8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-4e0be13167b112a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-adc698302fbf3590.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-9989c1f66997972b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-03-01T12:32:44.838Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="initialize &amp;&amp; load">
+<meta name="twitter:description" content="12+ (void)load;+ (void)initialize; 一、调用时机在一个空白工程中增加SeconViewController类，然后在每个类中重写+ (void)load; + (void)initialize;方法，同时在对比main函数执行时间。 1、结果可知在main函数执行之前load方法执行了，而后面才走initialize方法，并且initialize方法当类初始化后才">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5107216-b4d8a590c70c0ad8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -96,7 +102,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -104,7 +110,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -118,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://www.jianshu.com/u/1975769cbce2/2018/03/01/hello-world/"/>
+  <link rel="canonical" href="https://www.jianshu.com/u/1975769cbce2/2017/01/10/initialize-load/"/>
 
 
 
 
 
-  <title>Hello World | Simon's Blogs</title>
+  <title>initialize && load | Simon's Blogs</title>
   
 
 
@@ -136,7 +142,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -184,7 +190,37 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -194,7 +230,37 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
           </a>
         </li>
       
@@ -231,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2018/03/01/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2017/01/10/initialize-load/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
@@ -248,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">initialize && load</h1>
         
 
         <div class="post-meta">
@@ -258,10 +324,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-01T14:58:39+08:00">
-                2018-03-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-10T20:31:11+08:00">
+                2017-01-10
               </time>
             
 
@@ -298,15 +364,10 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ (void)load;</span><br><span class="line">+ (void)initialize;</span><br></pre></td></tr></table></figure>
+<h4 id="一、调用时机"><a href="#一、调用时机" class="headerlink" title="一、调用时机"></a>一、调用时机</h4><p>在一个空白工程中增加<code>SeconViewController</code>类，然后在每个类中重写<code>+ (void)load; + (void)initialize;</code>方法，同时在对比main函数执行时间。<br><img src="http://upload-images.jianshu.io/upload_images/5107216-b4d8a590c70c0ad8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="测试代码类"><br><img src="http://upload-images.jianshu.io/upload_images/5107216-4e0be13167b112a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="执行结果"></p>
+<p>1、结果可知在main函数执行之前load方法执行了，而后面才走initialize方法，并且initialize方法当类初始化后才会执行。<br>2、<br><img src="http://upload-images.jianshu.io/upload_images/5107216-adc698302fbf3590.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在Compile Sources移除SeconViewController.m"><br><img src="http://upload-images.jianshu.io/upload_images/5107216-9989c1f66997972b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="移除后执行结果"></p>
+<p><a href="http://www.jianshu.com/p/200e57fab0de">参考文章</a></p>
 
       
     </div>
@@ -331,15 +392,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/01/clang的使用/" rel="next" title="clang的使用">
-                <i class="fa fa-chevron-left"></i> clang的使用
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/28/自定义类使用copy关键字修饰/" rel="prev" title="自定义类使用copy关键字修饰">
+                自定义类使用copy关键字修饰 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -393,10 +454,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -416,8 +477,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -453,7 +514,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、调用时机"><span class="nav-number">1.</span> <span class="nav-text">一、调用时机</span></a></li></ol></div>
             
 
           </div>
@@ -483,7 +544,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -491,7 +552,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -590,6 +651,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>

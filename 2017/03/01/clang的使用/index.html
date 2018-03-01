@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -79,21 +79,23 @@
 
 
 
-<meta name="description" content="好想有个能千变万化的编译器,没错就是它,就是它. —–Clang  ####简介&amp;emsp;&amp;emsp; clang是一个c，c++、oc语言的轻量编译器，源码发布于BSD 协议下。  终端用户特色 快速编译和较少内存占用 有诊断功能 兼容gcc   ###一、查看oc中c语言的实现源码  使用vim编辑器测试 打开vim 建立.c文件  1vim test.c  写入测试的代码，下面测试代码查">
+<meta name="description" content="【注】本文是个人学习clang时做的一些笔记和整理，分享一下仅供参考，文中多处摘自参考文章。    好想有个能千变万化的编译器,没错就是它,就是它. —–Clang  简介   clang是一个c，c++、oc语言的轻量编译器，源码发布于BSD 协议下。  终端用户特色 快速编译和较少内存占用 有诊断功能 兼容gcc   一、查看oc中c语言的实现源码 使用vim编辑器测试 打开vim 建立.c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="clang的使用">
+<meta property="og:title" content="浅尝iOS使用clang">
 <meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2017/03/01/clang的使用/index.html">
 <meta property="og:site_name" content="Simon&#39;s Blogs">
-<meta property="og:description" content="好想有个能千变万化的编译器,没错就是它,就是它. —–Clang  ####简介&amp;emsp;&amp;emsp; clang是一个c，c++、oc语言的轻量编译器，源码发布于BSD 协议下。  终端用户特色 快速编译和较少内存占用 有诊断功能 兼容gcc   ###一、查看oc中c语言的实现源码  使用vim编辑器测试 打开vim 建立.c文件  1vim test.c  写入测试的代码，下面测试代码查">
-<meta property="og:image" content="https://www.jianshu.com/Users/xiwangwang/Desktop/屏幕快照%202017-09-15%20下午12.55.07.png">
-<meta property="og:image" content="https://www.jianshu.com/Users/xiwangwang/Desktop/屏幕快照%202017-09-15%20下午1.08.22.png">
-<meta property="og:image" content="https://www.jianshu.com/Users/xiwangwang/Desktop/屏幕快照%202017-09-15%20下午1.23.05.png">
-<meta property="og:image" content="https://www.jianshu.com/Users/xiwangwang/Desktop/屏幕快照%202017-09-15%20下午1.25.20.png">
-<meta property="og:updated_time" content="2018-03-01T07:36:27.783Z">
+<meta property="og:description" content="【注】本文是个人学习clang时做的一些笔记和整理，分享一下仅供参考，文中多处摘自参考文章。    好想有个能千变万化的编译器,没错就是它,就是它. —–Clang  简介   clang是一个c，c++、oc语言的轻量编译器，源码发布于BSD 协议下。  终端用户特色 快速编译和较少内存占用 有诊断功能 兼容gcc   一、查看oc中c语言的实现源码 使用vim编辑器测试 打开vim 建立.c">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-01b0fb85b9a8a1c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-51735eefcbd73e3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-5a3b9a40f448f2d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-eedf81d49d9d3533.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-f61d7db3bdb092e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-03-01T12:29:14.762Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="clang的使用">
-<meta name="twitter:description" content="好想有个能千变万化的编译器,没错就是它,就是它. —–Clang  ####简介&amp;emsp;&amp;emsp; clang是一个c，c++、oc语言的轻量编译器，源码发布于BSD 协议下。  终端用户特色 快速编译和较少内存占用 有诊断功能 兼容gcc   ###一、查看oc中c语言的实现源码  使用vim编辑器测试 打开vim 建立.c文件  1vim test.c  写入测试的代码，下面测试代码查">
-<meta name="twitter:image" content="https://www.jianshu.com/Users/xiwangwang/Desktop/屏幕快照%202017-09-15%20下午12.55.07.png">
+<meta name="twitter:title" content="浅尝iOS使用clang">
+<meta name="twitter:description" content="【注】本文是个人学习clang时做的一些笔记和整理，分享一下仅供参考，文中多处摘自参考文章。    好想有个能千变万化的编译器,没错就是它,就是它. —–Clang  简介   clang是一个c，c++、oc语言的轻量编译器，源码发布于BSD 协议下。  终端用户特色 快速编译和较少内存占用 有诊断功能 兼容gcc   一、查看oc中c语言的实现源码 使用vim编辑器测试 打开vim 建立.c">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5107216-01b0fb85b9a8a1c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -101,7 +103,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -109,7 +111,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -129,7 +131,7 @@
 
 
 
-  <title>clang的使用 | Simon's Blogs</title>
+  <title>浅尝iOS使用clang | Simon's Blogs</title>
   
 
 
@@ -141,7 +143,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -189,7 +191,37 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -199,7 +231,37 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
           </a>
         </li>
       
@@ -253,7 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">clang的使用</h1>
+          <h1 class="post-title" itemprop="name headline">浅尝iOS使用clang</h1>
         
 
         <div class="post-meta">
@@ -263,9 +325,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-01T15:31:22+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-01T15:31:22+08:00">
                 2017-03-01
               </time>
             
@@ -304,9 +366,13 @@
 
       
         <blockquote>
+<p>【注】本文是个人学习clang时做的一些笔记和整理，分享一下仅供参考，文中多处摘自参考文章。</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/5107216-01b0fb85b9a8a1c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<blockquote>
 <p>好想有个能千变万化的编译器,没错就是它,就是它. —–Clang</p>
 </blockquote>
-<p>####简介<br>&emsp;&emsp; clang是一个c，c++、oc语言的轻量编译器，源码发布于BSD 协议下。</p>
+<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>   clang是一个c，c++、oc语言的轻量编译器，源码发布于BSD 协议下。</p>
 <ul>
 <li>终端用户特色</li>
 <li>快速编译和较少内存占用</li>
@@ -314,17 +380,16 @@
 <li>兼容gcc</li>
 </ul>
 <hr>
-<p>###一、查看oc中c语言的实现源码</p>
-<ul>
+<h3 id="一、查看oc中c语言的实现源码"><a href="#一、查看oc中c语言的实现源码" class="headerlink" title="一、查看oc中c语言的实现源码"></a>一、查看oc中c语言的实现源码</h3><ul>
 <li>使用vim编辑器测试</li>
-<li>打开vim 建立.c文件</li>
+<li>打开vim 建立.c文件 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim test.c</span><br></pre></td></tr></table></figure>
 <ul>
 <li>写入测试的代码，下面测试代码查看block的实现(输入上面指令后，输入“i”开始编辑，粘贴完后按“esc”键，输入“:wq”，回车)</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">void</span>(^blk)(<span class="keyword">void</span>) = ^&#123;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"Block\n"</span>);</span><br><span class="line">&#125;;</span><br><span class="line">blk();</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/Users/xiwangwang/Desktop/屏幕快照 2017-09-15 下午12.55.07.png" alt="vim file"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line"> <span class="keyword">void</span>(^blk)(<span class="keyword">void</span>) = ^&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"Block\n"</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  blk();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/5107216-51735eefcbd73e3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="vim file"></p>
 <ul>
 <li>编译,目录下面会生成a.out文件</li>
 </ul>
@@ -333,22 +398,22 @@
 <li>最后使用clang查看源码,成功会生成test.cpp文件，里面就是源码</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang -rewrite-objc test.c</span><br></pre></td></tr></table></figure>
-<p><img src="/Users/xiwangwang/Desktop/屏幕快照 2017-09-15 下午1.08.22.png" alt="生成文件"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5107216-5a3b9a40f448f2d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生成文件"></p>
 <p><a href="https://zh.wikipedia.org/wiki/A.out" target="_blank" rel="noopener">关于a.out的维基百科，我看不懂😭</a> 尝试用终端查看文件，一大堆乱码。</p>
 <p>test.cpp文件就是相关的c++实现</p>
 <blockquote>
 <p>.cpp:只能编译c++代码，.mm是编译c，oc，c++，.h是声明，.m包含oc和c代码的文件</p>
 </blockquote>
-<p>###二、编译oc</p>
-<ul>
+<h3 id="二、编译oc"><a href="#二、编译oc" class="headerlink" title="二、编译oc"></a>二、编译oc</h3><ul>
 <li>同样创建测试代码文件，test.m</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">@autoreleasepool &#123;</span><br><span class="line">// insert code here...</span><br><span class="line">NSLog(@&quot;你好世界!&quot;);</span><br><span class="line">&#125;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">        int main(int argc, const char * argv[]) &#123;</span><br><span class="line">         @autoreleasepool &#123;</span><br><span class="line">           // insert code here...</span><br><span class="line">        NSLog(@&quot;你好世界!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        return 0;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>输出可执行文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang -fobjc-arc -framework Foundation test.m -o outputname</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><img src="/Users/xiwangwang/Desktop/屏幕快照 2017-09-15 下午1.23.05.png" alt="可执行文件"><br><img src="/Users/xiwangwang/Desktop/屏幕快照 2017-09-15 下午1.25.20.png" alt="执行结果"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5107216-eedf81d49d9d3533.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="可执行文件"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5107216-f61d7db3bdb092e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="执行结果"></p>
 <blockquote>
 <p>指令解释</p>
 <ul>
@@ -359,12 +424,8 @@
 </ul>
 </blockquote>
 <blockquote>
-<p>####总结: Clang是一个C++编写、基于LLVM、发布于LLVM BSD许可证下的C/C++/Objective-C/Objective-C++编译器。它与GNU C语言规范几乎完全兼容;同时Clang的使用简单方便,值得我们学习.</p>
-</blockquote>
-<blockquote>
-<p>【注】本文是个人学习clang时做的一些笔记和整理，分享一下仅供参考，文中多处摘自参考文章。</p>
-</blockquote>
-<p>####参考文章<br><a href="http://www.jianshu.com/p/30ec92f1e707">clang查看Objective-C中C语言实现源码</a></p>
+<h4 id="总结-Clang是一个C-编写、基于LLVM、发布于LLVM-BSD许可证下的C-C-Objective-C-Objective-C-编译器。它与GNU-C语言规范几乎完全兼容-同时Clang的使用简单方便-值得我们学习"><a href="#总结-Clang是一个C-编写、基于LLVM、发布于LLVM-BSD许可证下的C-C-Objective-C-Objective-C-编译器。它与GNU-C语言规范几乎完全兼容-同时Clang的使用简单方便-值得我们学习" class="headerlink" title="总结: Clang是一个C++编写、基于LLVM、发布于LLVM BSD许可证下的C/C++/Objective-C/Objective-C++编译器。它与GNU C语言规范几乎完全兼容;同时Clang的使用简单方便,值得我们学习."></a>总结: Clang是一个C++编写、基于LLVM、发布于LLVM BSD许可证下的C/C++/Objective-C/Objective-C++编译器。它与GNU C语言规范几乎完全兼容;同时Clang的使用简单方便,值得我们学习.</h4></blockquote>
+<h4 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h4><p><a href="http://www.jianshu.com/p/30ec92f1e707">clang查看Objective-C中C语言实现源码</a></p>
 <p><a href="http://www.jianshu.com/p/076ab2340121">iOS 浅谈Clang的使用</a></p>
 
       
@@ -390,14 +451,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/02/28/自定义类使用copy关键字修饰/" rel="next" title="自定义类使用copy关键字修饰">
+                <i class="fa fa-chevron-left"></i> 自定义类使用copy关键字修饰
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/01/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/14/xcode8使用coredata/" rel="prev" title="xcode8使用coredata">
+                xcode8使用coredata <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -450,8 +515,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -466,8 +540,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -494,6 +568,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、查看oc中c语言的实现源码"><span class="nav-number"></span> <span class="nav-text">一、查看oc中c语言的实现源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、编译oc"><span class="nav-number"></span> <span class="nav-text">二、编译oc</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#总结-Clang是一个C-编写、基于LLVM、发布于LLVM-BSD许可证下的C-C-Objective-C-Objective-C-编译器。它与GNU-C语言规范几乎完全兼容-同时Clang的使用简单方便-值得我们学习"><span class="nav-number">1.</span> <span class="nav-text">总结: Clang是一个C++编写、基于LLVM、发布于LLVM BSD许可证下的C/C++/Objective-C/Objective-C++编译器。它与GNU C语言规范几乎完全兼容;同时Clang的使用简单方便,值得我们学习.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考文章"><span class="nav-number">2.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -517,7 +607,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -525,7 +615,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -624,6 +714,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
