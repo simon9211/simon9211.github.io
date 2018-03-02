@@ -79,13 +79,16 @@
 
 
 
+<meta name="description" content="Never give up ,keep fighting">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Simon&#39;s Blogs">
 <meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/page/2/index.html">
 <meta property="og:site_name" content="Simon&#39;s Blogs">
+<meta property="og:description" content="Never give up ,keep fighting">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Simon&#39;s Blogs">
+<meta name="twitter:description" content="Never give up ,keep fighting">
 
 
 
@@ -254,7 +257,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -291,6 +294,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -320,53 +345,17 @@
       
         
           
-            <h5 id="我们可以从以下四个方面去减少包的体积"><a href="#我们可以从以下四个方面去减少包的体积" class="headerlink" title="我们可以从以下四个方面去减少包的体积"></a>我们可以从以下四个方面去减少包的体积</h5><ul>
-<li>配置编译选项 （Levels选项内）Genetate Debug Symbols  设置为NO，这个配置选项应该会让你减去小半的体积。</li>
-<li>舍弃架构armv7，因为armv7用于支持4s和3gs，4s是2011年11月正式上线，虽然还有小部分人在使用，但是追求包体大小的完全可以舍弃了。</li>
-<li>编译的版本必须是发布版本，</li>
-<li>查找内部使用到的第三方库，一方面可以进行删减代码，用不到的类，直接删除，还有第三方库中的图片资源统统删除掉，如果能够自己手写实现的，那费功夫自己写吧<br>单单上面的几个操作全部完成的话，我的包体从60M下降到了17M</li>
-</ul>
-<hr>
-<h5 id="其他的资源相关："><a href="#其他的资源相关：" class="headerlink" title="其他的资源相关："></a>其他的资源相关：</h5><ul>
-<li>图片</li>
-</ul>
-<blockquote>
-<p>压缩图片 不重要的图片可适当采用 8bit PNG图片</p>
-</blockquote>
-<ol>
-<li>什么是矢量图 矢量图是由计算机的算法产生的，可以无限放大或缩小，不会有任何损失，通常由矢量软件制作。</li>
-<li>什么是位图 位图是由一个一个的小色块组成，放大后会看到那些小色块，同一面积内小色块越多，分辨率就越高。</li>
-<li>矢量图的优缺点 可以无限放大或缩小，不会影响图像素质，文件体积较小，编辑灵活。缺点是表达的色彩层次不清，整体观感效果不如位图</li>
-<li>位图的优缺点 不能放太大，减少文件分辨率后会影响图片质量，图片战胜空间较大，优点是能很细腻地表达图片的效果，图片表达效果非常好</li>
-<li><p>什么情况下用位图，什么情况下用矢量图 一些对图片要求高的用位图，例如照片。其他的尽量用矢量图。例如文字、表格、卡通图片等</p>
-<p>● 去掉无用的图片</p>
-<p>● 用代码绘制简单的纯色图片 用Sketch和PaintCode快速得到绘制代码</p>
-<p>● 如果不需要使用透明，可以用jpeg代替PNG。jpeg减少了些效率但更加小。需权衡性能，大小。</p>
-<p>● 对32位的图片，尽肯能的使用高压缩率，使用PS的“Save For Web”功能，可以有效的减小JPEG和PNG图片的尺寸。 默认情况下，在build时，PNG图像就被pngcrush压缩。</p>
-</li>
-</ol>
-<blockquote>
-<ul>
-<li>使用<a href="https://github.com/tinymind/LSUnusedResources" target="_blank" rel="noopener">LSUnusedResources</a>去除部分工程中没有用到的图，可视化界面操作。</li>
-<li>喵神也开源了一个command line工具<a href="https://github.com/onevcat/FengNiao" target="_blank" rel="noopener">FengNiao</a>，使用起来较前者繁琐。</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>ImageOptim是一款基于Mac的图像“瘦身”软件，内置多种算法。通过删除图片部分无用的EXIF等信息来减小PNG、JPEG和GIF图片的大小。ImageOptim合并了OptiPNG、PNGCrush、AdvanceComp、PNGOUT、Jpegoptim+Jpegtran和Gifsicle等几个工具，旨在为设计师提供最好的优化效果。在最新发布的1.7.2版本中，ImageOptim改进了文件在文件列表中的拖拽、复制、粘贴功能。下图为我压缩了一组切图，设置有损压缩80%，最后大小为原来的1/5，无损压缩的话大小为原来的1/2<img src="http://upload-images.jianshu.io/upload_images/5107216-26ba5e327123a9ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-</ul>
-</blockquote>
-<hr>
-<ul>
-<li><p>音频</p>
-<p>● 压缩音频，尽可能使用AAC或者MP3格式，并且使用一个较低的码率。通常44.1khz的码率有点浪费，降低一定的码率也不会丢失多少音质<br>视频</p>
-<p>● 视频也可以使用类似于音频的处理方法，音视频的压缩可以很大程度的压缩，但是要注意压缩的格式，是不是会增加编解码的负担，这要权衡考虑。<br>Assets</p>
-<p>● 检查bundle中的无用文件，不要打包到app或者静态库中。可以点击文件，在右侧的file inspector里面的target membership中取消勾选；或者在build phase里面的Copy Bundle Resources中去掉。</p>
-<p>● 确定 dead code（代码被定义但从未被调用）被剥离，build setting 里 DEAD_CODE_STRIPPING = YES。 去掉冗余的代码，即使一点冗余代码，编译后体积也是很可观的。</p>
-</li>
-</ul>
-
-          
+          我们可以从以下四个方面去减少包的体积
+配置编译选项 （Levels选项内）Genetate Debug Symbols  设置为NO，这个配置选项应该会让你减去小半的体积。
+舍弃架构armv7，因为armv7用于支持4s和3gs，4s是2011年11月正式上线，虽然还有小部分人在使用，但是追求包体大
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/02/iOS-缩小静态库，ipa包大小/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -418,7 +407,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -455,6 +444,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -484,12 +495,17 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ (void)load;</span><br><span class="line">+ (void)initialize;</span><br></pre></td></tr></table></figure>
-<h4 id="一、调用时机"><a href="#一、调用时机" class="headerlink" title="一、调用时机"></a>一、调用时机</h4><p>在一个空白工程中增加<code>SeconViewController</code>类，然后在每个类中重写<code>+ (void)load; + (void)initialize;</code>方法，同时在对比main函数执行时间。<br><img src="http://upload-images.jianshu.io/upload_images/5107216-b4d8a590c70c0ad8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="测试代码类"><br><img src="http://upload-images.jianshu.io/upload_images/5107216-4e0be13167b112a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="执行结果"></p>
-<p>1、结果可知在main函数执行之前load方法执行了，而后面才走initialize方法，并且initialize方法当类初始化后才会执行。<br>2、<br><img src="http://upload-images.jianshu.io/upload_images/5107216-adc698302fbf3590.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在Compile Sources移除SeconViewController.m"><br><img src="http://upload-images.jianshu.io/upload_images/5107216-9989c1f66997972b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="移除后执行结果"></p>
-<p><a href="http://www.jianshu.com/p/200e57fab0de">参考文章</a></p>
-
-          
+          12+ (void)load;+ (void)initialize;
+一、调用时机在一个空白工程中增加SeconViewController类，然后在每个类中重写+ (void)load; + (void)initialize;方法，同时在对比main函数执行时间。
+1、结果可知在main函数执行之
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/01/10/initialize-load/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -541,7 +557,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -578,6 +594,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -607,16 +645,18 @@
       
         
           
-            <blockquote>
-<p>关于UrlEncode的实现(C++)，网上有很多不同的版本，对需要编码的字符集的选取并不统一。那么到底有没有标准呢？答案是有的，参见<a href="https://en.wikipedia.org/wiki/Percent-encoding" target="_blank" rel="noopener">wiki</a></p>
-</blockquote>
-<p> 绝对不编码的，只有字母、数字、短横线(-)、下划线(_)、点(.)和波浪号(~)，其他字符要视情况而定，所以一般性的urlencode只需保留上述字符不进行编码。</p>
-<p>下面给出实现：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">char</span> <span class="title">ToHex</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span> x)</span>   </span></span><br><span class="line"><span class="function"></span>&#123;   </span><br><span class="line">    <span class="keyword">return</span>  x &gt; <span class="number">9</span> ? x + <span class="number">55</span> : x + <span class="number">48</span>;   </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">char</span> <span class="title">FromHex</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span> x)</span>   </span></span><br><span class="line"><span class="function"></span>&#123;   </span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> y;  </span><br><span class="line">    <span class="keyword">if</span> (x &gt;= <span class="string">'A'</span> &amp;&amp; x &lt;= <span class="string">'Z'</span>) y = x - <span class="string">'A'</span> + <span class="number">10</span>;  </span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (x &gt;= <span class="string">'a'</span> &amp;&amp; x &lt;= <span class="string">'z'</span>) y = x - <span class="string">'a'</span> + <span class="number">10</span>;  </span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (x &gt;= <span class="string">'0'</span> &amp;&amp; x &lt;= <span class="string">'9'</span>) y = x - <span class="string">'0'</span>;  </span><br><span class="line">    <span class="keyword">else</span> assert(<span class="number">0</span>);  </span><br><span class="line">    <span class="keyword">return</span> y;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">UrlEncode</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; str)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> strTemp = <span class="string">""</span>;  </span><br><span class="line">    <span class="keyword">size_t</span> length = str.length();  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; length; i++)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">isalnum</span>((<span class="keyword">unsigned</span> <span class="keyword">char</span>)str[i]) ||   </span><br><span class="line">            (str[i] == <span class="string">'-'</span>) ||  </span><br><span class="line">            (str[i] == <span class="string">'_'</span>) ||   </span><br><span class="line">            (str[i] == <span class="string">'.'</span>) ||   </span><br><span class="line">            (str[i] == <span class="string">'~'</span>))  </span><br><span class="line">            strTemp += str[i];  </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (str[i] == <span class="string">' '</span>)  </span><br><span class="line">            strTemp += <span class="string">"+"</span>;  </span><br><span class="line">        <span class="keyword">else</span>  </span><br><span class="line">        &#123;  </span><br><span class="line">            strTemp += <span class="string">'%'</span>;  </span><br><span class="line">            strTemp += ToHex((<span class="keyword">unsigned</span> <span class="keyword">char</span>)str[i] &gt;&gt; <span class="number">4</span>);  </span><br><span class="line">            strTemp += ToHex((<span class="keyword">unsigned</span> <span class="keyword">char</span>)str[i] % <span class="number">16</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> strTemp;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">UrlDecode</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; str)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> strTemp = <span class="string">""</span>;  </span><br><span class="line">    <span class="keyword">size_t</span> length = str.length();  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; length; i++)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="keyword">if</span> (str[i] == <span class="string">'+'</span>) strTemp += <span class="string">' '</span>;  </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (str[i] == <span class="string">'%'</span>)  </span><br><span class="line">        &#123;  </span><br><span class="line">            assert(i + <span class="number">2</span> &lt; length);  </span><br><span class="line">            <span class="keyword">unsigned</span> <span class="keyword">char</span> high = FromHex((<span class="keyword">unsigned</span> <span class="keyword">char</span>)str[++i]);  </span><br><span class="line">            <span class="keyword">unsigned</span> <span class="keyword">char</span> low = FromHex((<span class="keyword">unsigned</span> <span class="keyword">char</span>)str[++i]);  </span><br><span class="line">            strTemp += high*<span class="number">16</span> + low;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">else</span> strTemp += str[i];  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> strTemp;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="http://tool.chinaz.com/tools/urlencode.aspx" target="_blank" rel="noopener">线上转换工具</a></p>
-<p><a href="http://blog.csdn.net/gemo/article/details/8468311" target="_blank" rel="noopener">摘自CSDN</a></p>
-
           
+关于UrlEncode的实现(C++)，网上有很多不同的版本，对需要编码的字符集的选取并不统一。那么到底有没有标准呢？答案是有的，参见wiki
+
+ 绝对不编码的，只有字母、数字、短横线(-)、下划线(_)、点(.)和波浪号(~)，其他字符要视情况而定，所以一般性的urlencode只需保留上述字符
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/12/urlEncode标准实现/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -668,7 +708,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -705,6 +745,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -734,30 +796,15 @@
       
         
           
-            <h4 id="所谓的原子操作，取的就是“原子是最小的、不可分割的最小个体”的意义，它表示在多个线程访问同一个全局资源的时候，能够确保所有其他的线程都不在同一时间内访问相同的资源。也就是他确保了在同一时刻只有唯一的线程对这个资源进行访问。这有点类似互斥对象对共享资源的访问的保护，但是原子操作更加接近底层，因而效率更高。"><a href="#所谓的原子操作，取的就是“原子是最小的、不可分割的最小个体”的意义，它表示在多个线程访问同一个全局资源的时候，能够确保所有其他的线程都不在同一时间内访问相同的资源。也就是他确保了在同一时刻只有唯一的线程对这个资源进行访问。这有点类似互斥对象对共享资源的访问的保护，但是原子操作更加接近底层，因而效率更高。" class="headerlink" title="所谓的原子操作，取的就是“原子是最小的、不可分割的最小个体”的意义，它表示在多个线程访问同一个全局资源的时候，能够确保所有其他的线程都不在同一时间内访问相同的资源。也就是他确保了在同一时刻只有唯一的线程对这个资源进行访问。这有点类似互斥对象对共享资源的访问的保护，但是原子操作更加接近底层，因而效率更高。"></a>所谓的原子操作，取的就是“原子是最小的、不可分割的最小个体”的意义，它表示在多个线程访问同一个全局资源的时候，能够确保所有其他的线程都不在同一时间内访问相同的资源。也就是他确保了在同一时刻只有唯一的线程对这个资源进行访问。这有点类似互斥对象对共享资源的访问的保护，但是原子操作更加接近底层，因而效率更高。</h4><blockquote>
-<p>在以往的C++标准中并没有对原子操作进行规定，我们往往是使用汇编语言，或者是借助第三方的线程库，例如intel的pthread来实现。在新标准C++11，引入了原子操作的概念，并通过这个新的头文件提供了多种原子操作数据类型，例如，atomic_bool,atomic_int等等，如果我们在多个线程中对这些类型的共享资源进行操作，编译器将保证这些操作都是原子性的，也就是说，确保任意时刻只有一个线程对这个资源进行访问，编译器将保证，多个线程访问这个共享资源的正确性。从而避免了锁的使用，提高了效率。</p>
-</blockquote>
-<p>我们还是来看一个实际的例子。假若我们要设计一个广告点击统计程序，在服务器程序中，使用多个线程模拟多个用户对广告的点击：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/thread/thread.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;atomic&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">// 全局的结果数据 </span></span><br><span class="line"><span class="keyword">long</span> total = <span class="number">0</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 点击函数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">click</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">1000000</span>;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 对全局数据进行无锁访问 </span></span><br><span class="line">        total += <span class="number">1</span>;     </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 计时开始</span></span><br><span class="line">    <span class="keyword">clock_t</span> start = clock();</span><br><span class="line">    <span class="comment">// 创建100个线程模拟点击统计</span></span><br><span class="line">    boost::thread_group threads;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">100</span>;++i) </span><br><span class="line">    &#123;</span><br><span class="line">        threads.create_thread(click);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    threads.join_all();</span><br><span class="line">    <span class="comment">// 计时结束</span></span><br><span class="line">    <span class="keyword">clock_t</span> finish = clock();</span><br><span class="line">    <span class="comment">// 输出结果</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"result:"</span>&lt;&lt;total&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"duration:"</span>&lt;&lt;finish -start&lt;&lt;<span class="string">"ms"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>从执行的结果来看，这样的方法虽然非常快，但是结果不正确</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">E:\SourceCode\MinGW&gt;thread.exe</span><br><span class="line">result:87228026</span><br><span class="line">duration:528ms</span><br></pre></td></tr></table></figure>
-<p>很自然地，我们会想到使用互斥对象来对全局共享资源的访问进行保护，于是有了下面的实现：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> total = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 对共享资源进行保护的互斥对象</span></span><br><span class="line">mutex m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">click</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">1000000</span>;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 访问之前，锁定互斥对象</span></span><br><span class="line">        m.lock();</span><br><span class="line">        total += <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// 访问完成后，释放互斥对象 </span></span><br><span class="line">        m.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>互斥对象的使用，保证了同一时刻只有唯一的一个线程对这个共享进行访问，从执行的结果来看，互斥对象保证了结果的正确性，但是也有非常大的性能损失，从刚才的528ms变成了现在的8431，用了原来时间的10多倍的时间。这个损失够大。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">E:\SourceCode\MinGW&gt;thread.exe</span><br><span class="line">result:100000000</span><br><span class="line">duration:8431ms</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果是在C++11之前，我们的解决方案也就到此为止了，但是，C++对性能的追求是永无止境的，他总是想尽一切办法榨干CPU的性能。在C++11中，实现了原子操作的数据类型（atomic_bool,atomic_int,atomic_long等等），对于这些原子数据类型的共享资源的访问，无需借助mutex等锁机制，也能够实现对共享资源的正确访问。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入原子数据类型的头文件</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;atomic&gt; </span></span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="comment">// 用原子数据类型作为共享资源的数据类型</span></span><br><span class="line"><span class="function"><span class="keyword">atomic_long</span> <span class="title">total</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="comment">//long total = 0;</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">click</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">1000000</span>;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 仅仅是数据类型的不同而以，对其的访问形式与普通数据类型的资源并无区别</span></span><br><span class="line">        total += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们来看看使用原子数据类型之后的效果如何：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">E:\SourceCode\MinGW&gt;thread.exe</span><br><span class="line">result:100000000</span><br><span class="line">duration:2105ms</span><br></pre></td></tr></table></figure>
-<p>结果正确！耗时只是使用mutex互斥对象的四分之一！也仅仅是不采用任何保护机制的时间的4倍。可以说这是一个非常不错的成绩了。</p>
-<blockquote>
-<p>原子操作的实现跟普通数据类型类似，但是它能够在保证结果正确的前提下，提供比mutex等锁机制更好的性能，如果我们要访问的共享资源可以用原子数据类型表示，那么在多线程程序中使用这种新的等价数据类型，是一个不错的选择。</p>
-</blockquote>
-<p>【转自：<a href="http://imcc.blogbus.com/logs/179131763.html】" target="_blank" rel="noopener">http://imcc.blogbus.com/logs/179131763.html】</a></p>
-
-          
+          所谓的原子操作，取的就是“原子是最小的、不可分割的最小个体”的意义，它表示在多个线程访问同一个全局资源的时候，能够确保所有其他的线程都不在同一时间内访问相同的资源。也就是他确保了在同一时刻只有唯一的线程对这个资源进行访问。这有点类似互斥对象对共享资源的访问的保护，但是原子操作更加接近底层，因而效率更
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/11/c-原子操作/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -809,7 +856,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -846,6 +893,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -875,27 +944,18 @@
       
         
           
-            <blockquote>
-<p>以前知道的太少了，这样大量的数据更新居然没有用到数据库事务，怪不得时间开销这么高。后来优化了一下，加入了sqlite3的事务，效果十分明显，70秒的数据库生成时间缩短到了1.5秒。</p>
-</blockquote>
-<p>#####事务（transaction）的原理是，对数据库进行更新的语句先储存起来，储存到一定程度将这些语句一并提交（commit），如果尚未提交，但中途出现了异常，则这些语句都可以撤回（rollback）。</p>
-<blockquote>
-<p>使用事务有两个非常明显的好处：</p>
-</blockquote>
-<blockquote>
-<p>1、将大量更新语句合并到一起，极大的缩短了访问数据库的次数，如此大量提高了效率和吞吐量。例如本人的“工作二”，将八万多次数据库更新合并到一次提交，原操作时间70秒降低到了1.5秒，效率提高的幅度简直可怕。</p>
-</blockquote>
-<blockquote>
-<p>2、避免了一些非常恶心的情况，比如同样一个对象有许多不同的属性都要插入到数据库的不同表中，需要多句sql更新才能完成操作。如果操作中途出现了异常，则可能某个对象只有一半的数据输入了数据库，还有另一半是空白的，这还不如完全没输入。而事务的rollback就是干这个用的。</p>
-</blockquote>
-<hr>
-<h4 id="FMDB下使用事务方式十分简单："><a href="#FMDB下使用事务方式十分简单：" class="headerlink" title="FMDB下使用事务方式十分简单："></a>FMDB下使用事务方式十分简单：</h4><h5 id="建立数据库db"><a href="#建立数据库db" class="headerlink" title="建立数据库db"></a>建立数据库db</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FMDatabase *db = [FMDatabase databaseWithPath:path];</span><br></pre></td></tr></table></figure>
-<h5 id="事务开始"><a href="#事务开始" class="headerlink" title="事务开始"></a>事务开始</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[db beginTransaction];  </span><br><span class="line">BOOL isRollback = NO;</span><br></pre></td></tr></table></figure>
-<p>具体数据库操作可以包在@try中，如果捕获到异常就rollback</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@try &#123;  </span><br><span class="line">    // 数据库操作代码  </span><br><span class="line">&#125;  </span><br><span class="line">@catch (NSException *exception) &#123;  </span><br><span class="line">    isRollback = YES;  </span><br><span class="line">    [db rollback];  </span><br><span class="line">&#125;  </span><br><span class="line">@finally &#123;  </span><br><span class="line">    if (isRollback == NO) &#123;  </span><br><span class="line">        [db commit];  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="http://blog.csdn.net/lcpk0411/article/details/40861391" target="_blank" rel="noopener">参考文章</a></p>
-
           
+以前知道的太少了，这样大量的数据更新居然没有用到数据库事务，怪不得时间开销这么高。后来优化了一下，加入了sqlite3的事务，效果十分明显，70秒的数据库生成时间缩短到了1.5秒。
+
+#####事务（transaction）的原理是，对数据库进行更新的语句先储存起来，储存到一定程度将这些语句一并提
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/09/12/SQLite-事务操作/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -947,7 +1007,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -984,6 +1044,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1013,14 +1095,16 @@
       
         
           
-            <h4 id="内联函数（内置函数）"><a href="#内联函数（内置函数）" class="headerlink" title="内联函数（内置函数）"></a><a href="http://c.biancheng.net/cpp/biancheng/view/2988.html" target="_blank" rel="noopener">内联函数（内置函数）</a></h4><p>   相当于oc中的宏展开，调用时会将函数实现代码替换。虚函数：</p>
-<h4 id="纯虚函数"><a href="#纯虚函数" class="headerlink" title="纯虚函数"></a><a href="http://c.biancheng.net/cpp/biancheng/view/2991.html" target="_blank" rel="noopener">纯虚函数</a></h4><p>   纯虚函数没有函数体，只有函数声明，在虚函数声明结尾加上=0，表明此函数为纯虚函数。最后的=0并不表示函数返回值为0，它只起形式上的作用，告诉编译系统“这是纯虚函数”。包含纯虚成员函数的类称为抽象类（Abstract Class）。之所以说它抽象，是因为它无法实例化，也就是无法创建对象。原因很明显，纯虚函数没有函数体，不是完整的函数，无法调用，也无法为其分配内存空间。抽象类通常是作为基类，让派生类去实现纯虚函数。派生类必须实现纯虚函数才能被实例化。</p>
-<h4 id="友元函数"><a href="#友元函数" class="headerlink" title="友元函数"></a><a href="http://c.biancheng.net/cpp/biancheng/view/211.html" target="_blank" rel="noopener">友元函数</a></h4><p>在当前类以外定义的、不属于当前类的函数也可以在类中声明，但要在前面加 friend 关键字，这样就构成了友元函数。友元函数可以是不属于任何类的非成员函数，也可以是其他类的成员函数</p>
-<h4 id="模板函数"><a href="#模板函数" class="headerlink" title="模板函数"></a><a href="http://c.biancheng.net/cpp/biancheng/view/136.html" target="_blank" rel="noopener">模板函数</a></h4><h4 id="模板类"><a href="#模板类" class="headerlink" title="模板类"></a><a href="http://c.biancheng.net/cpp/biancheng/view/2992.html" target="_blank" rel="noopener">模板类</a></h4><h3 id="多态存在的三个条件："><a href="#多态存在的三个条件：" class="headerlink" title="多态存在的三个条件："></a>多态存在的三个条件：</h3><p>  ● 必须存在继承关系；</p>
-<p>  ● 继承关系中必须有同名的虚函数，并且它们是覆盖关系（重载不行）。</p>
-<p>  ● 存在基类的指针，通过该指针调用虚函数</p>
-
-          
+          内联函数（内置函数）   相当于oc中的宏展开，调用时会将函数实现代码替换。虚函数：
+纯虚函数   纯虚函数没有函数体，只有函数声明，在虚函数声明结尾加上=0，表明此函数为纯虚函数。最后的=0并不表示函数返回值为0，它只起形式上的作用，告诉编译系统“这是纯虚函数”。包含纯虚成员函数的类称为抽象类（A
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/09/12/c-函数/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1072,7 +1156,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1109,6 +1193,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1138,17 +1244,21 @@
       
         
           
-            <h4 id="一、静态库"><a href="#一、静态库" class="headerlink" title="一、静态库"></a>一、静态库</h4><blockquote>
-<p>.a是以二进制方式共享程序代码的方式，就是把实现部分打成了一个.a文件<br>.framework也是一种静态库</p>
-</blockquote>
-<blockquote>
-<p>区别：.a是只包含二进制文件，必须和.h文件配合使用，.framework的是二进制文件和一些资源文件，可以直接使用<br>.framework = .a + .h + 资源文件</p>
-</blockquote>
-<h4 id="二、动态库"><a href="#二、动态库" class="headerlink" title="二、动态库"></a>二、动态库</h4><blockquote>
-<p>.framework也是一种动态库，他是多变的<br>系统创建的.framework是动态的，我们自己创建的是静态库</p>
-</blockquote>
+          一、静态库
+.a是以二进制方式共享程序代码的方式，就是把实现部分打成了一个.a文件.framework也是一种静态库
 
-          
+
+区别：.a是只包含二进制文件，必须和.h文件配合使用，.framework的是二进制文件和一些资源文件，可以直接使用.framework = .a + .h + 资源文件
+
+二、
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/06/02/a静态库和-framework静态库/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1221,8 +1331,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg"
+                alt="Simon" />
+            
               <p class="site-author-name" itemprop="name">Simon</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">Never give up ,keep fighting</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -1239,13 +1353,59 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/simon9211" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:simon9211@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/simonwwwwww" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/p/1005053164113847" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -1273,7 +1433,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1291,7 +1451,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
 
 
 

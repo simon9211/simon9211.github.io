@@ -79,13 +79,16 @@
 
 
 
+<meta name="description" content="Never give up ,keep fighting">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Simon&#39;s Blogs">
 <meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/index.html">
 <meta property="og:site_name" content="Simon&#39;s Blogs">
+<meta property="og:description" content="Never give up ,keep fighting">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Simon&#39;s Blogs">
+<meta name="twitter:description" content="Never give up ,keep fighting">
 
 
 
@@ -254,7 +257,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -291,6 +294,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -320,12 +345,16 @@
       
         
           
-            <h4 id="lipo是管理Fat-File的工具-可以查看cpu架构-提取特定架构，整合和拆分库文件。"><a href="#lipo是管理Fat-File的工具-可以查看cpu架构-提取特定架构，整合和拆分库文件。" class="headerlink" title="lipo是管理Fat File的工具, 可以查看cpu架构, 提取特定架构，整合和拆分库文件。"></a>lipo是管理Fat File的工具, 可以查看cpu架构, 提取特定架构，整合和拆分库文件。</h4><p>  ● lipo -info xxxx.framework/xxxx或/xxxx.a<br>查看信息,支持的cpu架构列表</p>
-<p>  ● lipo -create xxxx xxxx -output xxxx<br>整合成Fat文件</p>
-<p>  ● lipo xxxx -thin cpu(armv7/arm64等) -output xxxx<br>提取特定的cpu架构的thin文件</p>
-<p>  ● lipo -remove cpu(armv7/arm64等) xxxx -output xxxx<br>移除掉特定的cpu架构的文件</p>
-
-          
+          lipo是管理Fat File的工具, 可以查看cpu架构, 提取特定架构，整合和拆分库文件。  ● lipo -info xxxx.framework/xxxx或/xxxx.a查看信息,支持的cpu架构列表
+  ● lipo -create xxxx xxxx -output xxxx整合成Fat
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/05/lipo-用法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -377,7 +406,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -414,6 +443,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -443,19 +494,19 @@
       
         
           
-            <blockquote>
-<p>C++通过继承（inheritance）和虚函数（virtual function）来实现多态性，简单的说就是，将基类的指针或引用绑定到子类的实例，然后通过基类的指针或引用调用实际字累的成员函数（虚函数）。本文将介绍单继承、多继承下虚函数的实现机制。</p>
-</blockquote>
-<h3 id="一、虚函数表"><a href="#一、虚函数表" class="headerlink" title="一、虚函数表"></a>一、虚函数表</h3><blockquote>
-<p>为了支持虚函数机制，编译器为每一个拥有虚函数的类的实类创建了一个虚函数表（virtual table），这个表中有许多槽（slot），每个槽中存放的是虚函数的地址。虚函数表解决了继承、覆盖、添加虚函数的问题，保证其真实的反应实际的函数。</p>
-</blockquote>
-<blockquote>
-<p>为了能够找到virtual table，编译器在每个拥有虚函数的类中插入了一个成员指针vptr，指向虚函数表。</p>
-</blockquote>
-<p>下面是个🌰：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:	</span><br><span class="line">	  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">x</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::x()"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;	</span><br><span class="line">	  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">y</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::y()"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;	</span><br><span class="line">	  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">z</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::z()"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span><span class="params">(*pFun)</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	Base b;	</span><br><span class="line">	<span class="keyword">int</span>* vptr = (<span class="keyword">int</span>*)&amp;b;                     <span class="comment">// 虚函数表地址	</span></span><br><span class="line">	pFun func1 = (pFun)*((<span class="keyword">int</span>*)*vptr);        <span class="comment">// 第一个函数</span></span><br><span class="line">	pFun func2 = (pFun)*((<span class="keyword">int</span>*)*vptr+<span class="number">1</span>);      <span class="comment">// 第二个函数	</span></span><br><span class="line">	pFun func3 = (pFun)*((<span class="keyword">int</span>*)*vptr+<span class="number">2</span>);      <span class="comment">// 第三个函数		</span></span><br><span class="line">	func1();     <span class="comment">// 输出Base::x()	</span></span><br><span class="line">	func2();     <span class="comment">// 输出Base::y()	</span></span><br><span class="line">	func3();     <span class="comment">// 输出Base::z()	</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
           
+C++通过继承（inheritance）和虚函数（virtual function）来实现多态性，简单的说就是，将基类的指针或引用绑定到子类的实例，然后通过基类的指针或引用调用实际字累的成员函数（虚函数）。本文将介绍单继承、多继承下虚函数的实现机制。
+
+一、虚函数表
+为了支持虚函数机制，编译器为每
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/28/虚函数表（virtual-table）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -507,7 +558,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -544,6 +595,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -573,44 +646,18 @@
       
         
           
-            <h3 id="一、什么是内存对齐"><a href="#一、什么是内存对齐" class="headerlink" title="一、什么是内存对齐"></a>一、什么是内存对齐</h3><blockquote>
-<p>也叫字节对齐，现在计算机中内存都是按照byte划分的，从理论上讲似乎对任何类型的变量的访问都可以从任何地址开始，但是实际情况是在访问特定类型变量的时候在特定的内存地址访问，这就需要各种类型数据按照一定的规则在空间上排列，而不是顺序的一个接一个的排放，这就就是对齐。</p>
-</blockquote>
-<p>举个🌰，uint32_t所占内存为4 bytes，char为1 byte。如果把它们放在一个结构体中，则所占的内存空间应该是4 + 1 = 5 bytes。而事实上，在VS2012和GCC环境下，sizeof操作的结果都是8 bytes：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span>    </span><br><span class="line">	<span class="keyword">uint32_t</span> m1;    <span class="comment">// #include&lt;stdint.h&gt;    	char m2;</span></span><br><span class="line">&#125;varray;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;    </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="keyword">sizeof</span>(varray.m1));  <span class="comment">// 输出4    </span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="keyword">sizeof</span>(varray.m2));  <span class="comment">// 输出1    </span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="keyword">sizeof</span>(varray));     <span class="comment">// 输出8    </span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/5107216-f21a233f87a91ce5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="示图"><br>上图是以4个字节为一个单位的对齐单位。</p>
-<h3 id="二、为什么要内存对齐"><a href="#二、为什么要内存对齐" class="headerlink" title="二、为什么要内存对齐"></a>二、为什么要内存对齐</h3><blockquote>
-<p>之所以要内存对齐，有两方面的原因：</p>
-</blockquote>
-<blockquote>
-<p>● 平台原因： 各个硬件平台对存储空间的处理上有很大的不同。一些平台对某些特定类型的数据只能从某些特定地址开始存取。——比如有些架构的CPU在访问一个没有进行对齐的变量的时候会发生错误，那么在这种架构下变成必须保证字节对齐。</p>
-</blockquote>
-<blockquote>
-<p>● 性能原因：内存对齐可以提高存取效率，——比如有些平台每次读都是从偶数地址开始，如果一个int型（假设为332位系统）如果存放在偶数地址开始的地方，那么一个周期就可以读出着32 bit，而如果存放在奇地址开始的地方，就需要2个读周期，并对两次独处的结果的高低字节进行拼凑才能得到32 bit的数据。</p>
-</blockquote>
-<h3 id="三、对齐的规则"><a href="#三、对齐的规则" class="headerlink" title="三、对齐的规则"></a>三、对齐的规则</h3><blockquote>
-<p>每个特定平台的编译都有自己的默认“对齐系数”，也叫“对齐模数”。你可以通过预编译命令#pragma pack(n), n = 1，2，4，8，16来改变这一系数，其中n就是你要制定的“对齐系数”。</p>
-</blockquote>
-<h4 id="1-概念："><a href="#1-概念：" class="headerlink" title="1. 概念："></a>1. 概念：</h4><p>有效对齐值：是#pragma pack指定值和结构体中最长数据类型中较小的那个。有效对齐值也叫对齐单位。<br>【注】VS、VC默认是#pragma pack(8) 而GCC默认是#pragma pack(4) ,并且GCC只支持1，2，4对齐。</p>
-<h4 id="2-规则："><a href="#2-规则：" class="headerlink" title="2. 规则："></a>2. 规则：</h4><p>1、结构体变量的首地址是有效对齐值的整数倍<br>2、结构体第一个成员的偏移量（offset）为0，以后每个成员相对于结构体首地址的offset都是该成员大小与有效对齐值中较小那个的整数倍，如有需要编译器会在成员之间加上填充字节。<br>3、结构体总大小为有效对齐址的整数倍，如有需要编译器会在最末一个成员之后加上填充字节。<br>4、结构体内类型相同的连续元素将在连续的空间内，和数组一样。</p>
-<p>下面给出几个例子帮助理解（测试环境为VS2012）：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span>    </span><br><span class="line">	<span class="keyword">int</span> i;    <span class="comment">// 4个字节    </span></span><br><span class="line">	<span class="keyword">char</span> c1;  <span class="comment">// 1个字节    </span></span><br><span class="line">	<span class="keyword">char</span> c2;  <span class="comment">// 1个字节</span></span><br><span class="line">&#125;x1;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span>    </span><br><span class="line">	<span class="keyword">char</span> c1;  <span class="comment">// 1个字节    </span></span><br><span class="line">	<span class="keyword">int</span> i;    <span class="comment">// 4个字节    </span></span><br><span class="line">	<span class="keyword">char</span> c2;  <span class="comment">// 1个字节</span></span><br><span class="line">&#125;x2;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span>    </span><br><span class="line">	<span class="keyword">char</span> c1;  <span class="comment">// 1个字节    </span></span><br><span class="line">	<span class="keyword">char</span> c2;  <span class="comment">// 1个字节    </span></span><br><span class="line">	<span class="keyword">int</span> i;    <span class="comment">// 4个字节</span></span><br><span class="line">&#125;x3;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;    </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="keyword">sizeof</span>(x1));  <span class="comment">// 输出8   </span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="keyword">sizeof</span>(x2));  <span class="comment">// 输出12   </span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="keyword">sizeof</span>(x3));  <span class="comment">// 输出8   </span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>可以看出，上面定义的三个结构体只是交换了成员声明的顺序。由于结构体中最长的数据类型为4个字节，而VS2010默认#pragma pack(8)，所以有效对齐值（对齐单位）为 4 bytes。根据前三条规则可以画出以下图：<br><img src="http://upload-images.jianshu.io/upload_images/5107216-109ebbbaf664cdec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-</blockquote>
-<p>例二：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span>    </span><br><span class="line">	<span class="keyword">int</span> a;      <span class="comment">// 4个字节    </span></span><br><span class="line">	<span class="keyword">char</span> b[<span class="number">6</span>];  <span class="comment">// 6个字节    </span></span><br><span class="line">	<span class="keyword">double</span> c;   <span class="comment">// 8个字节</span></span><br><span class="line">&#125;st;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;    </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="keyword">sizeof</span>(st));  <span class="comment">// 输出24    	return 0;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面结构体中最长的数据类型 double 为 8 个字节，而VS2012中默认#pragma pack(8)，所以有效对齐值（对齐单位）为 8 bytes。根据前三条规则可以画出以下图：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5107216-dbfbe856e1a7b4ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<p>其中的字符数组 char b[6] 可以看做6个单独的 char 成员。</p>
-<h3 id="四、-pragma-pack-n"><a href="#四、-pragma-pack-n" class="headerlink" title="四、#pragma pack(n)"></a>四、#pragma pack(n)</h3><p>  ● 上面说到，不同平台上编译器的 pragma pack 默认值不同。而我们可以通过预编译命令#pragma pack(n)，n=1,2,4,8,16 来改变这一对齐系数。</p>
-<p>  ● <code>#pragma pack(n)</code>是通过改变有效对齐值来改变数据成员在内存中的布局，若你设定的 n 值没有影响或改变有效对齐值，则成员在内存中的布局不会改变。</p>
-<blockquote>
-<p>这时的有效对齐值（对齐单位）为1 字节，则根据对齐规则，可知成员都是连续存储的。</p>
-</blockquote>
-<p><a href="http://songlee24.github.io/2014/09/20/memory-alignment/#more" target="_blank" rel="noopener">http://songlee24.github.io/2014/09/20/memory-alignment/#more</a></p>
+          一、什么是内存对齐
+也叫字节对齐，现在计算机中内存都是按照byte划分的，从理论上讲似乎对任何类型的变量的访问都可以从任何地址开始，但是实际情况是在访问特定类型变量的时候在特定的内存地址访问，这就需要各种类型数据按照一定的规则在空间上排列，而不是顺序的一个接一个的排放，这就就是对齐。
 
-          
+举个🌰，u
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/27/内存对齐（Memoey-alignment）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -662,7 +709,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -699,6 +746,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -728,36 +797,19 @@
       
         
           
-            <h3 id="一、字节序"><a href="#一、字节序" class="headerlink" title="一、字节序"></a>一、字节序</h3><blockquote>
-<p>字节序，也就是字节的顺序，指的是多字节的数据在内存中的存放顺序。</p>
-</blockquote>
-<p>在几乎所有的机器上，多字节对象都被存储为连续的字节序列。例如：如果C／C++中的一个int型变量a的起始地址是&amp;a = 0x100，那么a的四个字节将被存储在存储器的0x101，0x102，0x103位置。</p>
-<p>   根据整数a在连续的4byte内存中的存储顺序，字节序被分为大端序（Big Endian）与小端序（Little Endian）两类。然后就牵涉出CPU的两大派系：<br>  ● Motorola 6800， PowerPC 970， SPARC（除V9外）等处理器采用Big Endian方式存储数据<br>  ● x86系列，VAX，PDP-11等处理器采用Little Endian方式存储数据。</p>
-<h3 id="二、大端与小端"><a href="#二、大端与小端" class="headerlink" title="二、大端与小端"></a>二、大端与小端</h3><p><img src="http://upload-images.jianshu.io/upload_images/5107216-6a0c721bd1870be9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<blockquote>
-<p>我相信上面的图已经够直观了。也就是说：<br>  ● Big Endian 是指低地址端 存放 高位字节。<br>  ● Little Endian 是指低地址端 存放 低位字节。<br>各自的优势：</p>
-<ol>
-<li>Big Endian：符号位的判定固定为第一个字节，容易判断正负。</li>
-<li>Little Endian：长度为1，2，4字节的数，排列方式都是一样的，数据类型转换非常方便。</li>
-</ol>
-</blockquote>
-<h3 id="三、为什么要注意字节序"><a href="#三、为什么要注意字节序" class="headerlink" title="三、为什么要注意字节序"></a>三、为什么要注意字节序</h3><blockquote>
-<p>如果你写的程序只在单机环境下面运行，并且不和别人的程序打交道，那么你完全可以忽略字节序的存在。</p>
-</blockquote>
-<p>但是，如果你的程序要跟别人的程序产生交互呢？ 比如，当一个 C/C++ 的程序要与一个 Java 程序交互时：</p>
-<p>  ● C/C++语言编写的程序里数据存储顺序是跟编译平台所在的CPU相关的，而现在比较普遍的 x86 处理器是 Little Endian</p>
-<p>  ● JAVA编写的程序则唯一采用 Big Endian 方式来存储数据</p>
-<blockquote>
-<p>试想，如果你的C/C++程序将变量 a = 0x12345678 的首地址传递给了Java程序，由于Java采取 Big Endian 方式存储数据，很自然的它会将你的数据翻译为 0x78563412。显然，问题就出现了！！！<br>另外，网络传输一般采用 Big Endian，也被称之为网络字节序，或网络序。当两台采用不同字节序的主机通信时，在发送数据之前都必须经过字节序的转换成为网络字节序后再进行传输。</p>
-</blockquote>
-<h3 id="四、判断机器的字节序"><a href="#四、判断机器的字节序" class="headerlink" title="四、判断机器的字节序"></a>四、判断机器的字节序</h3><p>由于 C/C++ 存储数据时的字节序依赖所在平台的CPU，所以我们可以通过C/C++程序判定机器的端序：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Endianness</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	<span class="keyword">int</span> a = <span class="number">0x12345678</span>;	</span><br><span class="line">	<span class="keyword">if</span>( *((<span class="keyword">char</span>*)&amp;a) == <span class="number">0x12</span>)		</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Big Endian"</span> &lt;&lt; <span class="built_in">endl</span>;	</span><br><span class="line">	<span class="keyword">else</span>		</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Little Endian"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="五、网络序和主机序"><a href="#五、网络序和主机序" class="headerlink" title="五、网络序和主机序"></a>五、网络序和主机序</h3><blockquote>
-<p>网络字节序：TCP/IP各层协议将字节序定义为 Big Endian，因此TCP/IP协议中使用的字节序是大端序。<br>主机字节序：整数在内存中存储的顺序，现在 Little Endian 比较普遍。（不同的 CPU 有不同的字节序）<br>在进行网络通信时 通常需要调用相应的函数进行主机序和网络序的转换。Berkeley socket API 定义了一组转换函数，用于16和32bit整数在网络序和本机字节序之间的转换。htonl，htons用于本机序转换到网络序；ntohl，ntohs用于网络序转换到本机序。</p>
-</blockquote>
-<p>转自<a href="http://songlee24.github.io/2015/05/02/endianess/" target="_blank" rel="noopener">http://songlee24.github.io/2015/05/02/endianess/</a></p>
+          一、字节序
+字节序，也就是字节的顺序，指的是多字节的数据在内存中的存放顺序。
 
-          
+在几乎所有的机器上，多字节对象都被存储为连续的字节序列。例如：如果C／C++中的一个int型变量a的起始地址是&amp;a = 0x100，那么a的四个字节将被存储在存储器的0x101，0x102，0x103位置。
+  
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/27/字节序：Big-Endian-和-Little-Endian/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -809,7 +861,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -846,6 +898,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -875,127 +949,27 @@
       
         
           
-            <ul>
-<li><p>查看linux文件的权限：ls -l 文件名称</p>
-</li>
-<li><p>查看linux文件夹的权限：ls -ld 文件夹名称（所在目录）</p>
-</li>
-<li><p>修改文件及文件夹权限：</p>
-<blockquote>
-<p>sudo chmod -（代表类型）×××（所有者）×××（组用户）×××（其他用户）</p>
-</blockquote>
-</li>
-<li><p>常用修改权限的命令：</p>
-<blockquote>
-<p>sudo chmod 600 ××× （只有所有者有读和写的权限）</p>
-</blockquote>
-<blockquote>
-<p>sudo chmod 644 ××× （所有者有读和写的权限，组用户只有读的权限）</p>
-</blockquote>
-<blockquote>
-<p>sudo chmod 700 ××× （只有所有者有读和写以及执行的权限）</p>
-</blockquote>
-<blockquote>
-<p>sudo chmod 666 ××× （每个人都有读和写的权限）</p>
-</blockquote>
-<blockquote>
-<p>sudo chmod 777 ××× （每个人都有读和写以及执行的权限）</p>
-</blockquote>
-<hr>
-</li>
-</ul>
-<h4 id="chmod"><a href="#chmod" class="headerlink" title="========================chmod======================="></a>========================chmod=======================</h4><blockquote>
-<p>指令名称 : chmod </p>
-</blockquote>
-<blockquote>
-<p>使用权限 : 所有使用者 </p>
-</blockquote>
-<blockquote>
-<p>使用方式 : chmod [-cfvR] [–help] [–version] mode file… </p>
-</blockquote>
-<p>说明 : Linux/Unix 的档案存取权限分为三级 : 档案拥有者、群组、其他。利用 chmod 可以藉以控制档案如何被他人所存取。 </p>
-<p>把计 : </p>
-<ul>
-<li><p>mode : 权限设定字串，格式如下 : [ugoa…][[+-=][rwxX]…][,…]，其中u 表示该档案的拥有者，g 表示与该档案的拥有者属于同一个群体(group)者，o 表示其他以外的人，a 表示这三者皆是。 </p>
-<p>+ 表示增加权限、- 表示取消权限、= 表示唯一设定权限。 </p>
-<p>r 表示可读取，w 表示可写入，x 表示可执行，X 表示只有当该档案是个子目录或者该档案已经被设定过为可执行。 </p>
-<ul>
-<li>-c : 若该档案权限确实已经更改，才显示其更改动作 </li>
-<li>-f : 若该档案权限无法被更改也不要显示错误讯息 </li>
-<li>-v : 显示权限变更的详细资料 </li>
-<li>-R : 对目前目录下的所有档案与子目录进行相同的权限变更(即以递回的方式逐个变更) </li>
-<li>–help : 显示辅助说明 </li>
-<li>–version : 显示版本 </li>
-</ul>
-</li>
-</ul>
-<p>范例 :将档案 file1.txt 设为所有人皆可读取 : <code>chmod ugo+r file1.txt</code></p>
-<p>将档案 file1.txt 设为所有人皆可读取 : <code>chmod a+r file1.txt</code></p>
-<p>将档案 file1.txt 与 file2.txt 设为该档案拥有者，与其所属同一个群体者可写入，但其他以外的人则不可写入 : <code>chmod ug+w,o-w file1.txt file2.txt</code></p>
-<p>将 ex1.py 设定为只有该档案拥有者可以执行 : <code>chmod u+x ex1.py</code></p>
-<p>将目前目录下的所有档案与子目录皆设为任何人可读取 : <code>chmod -R a+r *</code></p>
-<p>此外chmod也可以用数字来表示权限如 <code>chmod 777 file</code><br>语法为：<code>chmod abc file</code></p>
-<blockquote>
-<p>其中a,b,c各为一个数字，分别表示User、Group、及Other的权限。 </p>
-</blockquote>
-<blockquote>
-<p>r=4，w=2，x=1 </p>
-</blockquote>
-<blockquote>
-<p>若要rwx属性则4+2+1=7； </p>
-</blockquote>
-<blockquote>
-<p>若要rw-属性则4+2=6； </p>
-</blockquote>
-<blockquote>
-<p>若要r-x属性则4+1=5。 </p>
-</blockquote>
-<p>范例： </p>
-<p><code>chmod a=rwx file</code>和 <code>chmod 777 file</code>效果相同 </p>
-<p><code>chmod ug=rwx,o=x file</code>和 <code>chmod 771 file</code>效果相同 </p>
-<p>若用<code>chmod 4755 filename</code>可使此程式具有root的权限 </p>
-<hr>
-<h4 id="chown"><a href="#chown" class="headerlink" title="======================== chown ======================="></a>======================== chown =======================</h4><blockquote>
-<p>指令名称 : chown </p>
-<p>使用权限 : root </p>
-<p>使用方式 : chmod [-cfhvR] [–help] [–version] user[:group] file… </p>
-</blockquote>
-<blockquote>
-<p>说明 : Linux/Unix 是多人多工作业系统，所有的档案皆有拥有者。利用 chown 可以将档案的拥有者加以改变。一般来说，这个指令只有是由系统管理者(root)所使用，一般使用者没有权限可以改变别人的档案拥有者，也没有权限可以自己的档案拥有者改设为别人。只有系统管理者(root)才有这样的权限。 </p>
-</blockquote>
-<p>把计 : </p>
-<ul>
-<li>user : 新的档案拥有者的使用者 <ul>
-<li>IDgroup : 新的档案拥有者的使用者群体(group)</li>
-<li>-c : 若该档案拥有者确实已经更改，才显示其更改动作</li>
-<li>-f : 若该档案拥有者无法被更改也不要显示错误讯息</li>
-<li>-h : 只对于连结(link)进行变更，而非该 link 真正指向的档案</li>
-<li>-v : 显示拥有者变更的详细资料</li>
-<li>-R : 对目前目录下的所有档案与子目录进行相同的拥有者变更(即以递回的方式逐个变更)</li>
-<li>–help : 显示辅助说明</li>
-<li>–version : 显示版本 </li>
-</ul>
-</li>
-</ul>
-<p>范例 : </p>
-<p>将档案 file1.txt 的拥有者设为 users 群体的使用者 jessie :<br><code>chown jessie:users file1.txt</code></p>
-<p>将目前目录下的所有档案与子目录的拥有者皆设为 users 群体的使用者 lamport :<br><code>chmod -R lamport:users *</code></p>
-<ul>
-<li>-rw——- (600) – 只有属主有读写权限。 </li>
-<li>-rw-r–r– (644) – 只有属主有读写权限；而属组用户和其他用户只有读权限。 </li>
-<li>-rwx—— (700) – 只有属主有读、写、执行权限。 </li>
-<li>-rwxr-xr-x (755) – 属主有读、写、执行权限；而属组用户和其他用户只有读、执行权限。 </li>
-<li>-rwx–x–x (711) – 属主有读、写、执行权限；而属组用户和其他用户只有执行权限。 </li>
-<li>-rw-rw-rw- (666) – 所有用户都有文件读、写权限。这种做法不可取。 </li>
-<li>-rwxrwxrwx (777) – 所有用户都有读、写、执行权限。更不可取的做法。 </li>
-</ul>
-<p>以下是对目录的两个普通设定: </p>
-<ul>
-<li>drwx—— (700) - 只有属主可在目录中读、写。 </li>
-<li>drwxr-xr-x (755) - 所有用户可读该目录，但只有属主才能改变目录中的内容。 </li>
-</ul>
-
           
+查看linux文件的权限：ls -l 文件名称
+
+查看linux文件夹的权限：ls -ld 文件夹名称（所在目录）
+
+修改文件及文件夹权限：
+
+sudo chmod -（代表类型）×××（所有者）×××（组用户）×××（其他用户）
+
+
+常用修改权限的命令：
+
+sudo chmod 600 ××× 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/02/linux文件权限查看及修改-chmod/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1047,7 +1021,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1084,6 +1058,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1113,18 +1109,17 @@
       
         
           
-            <p><img src="http://upload-images.jianshu.io/upload_images/5107216-a9e1c4cb93cd49cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>最近老板兴起，想搞个快速可复制交付的东西，简言之就是在平台填些配置信息（display name，bundle id，version code），然后点点鼠标，就生成另外一个应用，一开始也是一脸懵逼，然后各种撕逼，后来还是做成了。话不多说，先来说说过程中遇到的坑们。</p>
-<h4 id="一、脚本"><a href="#一、脚本" class="headerlink" title="一、脚本"></a>一、脚本</h4><p>  我这边选的是python脚本，这之前也是py小白，后来找了<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">廖雪峰老师的py教程</a>学习了下基本语法，在网上也找了些写好的脚本，但是貌似xcode8以后就有点变动了。主要是参照<a href="http://liumh.com/2015/11/25/ios-auto-archive-ipa/" target="_blank" rel="noopener">CaryaLiu大神的写的py脚本</a>。<br> down下来（大神文章中有下载）填下相关参数直接放在项目中跑，最后一步export failed<br><img src="http://upload-images.jianshu.io/upload_images/5107216-ed751cfeb830bb93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="">执行脚本export failed</p>
-<pre><code>./autobuild.py -p Test.xcodeproj -s Test 执行脚本及相关参数
-</code></pre><p><em>Error Domain=IDEDistributionErrorDomain Code=14 “No applicable devices found.” UserInfo={NSLocalizedDescription=No applicable devices found.}</em><br>后来几经百度，Google找到了<a href="http://stackoverflow.com/questions/43094380/whats-the-replacement-for-xcodes-packageapplication" target="_blank" rel="noopener">大神的回答</a>，就稍稍的修改了下脚本，因为我这边demo没有用cocoapods，所以就是buildProject,workspace类似修改即可。</p>
-<p>修改前：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exportArchive</span><span class="params">(scheme, archivePath)</span>:</span></span><br><span class="line">	exportDirectory = buildExportDirectory(scheme)</span><br><span class="line">	exportCmd = <span class="string">"xcodebuild -exportArchive -archivePath %s -exportPath %s -exportOptionsPlist %s"</span> %(archivePath, exportDirectory, EXPORT_OPTIONS_PLIST)</span><br><span class="line">	process = subprocess.Popen(exportCmd, shell=<span class="keyword">True</span>)</span><br><span class="line">	(stdoutdata, stderrdata) = process.communicate()</span><br><span class="line"></span><br><span class="line">	signReturnCode = process.returncode</span><br><span class="line">	<span class="keyword">if</span> signReturnCode != <span class="number">0</span>:</span><br><span class="line">		<span class="keyword">print</span> <span class="string">"export %s failed"</span> %(scheme)</span><br><span class="line">		<span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		<span class="keyword">return</span> exportDirectory</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">buildProject</span><span class="params">(project, scheme)</span>:</span></span><br><span class="line">	archivePath = buildArchivePath(scheme)</span><br><span class="line">	<span class="keyword">print</span> <span class="string">"archivePath: "</span> + archivePath</span><br><span class="line">	archiveCmd = <span class="string">'xcodebuild -project %s -scheme %s -configuration %s archive -archivePath %s -destination generic/platform=iOS'</span> %(project, scheme, CONFIGURATION, archivePath)</span><br><span class="line">	process = subprocess.Popen(archiveCmd, shell=<span class="keyword">True</span>)</span><br><span class="line">	process.wait()</span><br><span class="line"></span><br><span class="line">	archiveReturnCode = process.returncode</span><br><span class="line">	<span class="keyword">if</span> archiveReturnCode != <span class="number">0</span>:</span><br><span class="line">		<span class="keyword">print</span> <span class="string">"archive workspace %s failed"</span> %(workspace)</span><br><span class="line">		cleanArchiveFile(archivePath)</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		exportDirectory = exportArchive(scheme, archivePath)</span><br><span class="line">		cleanArchiveFile(archivePath)</span><br><span class="line">		<span class="keyword">if</span> exportDirectory != <span class="string">""</span>:		</span><br><span class="line">			ipaPath = getIpaPath(exportDirectory)</span><br><span class="line">			uploadIpaToPgyer(ipaPath)</span><br></pre></td></tr></table></figure>
-<p>修改后：将脚本之前的默认导出路径改在了工程目录build下面</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exportArchive</span><span class="params">(scheme, archivePath)</span>:</span></span><br><span class="line">        exportDirectory = buildExportDirectory(scheme)</span><br><span class="line">        exportCmd = <span class="string">"pushd build &amp;&amp; mkdir ./Payload &amp;&amp; cp  -R `pwd`/%s-iphoneos/%s.app  ./Payload &amp;&amp; zip -qyr %s.ipa ./Payload &amp;&amp; rm -r ./Payload &amp;&amp; popd"</span> %(CONFIGURATION,scheme,exportDirectory)</span><br><span class="line">	process = subprocess.Popen(exportCmd, shell=<span class="keyword">True</span>)</span><br><span class="line">	(stdoutdata, stderrdata) = process.communicate()</span><br><span class="line"></span><br><span class="line">	signReturnCode = process.returncode</span><br><span class="line">	<span class="keyword">if</span> signReturnCode != <span class="number">0</span>:</span><br><span class="line">		<span class="keyword">print</span> <span class="string">"export %s failed"</span> %(scheme)</span><br><span class="line">		<span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		<span class="keyword">return</span> exportDirectory</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">buildProject</span><span class="params">(project, scheme)</span>:</span></span><br><span class="line">	archivePath = buildArchivePath(scheme)</span><br><span class="line">	<span class="keyword">print</span> <span class="string">"archivePath: "</span> + archivePath</span><br><span class="line">	archiveCmd = <span class="string">'xcodebuild -project %s -target %s -configuration %s'</span> %(project, scheme, CONFIGURATION)</span><br><span class="line">	process = subprocess.Popen(archiveCmd, shell=<span class="keyword">True</span>)</span><br><span class="line">	process.wait()</span><br><span class="line"></span><br><span class="line">	archiveReturnCode = process.returncode</span><br><span class="line">	<span class="keyword">if</span> archiveReturnCode != <span class="number">0</span>:</span><br><span class="line">		<span class="keyword">print</span> <span class="string">"archive workspace %s failed"</span> %(workspace)</span><br><span class="line">		cleanArchiveFile(archivePath)</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		exportDirectory = exportArchive(scheme, archivePath)</span><br><span class="line">		cleanArchiveFile(archivePath)</span><br><span class="line">		<span class="keyword">if</span> exportDirectory != <span class="string">""</span>:		</span><br><span class="line">			ipaPath = getIpaPath(exportDirectory)</span><br><span class="line">			uploadIpaToPgyer(ipaPath)</span><br></pre></td></tr></table></figure>
-<p>修改之后便可在工程目录下生成相应ipa文件。<br>第一次发文，写的比较凌乱，见谅语文是数学老师教的，如有疏漏多指教！！<br>后期有时间再分享下打包前修改工程配置参数。</p>
-
           
+最近老板兴起，想搞个快速可复制交付的东西，简言之就是在平台填些配置信息（display name，bundle id，version code），然后点点鼠标，就生成另外一个应用，一开始也是一脸懵逼，然后各种撕逼，后来还是做成了。话不多说，先来说说过程中遇到的坑们。
+一、脚本  我这边选的是pyt
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/14/基于xcode8自动打包python脚本/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1176,7 +1171,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1213,6 +1208,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1242,33 +1259,17 @@
       
         
           
-            <p>昨晚突然有个朋友问起coredata的使用，后来便自己写了个demo看看，发现跟Xcode7使用有些不一样，今天有时间就记下来跟大家分享下。<br>创建工程时勾选use core data</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5107216-86cd4a09bb81884c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="勾选use core data"></p>
-<p>打开工程时会发现比多一个.xcdatamodeld文件，名字和工程名一致，demo工程名为CoreDataDemo。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5107216-9297c8ade118b728.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=".xcdatamodeld文件"></p>
-<p>选中该文件 点击add Entity 可创建实体，需大写开头，可以理解为model，同时可添加属性，选择属性类型</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5107216-c9a96debd94bbc86.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建Entity ，添加属性"></p>
-<p>然后就是Xcode8之后的差异了。<br>第一个图是之前新建一个file，NSManagedObjectSubclass。<br>第二个截图是现在Xcode的界面，取消了NSManagedObjectSubclass。<br><img src="http://upload-images.jianshu.io/upload_images/5107216-63a5a046d928ff27.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="之前创建NSManagedObjectSubclass文件方式"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5107216-3323e9c7dbad8777.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="NSManagedObjectSubclass文件取消"></p>
-<p>选中创建的Entity,点击导航栏的Editor–&gt;Create NSManagedObjectSubclass,然后按照提示操作下去，会生成四个文件<br><img src="http://upload-images.jianshu.io/upload_images/5107216-a60144bce30aad6d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="新建NSManagedObjectSubclass文件"><br><img src="http://upload-images.jianshu.io/upload_images/5107216-99ad7dd6081f41ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生成的NSManagedObjectSubclass文件"></p>
-<p>细心的小伙伴可能还会发现AppDelegate跟平时我们创建的有些不同，多了一个coredata操作对象及方法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  AppDelegate.h</span><br><span class="line">//  CoreDataDemo</span><br><span class="line">//</span><br><span class="line">//  Created by simon on 2017/5/3.</span><br><span class="line">//  Copyright © 2017年 simon. All rights reserved.</span><br><span class="line">//</span><br><span class="line">#import &lt;UIKit/UIKit.h&gt;</span><br><span class="line">#import &lt;CoreData/CoreData.h&gt;</span><br><span class="line"></span><br><span class="line">@interface AppDelegate : UIResponder &lt;UIApplicationDelegate&gt;</span><br><span class="line"></span><br><span class="line">@property (strong, nonatomic) UIWindow *window;</span><br><span class="line"></span><br><span class="line">@property (readonly, strong) NSPersistentContainer *persistentContainer;</span><br><span class="line"></span><br><span class="line">- (void)saveContext;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<p>那我们现在来写个增删改查的操作。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;ViewController.h&quot;</span><br><span class="line">#import &lt;CoreData/CoreData.h&gt;</span><br><span class="line">#import &quot;AppDelegate.h&quot;</span><br><span class="line">#import &quot;Dog+CoreDataClass.h&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@interface ViewController ()</span><br><span class="line">&#123;</span><br><span class="line">    AppDelegate *_app;</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    // Do any additional setup after loading the view, typically from a nib.</span><br><span class="line">    _app = (AppDelegate *)[UIApplication sharedApplication].delegate;</span><br><span class="line">   [self createBtns];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)createBtns&#123;</span><br><span class="line">    NSArray *titles = @[@&quot;增&quot;,@&quot;删&quot;,@&quot;改&quot;,@&quot;查&quot;];</span><br><span class="line">    for (int i = 0; i &lt; titles.count; i++) &#123;</span><br><span class="line">        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];</span><br><span class="line">        btn.frame = CGRectMake(30 + i * 60, 100, 40, 40);</span><br><span class="line">        [btn setTitle:titles[i] forState:UIControlStateNormal];</span><br><span class="line">        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];</span><br><span class="line">        [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];</span><br><span class="line">        btn.tag = i;</span><br><span class="line">        [self.view addSubview:btn];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)btnAction:(UIButton *)btn&#123;</span><br><span class="line">    switch (btn.tag) &#123;</span><br><span class="line">        case 0:</span><br><span class="line">            [self addCoreData];</span><br><span class="line">            break;</span><br><span class="line">        case 1:</span><br><span class="line">            [self deleteCoreData];</span><br><span class="line">            break;</span><br><span class="line">        case 2:</span><br><span class="line">            [self updateCoreData];</span><br><span class="line">            break;</span><br><span class="line">        case 3:</span><br><span class="line">            [self selectCoreData];</span><br><span class="line">            break;</span><br><span class="line">            </span><br><span class="line">        default:</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>增加一条数据：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (void)addCoreData&#123;</span><br><span class="line">    Dog *dog = [NSEntityDescription insertNewObjectForEntityForName:@&quot;Dog&quot; inManagedObjectContext:_app.persistentContainer.viewContext];</span><br><span class="line">    static NSInteger index = 0;</span><br><span class="line">    dog.name = [NSString stringWithFormat:@&quot;tom%ld&quot;,index++];</span><br><span class="line">    dog.sex = @&quot;公&quot;;</span><br><span class="line">    dog.age = [NSString stringWithFormat:@&quot;%uyears&quot;,arc4random() % 15];</span><br><span class="line">    [_app saveContext];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>查询所有数据：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (void)selectCoreData&#123;</span><br><span class="line">    NSEntityDescription *entity = [NSEntityDescription entityForName:@&quot;Dog&quot; inManagedObjectContext:_app.persistentContainer.viewContext];</span><br><span class="line">    NSFetchRequest *request = [[NSFetchRequest alloc] init];</span><br><span class="line">    [request setEntity:entity];</span><br><span class="line">    NSArray *array = [_app.persistentContainer.viewContext executeFetchRequest :request error:nil];</span><br><span class="line">    for (Dog *dog in array) &#123;</span><br><span class="line">        NSLog(@&quot;dog name:%@&quot;,dog.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如需条件查询可使用 NSPredicate 添加查询条件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NSPre2dicate *predicate = [NSPredicate predicateWithFormat:@&quot;name=%@&quot;,@&quot;tom0&quot;];</span><br><span class="line">   request.predicate = predicate;</span><br></pre></td></tr></table></figure>
-<p>删除一条数据：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">- (void)deleteCoreData&#123;</span><br><span class="line">    NSEntityDescription *entity = [NSEntityDescription entityForName:@&quot;Dog&quot; inManagedObjectContext:_app.persistentContainer.viewContext];</span><br><span class="line">    NSFetchRequest *request = [[NSFetchRequest alloc] init];</span><br><span class="line">    request.entity = entity;</span><br><span class="line">    </span><br><span class="line">    NSPredicate *predicate = [NSPredicate predicateWithFormat:@&quot;name=%@&quot;,@&quot;tom0&quot;];</span><br><span class="line">    request.predicate = predicate;</span><br><span class="line"></span><br><span class="line">    NSArray *array = [_app.persistentContainer.viewContext executeFetchRequest:request error:nil];</span><br><span class="line">    if (array.count) &#123;</span><br><span class="line">        for (Dog *dog in array) &#123;</span><br><span class="line">            [_app.persistentContainer.viewContext deleteObject:dog];</span><br><span class="line">        &#125;</span><br><span class="line">        NSLog(@&quot;DELETE SUCCESS!!&quot;);</span><br><span class="line">    &#125; else</span><br><span class="line">        NSLog(@&quot;NOT FOUND DATA&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>更新某条数据：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- (void)updateCoreData&#123;</span><br><span class="line">    NSEntityDescription *entity = [NSEntityDescription entityForName:@&quot;Dog&quot; inManagedObjectContext:_app.persistentContainer.viewContext];</span><br><span class="line">    NSFetchRequest *request = [[NSFetchRequest alloc] init];</span><br><span class="line">    request.entity = entity;</span><br><span class="line">    </span><br><span class="line">    NSPredicate *predicate = [NSPredicate predicateWithFormat:@&quot;name=%@&quot;,@&quot;tom0&quot;];</span><br><span class="line">    request.predicate = predicate;</span><br><span class="line">    </span><br><span class="line">    NSArray *array = [_app.persistentContainer.viewContext executeFetchRequest:request error:nil];</span><br><span class="line">    if (array.count) &#123;</span><br><span class="line">        for (Dog *dog in array) &#123;</span><br><span class="line">            dog.name = @&quot;jerry8&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        [_app saveContext];</span><br><span class="line">        NSLog(@&quot;UPDATA SUCCESS!!&quot;);</span><br><span class="line">    &#125; else</span><br><span class="line">        NSLog(@&quot;NOT FOUND DATA&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>顺便问下，用chrome访问简书，用markdown模式写这些字，chrome崩溃十几次了，输入文字就崩，不知道是不是添加高亮代码块的锅，有没有大神遇到过！（后来这些字都是在文本编辑器写好贴上去的）</p>
-<p><a href="http://www.jianshu.com/p/337872d95727">参考文章</a></p>
+          昨晚突然有个朋友问起coredata的使用，后来便自己写了个demo看看，发现跟Xcode7使用有些不一样，今天有时间就记下来跟大家分享下。创建工程时勾选use core data
 
-          
+打开工程时会发现比多一个.xcdatamodeld文件，名字和工程名一致，demo工程名为CoreDataDemo。
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/14/xcode8使用coredata/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1320,7 +1321,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1357,6 +1358,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1386,13 +1409,18 @@
       
         
           
-            <h4 id="1-启动时间"><a href="#1-启动时间" class="headerlink" title="1.启动时间"></a>1.启动时间</h4><blockquote>
-<p>应用启动时间长短对用户第一次体验至关重要，同时系统对应用的启动、恢复等状态的运行时间也有严格的要求，在应用超时的情况下系统会直接关闭应用，要获取准确的app启动所需时间，最简单的方法时首先在main.c中添加如下代码：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CFAbsoluteTime StartTime;</span><br><span class="line"></span><br><span class="line">int main(int argc, char **argv) </span><br><span class="line">&#123;</span><br><span class="line">	StartTime = CFAbsoluteTimeGetCurrent();</span><br><span class="line">&#125;</span><br><span class="line">#然后在AppDelegate的回调方法application:didFinishLaunchingWithOptions中添加：</span><br><span class="line">#在 AppDelegate.m 的开头声明 extern CFAbsoluteTime StartTime;</span><br><span class="line">dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">	NSLog(@”Lauched in %f seconds.”, (CFAbsoluteTimeGetCurrent() – StartTime));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>转自：<a href="http://www.jianshu.com/p/2b36e39cd4">http://www.jianshu.com/p/2b36e39cd4</a></p>
+          1.启动时间
+应用启动时间长短对用户第一次体验至关重要，同时系统对应用的启动、恢复等状态的运行时间也有严格的要求，在应用超时的情况下系统会直接关闭应用，要获取准确的app启动所需时间，最简单的方法时首先在main.c中添加如下代码：
 
-          
+1234567891011CFAbsoluteTime Star
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/02/iOS计算app启动时间/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1444,7 +1472,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1481,6 +1509,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1510,70 +1560,26 @@
       
         
           
-            <blockquote>
-<p>【注】本文是个人学习clang时做的一些笔记和整理，分享一下仅供参考，文中多处摘自参考文章。</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/5107216-01b0fb85b9a8a1c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<blockquote>
-<p>好想有个能千变万化的编译器,没错就是它,就是它. —–Clang</p>
-</blockquote>
-<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>   clang是一个c，c++、oc语言的轻量编译器，源码发布于BSD 协议下。</p>
-<ul>
-<li>终端用户特色</li>
-<li>快速编译和较少内存占用</li>
-<li>有诊断功能</li>
-<li>兼容gcc</li>
-</ul>
-<hr>
-<h3 id="一、查看oc中c语言的实现源码"><a href="#一、查看oc中c语言的实现源码" class="headerlink" title="一、查看oc中c语言的实现源码"></a>一、查看oc中c语言的实现源码</h3><ul>
-<li>使用vim编辑器测试</li>
-<li>打开vim 建立.c文件 </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim test.c</span><br></pre></td></tr></table></figure>
-<ul>
-<li>写入测试的代码，下面测试代码查看block的实现(输入上面指令后，输入“i”开始编辑，粘贴完后按“esc”键，输入“:wq”，回车)</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line"> <span class="keyword">void</span>(^blk)(<span class="keyword">void</span>) = ^&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"Block\n"</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  blk();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/5107216-51735eefcbd73e3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="vim file"></p>
-<ul>
-<li>编译,目录下面会生成a.out文件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc test.c</span><br></pre></td></tr></table></figure>
-<ul>
-<li>最后使用clang查看源码,成功会生成test.cpp文件，里面就是源码</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang -rewrite-objc test.c</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/5107216-5a3b9a40f448f2d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生成文件"></p>
-<p><a href="https://zh.wikipedia.org/wiki/A.out" target="_blank" rel="noopener">关于a.out的维基百科，我看不懂😭</a> 尝试用终端查看文件，一大堆乱码。</p>
-<p>test.cpp文件就是相关的c++实现</p>
-<blockquote>
-<p>.cpp:只能编译c++代码，.mm是编译c，oc，c++，.h是声明，.m包含oc和c代码的文件</p>
-</blockquote>
-<h3 id="二、编译oc"><a href="#二、编译oc" class="headerlink" title="二、编译oc"></a>二、编译oc</h3><ul>
-<li>同样创建测试代码文件，test.m</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">        int main(int argc, const char * argv[]) &#123;</span><br><span class="line">         @autoreleasepool &#123;</span><br><span class="line">           // insert code here...</span><br><span class="line">        NSLog(@&quot;你好世界!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        return 0;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>输出可执行文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang -fobjc-arc -framework Foundation test.m -o outputname</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/5107216-eedf81d49d9d3533.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="可执行文件"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5107216-f61d7db3bdb092e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="执行结果"></p>
-<blockquote>
-<p>指令解释</p>
-<ul>
-<li>-fobjc-arc表示编译需要支持ARC特性</li>
-<li>-framework Foundation表示引用Foundation框架</li>
-<li>test.m是待编译的源文件名</li>
-<li>-o outputname表示输出可执行文件名是outputname</li>
-</ul>
-</blockquote>
-<blockquote>
-<h4 id="总结-Clang是一个C-编写、基于LLVM、发布于LLVM-BSD许可证下的C-C-Objective-C-Objective-C-编译器。它与GNU-C语言规范几乎完全兼容-同时Clang的使用简单方便-值得我们学习"><a href="#总结-Clang是一个C-编写、基于LLVM、发布于LLVM-BSD许可证下的C-C-Objective-C-Objective-C-编译器。它与GNU-C语言规范几乎完全兼容-同时Clang的使用简单方便-值得我们学习" class="headerlink" title="总结: Clang是一个C++编写、基于LLVM、发布于LLVM BSD许可证下的C/C++/Objective-C/Objective-C++编译器。它与GNU C语言规范几乎完全兼容;同时Clang的使用简单方便,值得我们学习."></a>总结: Clang是一个C++编写、基于LLVM、发布于LLVM BSD许可证下的C/C++/Objective-C/Objective-C++编译器。它与GNU C语言规范几乎完全兼容;同时Clang的使用简单方便,值得我们学习.</h4></blockquote>
-<h4 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h4><p><a href="http://www.jianshu.com/p/30ec92f1e707">clang查看Objective-C中C语言实现源码</a></p>
-<p><a href="http://www.jianshu.com/p/076ab2340121">iOS 浅谈Clang的使用</a></p>
-
           
+【注】本文是个人学习clang时做的一些笔记和整理，分享一下仅供参考，文中多处摘自参考文章。
+
+
+
+好想有个能千变万化的编译器,没错就是它,就是它. —–Clang
+
+简介   clang是一个c，c++、oc语言的轻量编译器，源码发布于BSD 协议下。
+
+终端用户特色
+快速编译和较少内存占用
+有
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/01/clang的使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1625,7 +1631,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1662,6 +1668,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1691,16 +1719,15 @@
       
         
           
-            <p> 一般而言，我们使用自定义的类都是使用strong修饰，用copy修饰,  奔溃信息如下：<br> <br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2017-05-15 12:24:23.479 test[23084:13573233] -[XiaoMing copyWithZone:]: unrecognized selector sent to instance 0x60000003a020</span><br><span class="line">2017-05-15 12:24:23.483 test[23084:13573233] *** Terminating app due to uncaught exception &apos;NSInvalidArgumentException&apos;, reason: &apos;-[XiaoMing copyWithZone:]: unrecognized selector sent to instance 0x60000003a020&apos;</span><br></pre></td></tr></table></figure></p>
-<p>原因是因为执行<code>[XiaoMing copyWithZone:]</code>，没有找到方法的实现。即在自定义类中实现。</p>
-<ol>
-<li>在Class @interface上声明NSCopying协议，</li>
-<li>在Class @implementation中实现协议方法<code>- (id)copyWithZone:(NSZone *)zone</code>。自定义类如下:</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  XiaoMing.h</span><br><span class="line">//  test</span><br><span class="line">//</span><br><span class="line">//  Created by SIMON on 2017/2/28.</span><br><span class="line">//  Copyright © 2017年 SIMON. All rights reserved.</span><br><span class="line">//</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">@interface XiaoMing : NSObject &lt;NSCopying&gt;</span><br><span class="line">@property (nonatomic,copy) NSString *name;</span><br><span class="line">@property (nonatomic,copy) NSString *englishName;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  XiaoMing.m</span><br><span class="line">//  test</span><br><span class="line">//</span><br><span class="line">//  Created by  SIMON on 2017/2/28.</span><br><span class="line">//  Copyright © 2017年  SIMON. All rights reserved.</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">#import &quot;XiaoMing.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation XiaoMing</span><br><span class="line"></span><br><span class="line">- (id)copyWithZone:(NSZone *)zone&#123;</span><br><span class="line">    XiaoMing *xm = [[XiaoMing allocWithZone:zone] init];</span><br><span class="line">    xm.englishName = self.englishName;</span><br><span class="line">    xm.name = self.name;</span><br><span class="line">    return xm;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  ViewController.m</span><br><span class="line">//  test</span><br><span class="line">//</span><br><span class="line">//  Created by on 2017/2/28.</span><br><span class="line">//  Copyright © 2017年 . All rights reserved.</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">#import &quot;ViewController.h&quot;</span><br><span class="line">#import &quot;XiaoMing.h&quot;</span><br><span class="line"></span><br><span class="line">@interface ViewController ()</span><br><span class="line">@property (nonatomic,copy) XiaoMing *xiaoMing;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation ViewController</span><br><span class="line"></span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    self.xiaoMing = [[XiaoMing alloc] init];</span><br><span class="line">    self.xiaoMing.englishName = @&quot;xiaoMing&quot;;</span><br><span class="line">    XiaoMing *xm = [self.xiaoMing copy];</span><br><span class="line">    NSLog(@&quot;englishName = %@&quot;,xm.englishName);</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-          
+           一般而言，我们使用自定义的类都是使用strong修饰，用copy修饰,  奔溃信息如下： 122017-05-15 12:24:23.479 test[23084:13573233] -[XiaoMing copyWithZone:]: unrecognized selector sent to 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/28/自定义类使用copy关键字修饰/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1773,8 +1800,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg"
+                alt="Simon" />
+            
               <p class="site-author-name" itemprop="name">Simon</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">Never give up ,keep fighting</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -1791,13 +1822,59 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/simon9211" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:simon9211@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/simonwwwwww" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/p/1005053164113847" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -1825,7 +1902,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1843,7 +1920,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
 
 
 

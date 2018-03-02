@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="oc,编译,clang,LLVM," />
 
 
 
@@ -80,6 +80,7 @@
 
 
 <meta name="description" content="【注】本文是个人学习clang时做的一些笔记和整理，分享一下仅供参考，文中多处摘自参考文章。    好想有个能千变万化的编译器,没错就是它,就是它. —–Clang  简介   clang是一个c，c++、oc语言的轻量编译器，源码发布于BSD 协议下。  终端用户特色 快速编译和较少内存占用 有诊断功能 兼容gcc   一、查看oc中c语言的实现源码 使用vim编辑器测试 打开vim 建立.c">
+<meta name="keywords" content="oc,编译,clang,LLVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅尝iOS使用clang">
 <meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2017/03/01/clang的使用/index.html">
@@ -91,7 +92,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-5a3b9a40f448f2d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-eedf81d49d9d3533.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-f61d7db3bdb092e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-03-01T12:29:14.762Z">
+<meta property="og:updated_time" content="2018-03-02T10:14:28.645Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅尝iOS使用clang">
 <meta name="twitter:description" content="【注】本文是个人学习clang时做的一些笔记和整理，分享一下仅供参考，文中多处摘自参考文章。    好想有个能千变万化的编译器,没错就是它,就是它. —–Clang  简介   clang是一个c，c++、oc语言的轻量编译器，源码发布于BSD 协议下。  终端用户特色 快速编译和较少内存占用 有诊断功能 兼容gcc   一、查看oc中c语言的实现源码 使用vim编辑器测试 打开vim 建立.c">
@@ -263,7 +264,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -297,6 +298,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -402,6 +425,18 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/oc/" rel="tag"># oc</a>
+          
+            <a href="/tags/编译/" rel="tag"># 编译</a>
+          
+            <a href="/tags/clang/" rel="tag"># clang</a>
+          
+            <a href="/tags/LLVM/" rel="tag"># LLVM</a>
+          
+        </div>
+      
 
       
       
@@ -489,8 +524,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg"
+                alt="Simon" />
+            
               <p class="site-author-name" itemprop="name">Simon</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">Never give up ,keep fighting</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -507,13 +546,59 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/simon9211" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:simon9211@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/simonwwwwww" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/p/1005053164113847" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -557,7 +642,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -575,7 +660,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
 
 
 

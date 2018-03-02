@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="c++,函数,虚函数," />
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="C++通过继承（inheritance）和虚函数（virtual function）来实现多态性，简单的说就是，将基类的指针或引用绑定到子类的实例，然后通过基类的指针或引用调用实际字累的成员函数（虚函数）。本文将介绍单继承、多继承下虚函数的实现机制。  一、虚函数表 为了支持虚函数机制，编译器为每一个拥有虚函数的类的实类创建了一个虚函数表（virtual table），这个表中有许多槽（slot">
+<meta name="keywords" content="c++,函数,虚函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="虚函数表（virtual table）">
 <meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2017/11/28/虚函数表（virtual-table）/index.html">
 <meta property="og:site_name" content="Simon&#39;s Blogs">
 <meta property="og:description" content="C++通过继承（inheritance）和虚函数（virtual function）来实现多态性，简单的说就是，将基类的指针或引用绑定到子类的实例，然后通过基类的指针或引用调用实际字累的成员函数（虚函数）。本文将介绍单继承、多继承下虚函数的实现机制。  一、虚函数表 为了支持虚函数机制，编译器为每一个拥有虚函数的类的实类创建了一个虚函数表（virtual table），这个表中有许多槽（slot">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-02T06:44:54.217Z">
+<meta property="og:updated_time" content="2018-03-02T10:08:44.864Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="虚函数表（virtual table）">
 <meta name="twitter:description" content="C++通过继承（inheritance）和虚函数（virtual function）来实现多态性，简单的说就是，将基类的指针或引用绑定到子类的实例，然后通过基类的指针或引用调用实际字累的成员函数（虚函数）。本文将介绍单继承、多继承下虚函数的实现机制。  一、虚函数表 为了支持虚函数机制，编译器为每一个拥有虚函数的类的实类创建了一个虚函数表（virtual table），这个表中有许多槽（slot">
@@ -257,7 +258,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -291,6 +292,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -344,6 +367,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c/" rel="tag"># c++</a>
+          
+            <a href="/tags/函数/" rel="tag"># 函数</a>
+          
+            <a href="/tags/虚函数/" rel="tag"># 虚函数</a>
+          
+        </div>
       
 
       
@@ -432,8 +465,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="https://tvax4.sinaimg.cn/crop.0.0.502.502.180/bc988bb7ly8focb5fph92j20dz0dyq9i.jpg"
+                alt="Simon" />
+            
               <p class="site-author-name" itemprop="name">Simon</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">Never give up ,keep fighting</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -450,13 +487,59 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/simon9211" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:simon9211@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/simonwwwwww" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/p/1005053164113847" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -500,7 +583,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -518,7 +601,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
 
 
 
