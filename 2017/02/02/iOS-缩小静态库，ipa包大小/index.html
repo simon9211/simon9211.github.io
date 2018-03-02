@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="一般而言，我们使用自定义的类都是使用strong修饰，用copy修饰,  奔溃信息如下： 122017-05-15 12:24:23.479 test[23084:13573233] -[XiaoMing copyWithZone:]: unrecognized selector sent to instance 0x60000003a0202017-05-15 12:24:23.483 tes">
+<meta name="description" content="我们可以从以下四个方面去减少包的体积 配置编译选项 （Levels选项内）Genetate Debug Symbols  设置为NO，这个配置选项应该会让你减去小半的体积。 舍弃架构armv7，因为armv7用于支持4s和3gs，4s是2011年11月正式上线，虽然还有小部分人在使用，但是追求包体大小的完全可以舍弃了。 编译的版本必须是发布版本， 查找内部使用到的第三方库，一方面可以进行删减代码，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自定义类使用copy关键字修饰">
-<meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2017/02/28/自定义类使用copy关键字修饰/index.html">
+<meta property="og:title" content="iOS 缩小静态库，ipa包大小">
+<meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2017/02/02/iOS-缩小静态库，ipa包大小/index.html">
 <meta property="og:site_name" content="Simon&#39;s Blogs">
-<meta property="og:description" content="一般而言，我们使用自定义的类都是使用strong修饰，用copy修饰,  奔溃信息如下： 122017-05-15 12:24:23.479 test[23084:13573233] -[XiaoMing copyWithZone:]: unrecognized selector sent to instance 0x60000003a0202017-05-15 12:24:23.483 tes">
+<meta property="og:description" content="我们可以从以下四个方面去减少包的体积 配置编译选项 （Levels选项内）Genetate Debug Symbols  设置为NO，这个配置选项应该会让你减去小半的体积。 舍弃架构armv7，因为armv7用于支持4s和3gs，4s是2011年11月正式上线，虽然还有小部分人在使用，但是追求包体大小的完全可以舍弃了。 编译的版本必须是发布版本， 查找内部使用到的第三方库，一方面可以进行删减代码，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-01T12:51:19.324Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-26ba5e327123a9ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-03-02T07:19:34.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自定义类使用copy关键字修饰">
-<meta name="twitter:description" content="一般而言，我们使用自定义的类都是使用strong修饰，用copy修饰,  奔溃信息如下： 122017-05-15 12:24:23.479 test[23084:13573233] -[XiaoMing copyWithZone:]: unrecognized selector sent to instance 0x60000003a0202017-05-15 12:24:23.483 tes">
+<meta name="twitter:title" content="iOS 缩小静态库，ipa包大小">
+<meta name="twitter:description" content="我们可以从以下四个方面去减少包的体积 配置编译选项 （Levels选项内）Genetate Debug Symbols  设置为NO，这个配置选项应该会让你减去小半的体积。 舍弃架构armv7，因为armv7用于支持4s和3gs，4s是2011年11月正式上线，虽然还有小部分人在使用，但是追求包体大小的完全可以舍弃了。 编译的版本必须是发布版本， 查找内部使用到的第三方库，一方面可以进行删减代码，">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5107216-26ba5e327123a9ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://www.jianshu.com/u/1975769cbce2/2017/02/28/自定义类使用copy关键字修饰/"/>
+  <link rel="canonical" href="https://www.jianshu.com/u/1975769cbce2/2017/02/02/iOS-缩小静态库，ipa包大小/"/>
 
 
 
 
 
-  <title>自定义类使用copy关键字修饰 | Simon's Blogs</title>
+  <title>iOS 缩小静态库，ipa包大小 | Simon's Blogs</title>
   
 
 
@@ -292,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2017/02/28/自定义类使用copy关键字修饰/">
+    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2017/02/02/iOS-缩小静态库，ipa包大小/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
@@ -309,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">自定义类使用copy关键字修饰</h1>
+          <h1 class="post-title" itemprop="name headline">iOS 缩小静态库，ipa包大小</h1>
         
 
         <div class="post-meta">
@@ -321,8 +323,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-28T20:48:33+08:00">
-                2017-02-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-02T15:01:51+08:00">
+                2017-02-02
               </time>
             
 
@@ -359,15 +361,52 @@
       
 
       
-        <p> 一般而言，我们使用自定义的类都是使用strong修饰，用copy修饰,  奔溃信息如下：<br> <br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2017-05-15 12:24:23.479 test[23084:13573233] -[XiaoMing copyWithZone:]: unrecognized selector sent to instance 0x60000003a020</span><br><span class="line">2017-05-15 12:24:23.483 test[23084:13573233] *** Terminating app due to uncaught exception &apos;NSInvalidArgumentException&apos;, reason: &apos;-[XiaoMing copyWithZone:]: unrecognized selector sent to instance 0x60000003a020&apos;</span><br></pre></td></tr></table></figure></p>
-<p>原因是因为执行<code>[XiaoMing copyWithZone:]</code>，没有找到方法的实现。即在自定义类中实现。</p>
+        <h5 id="我们可以从以下四个方面去减少包的体积"><a href="#我们可以从以下四个方面去减少包的体积" class="headerlink" title="我们可以从以下四个方面去减少包的体积"></a>我们可以从以下四个方面去减少包的体积</h5><ul>
+<li>配置编译选项 （Levels选项内）Genetate Debug Symbols  设置为NO，这个配置选项应该会让你减去小半的体积。</li>
+<li>舍弃架构armv7，因为armv7用于支持4s和3gs，4s是2011年11月正式上线，虽然还有小部分人在使用，但是追求包体大小的完全可以舍弃了。</li>
+<li>编译的版本必须是发布版本，</li>
+<li>查找内部使用到的第三方库，一方面可以进行删减代码，用不到的类，直接删除，还有第三方库中的图片资源统统删除掉，如果能够自己手写实现的，那费功夫自己写吧<br>单单上面的几个操作全部完成的话，我的包体从60M下降到了17M</li>
+</ul>
+<hr>
+<h5 id="其他的资源相关："><a href="#其他的资源相关：" class="headerlink" title="其他的资源相关："></a>其他的资源相关：</h5><ul>
+<li>图片</li>
+</ul>
+<blockquote>
+<p>压缩图片 不重要的图片可适当采用 8bit PNG图片</p>
+</blockquote>
 <ol>
-<li>在Class @interface上声明NSCopying协议，</li>
-<li>在Class @implementation中实现协议方法<code>- (id)copyWithZone:(NSZone *)zone</code>。自定义类如下:</li>
+<li>什么是矢量图 矢量图是由计算机的算法产生的，可以无限放大或缩小，不会有任何损失，通常由矢量软件制作。</li>
+<li>什么是位图 位图是由一个一个的小色块组成，放大后会看到那些小色块，同一面积内小色块越多，分辨率就越高。</li>
+<li>矢量图的优缺点 可以无限放大或缩小，不会影响图像素质，文件体积较小，编辑灵活。缺点是表达的色彩层次不清，整体观感效果不如位图</li>
+<li>位图的优缺点 不能放太大，减少文件分辨率后会影响图片质量，图片战胜空间较大，优点是能很细腻地表达图片的效果，图片表达效果非常好</li>
+<li><p>什么情况下用位图，什么情况下用矢量图 一些对图片要求高的用位图，例如照片。其他的尽量用矢量图。例如文字、表格、卡通图片等</p>
+<p>● 去掉无用的图片</p>
+<p>● 用代码绘制简单的纯色图片 用Sketch和PaintCode快速得到绘制代码</p>
+<p>● 如果不需要使用透明，可以用jpeg代替PNG。jpeg减少了些效率但更加小。需权衡性能，大小。</p>
+<p>● 对32位的图片，尽肯能的使用高压缩率，使用PS的“Save For Web”功能，可以有效的减小JPEG和PNG图片的尺寸。 默认情况下，在build时，PNG图像就被pngcrush压缩。</p>
+</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  XiaoMing.h</span><br><span class="line">//  test</span><br><span class="line">//</span><br><span class="line">//  Created by SIMON on 2017/2/28.</span><br><span class="line">//  Copyright © 2017年 SIMON. All rights reserved.</span><br><span class="line">//</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">@interface XiaoMing : NSObject &lt;NSCopying&gt;</span><br><span class="line">@property (nonatomic,copy) NSString *name;</span><br><span class="line">@property (nonatomic,copy) NSString *englishName;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  XiaoMing.m</span><br><span class="line">//  test</span><br><span class="line">//</span><br><span class="line">//  Created by  SIMON on 2017/2/28.</span><br><span class="line">//  Copyright © 2017年  SIMON. All rights reserved.</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">#import &quot;XiaoMing.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation XiaoMing</span><br><span class="line"></span><br><span class="line">- (id)copyWithZone:(NSZone *)zone&#123;</span><br><span class="line">    XiaoMing *xm = [[XiaoMing allocWithZone:zone] init];</span><br><span class="line">    xm.englishName = self.englishName;</span><br><span class="line">    xm.name = self.name;</span><br><span class="line">    return xm;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  ViewController.m</span><br><span class="line">//  test</span><br><span class="line">//</span><br><span class="line">//  Created by on 2017/2/28.</span><br><span class="line">//  Copyright © 2017年 . All rights reserved.</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">#import &quot;ViewController.h&quot;</span><br><span class="line">#import &quot;XiaoMing.h&quot;</span><br><span class="line"></span><br><span class="line">@interface ViewController ()</span><br><span class="line">@property (nonatomic,copy) XiaoMing *xiaoMing;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation ViewController</span><br><span class="line"></span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    self.xiaoMing = [[XiaoMing alloc] init];</span><br><span class="line">    self.xiaoMing.englishName = @&quot;xiaoMing&quot;;</span><br><span class="line">    XiaoMing *xm = [self.xiaoMing copy];</span><br><span class="line">    NSLog(@&quot;englishName = %@&quot;,xm.englishName);</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>使用<a href="https://github.com/tinymind/LSUnusedResources" target="_blank" rel="noopener">LSUnusedResources</a>去除部分工程中没有用到的图，可视化界面操作。</li>
+<li>喵神也开源了一个command line工具<a href="https://github.com/onevcat/FengNiao" target="_blank" rel="noopener">FengNiao</a>，使用起来较前者繁琐。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>ImageOptim是一款基于Mac的图像“瘦身”软件，内置多种算法。通过删除图片部分无用的EXIF等信息来减小PNG、JPEG和GIF图片的大小。ImageOptim合并了OptiPNG、PNGCrush、AdvanceComp、PNGOUT、Jpegoptim+Jpegtran和Gifsicle等几个工具，旨在为设计师提供最好的优化效果。在最新发布的1.7.2版本中，ImageOptim改进了文件在文件列表中的拖拽、复制、粘贴功能。下图为我压缩了一组切图，设置有损压缩80%，最后大小为原来的1/5，无损压缩的话大小为原来的1/2<img src="http://upload-images.jianshu.io/upload_images/5107216-26ba5e327123a9ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+</ul>
+</blockquote>
+<hr>
+<ul>
+<li><p>音频</p>
+<p>● 压缩音频，尽可能使用AAC或者MP3格式，并且使用一个较低的码率。通常44.1khz的码率有点浪费，降低一定的码率也不会丢失多少音质<br>视频</p>
+<p>● 视频也可以使用类似于音频的处理方法，音视频的压缩可以很大程度的压缩，但是要注意压缩的格式，是不是会增加编解码的负担，这要权衡考虑。<br>Assets</p>
+<p>● 检查bundle中的无用文件，不要打包到app或者静态库中。可以点击文件，在右侧的file inspector里面的target membership中取消勾选；或者在build phase里面的Copy Bundle Resources中去掉。</p>
+<p>● 确定 dead code（代码被定义但从未被调用）被剥离，build setting 里 DEAD_CODE_STRIPPING = YES。 去掉冗余的代码，即使一点冗余代码，编译后体积也是很可观的。</p>
+</li>
+</ul>
+
       
     </div>
     
@@ -391,8 +430,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/02/iOS-缩小静态库，ipa包大小/" rel="next" title="iOS 缩小静态库，ipa包大小">
-                <i class="fa fa-chevron-left"></i> iOS 缩小静态库，ipa包大小
+              <a href="/2017/01/10/initialize-load/" rel="next" title="initialize && load">
+                <i class="fa fa-chevron-left"></i> initialize && load
               </a>
             
           </div>
@@ -401,8 +440,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/01/clang的使用/" rel="prev" title="浅尝iOS使用clang">
-                浅尝iOS使用clang <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/28/自定义类使用copy关键字修饰/" rel="prev" title="自定义类使用copy关键字修饰">
+                自定义类使用copy关键字修饰 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -455,8 +494,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -498,6 +546,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#我们可以从以下四个方面去减少包的体积"><span class="nav-number">1.</span> <span class="nav-text">我们可以从以下四个方面去减少包的体积</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#其他的资源相关："><span class="nav-number">2.</span> <span class="nav-text">其他的资源相关：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

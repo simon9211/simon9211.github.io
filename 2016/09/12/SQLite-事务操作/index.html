@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="职位 ：iOS中级开发工程师 坐标 ：上海 兴趣 ： 户外骑行，喜欢各种运动（羽毛球，游泳） 联系方式E-mail : simon9211@126.com Github￼ 简书">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/about/index.html">
+<meta name="description" content="以前知道的太少了，这样大量的数据更新居然没有用到数据库事务，怪不得时间开销这么高。后来优化了一下，加入了sqlite3的事务，效果十分明显，70秒的数据库生成时间缩短到了1.5秒。  #####事务（transaction）的原理是，对数据库进行更新的语句先储存起来，储存到一定程度将这些语句一并提交（commit），如果尚未提交，但中途出现了异常，则这些语句都可以撤回（rollback）。  使">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQLite 事务操作">
+<meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2016/09/12/SQLite-事务操作/index.html">
 <meta property="og:site_name" content="Simon&#39;s Blogs">
-<meta property="og:description" content="职位 ：iOS中级开发工程师 坐标 ：上海 兴趣 ： 户外骑行，喜欢各种运动（羽毛球，游泳） 联系方式E-mail : simon9211@126.com Github￼ 简书">
+<meta property="og:description" content="以前知道的太少了，这样大量的数据更新居然没有用到数据库事务，怪不得时间开销这么高。后来优化了一下，加入了sqlite3的事务，效果十分明显，70秒的数据库生成时间缩短到了1.5秒。  #####事务（transaction）的原理是，对数据库进行更新的语句先储存起来，储存到一定程度将这些语句一并提交（commit），如果尚未提交，但中途出现了异常，则这些语句都可以撤回（rollback）。  使">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-01T12:23:06.923Z">
+<meta property="og:updated_time" content="2018-03-02T08:02:38.646Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于我">
-<meta name="twitter:description" content="职位 ：iOS中级开发工程师 坐标 ：上海 兴趣 ： 户外骑行，喜欢各种运动（羽毛球，游泳） 联系方式E-mail : simon9211@126.com Github￼ 简书">
+<meta name="twitter:title" content="SQLite 事务操作">
+<meta name="twitter:description" content="以前知道的太少了，这样大量的数据更新居然没有用到数据库事务，怪不得时间开销这么高。后来优化了一下，加入了sqlite3的事务，效果十分明显，70秒的数据库生成时间缩短到了1.5秒。  #####事务（transaction）的原理是，对数据库进行更新的语句先储存起来，储存到一定程度将这些语句一并提交（commit），如果尚未提交，但中途出现了异常，则这些语句都可以撤回（rollback）。  使">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://www.jianshu.com/u/1975769cbce2/about/"/>
+  <link rel="canonical" href="https://www.jianshu.com/u/1975769cbce2/2016/09/12/SQLite-事务操作/"/>
 
 
 
 
 
-  <title>关于我 | Simon's Blogs</title>
+  <title>SQLite 事务操作 | Simon's Blogs</title>
   
 
 
@@ -280,40 +280,160 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2016/09/12/SQLite-事务操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Simon's Blogs">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">关于我</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p>职位 ：iOS中级开发工程师</p>
-<p>坐标 ：上海</p>
-<p>兴趣 ： 户外骑行，喜欢各种运动（羽毛球，游泳）</p>
-<h4 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h4><p>E-mail : <a href="mailto:simon9211@126.com" target="_blank" rel="noopener">simon9211@126.com</a></p>
-<p><a href="https://github.com/simon9211" target="_blank" rel="noopener">Github</a>￼</p>
-<p><a href="https://www.jianshu.com/u/1975769cbce2">简书</a></p>
+          <h1 class="post-title" itemprop="name headline">SQLite 事务操作</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-12T15:50:15+08:00">
+                2016-09-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>以前知道的太少了，这样大量的数据更新居然没有用到数据库事务，怪不得时间开销这么高。后来优化了一下，加入了sqlite3的事务，效果十分明显，70秒的数据库生成时间缩短到了1.5秒。</p>
+</blockquote>
+<p>#####事务（transaction）的原理是，对数据库进行更新的语句先储存起来，储存到一定程度将这些语句一并提交（commit），如果尚未提交，但中途出现了异常，则这些语句都可以撤回（rollback）。</p>
+<blockquote>
+<p>使用事务有两个非常明显的好处：</p>
+</blockquote>
+<blockquote>
+<p>1、将大量更新语句合并到一起，极大的缩短了访问数据库的次数，如此大量提高了效率和吞吐量。例如本人的“工作二”，将八万多次数据库更新合并到一次提交，原操作时间70秒降低到了1.5秒，效率提高的幅度简直可怕。</p>
+</blockquote>
+<blockquote>
+<p>2、避免了一些非常恶心的情况，比如同样一个对象有许多不同的属性都要插入到数据库的不同表中，需要多句sql更新才能完成操作。如果操作中途出现了异常，则可能某个对象只有一半的数据输入了数据库，还有另一半是空白的，这还不如完全没输入。而事务的rollback就是干这个用的。</p>
+</blockquote>
 <hr>
+<h4 id="FMDB下使用事务方式十分简单："><a href="#FMDB下使用事务方式十分简单：" class="headerlink" title="FMDB下使用事务方式十分简单："></a>FMDB下使用事务方式十分简单：</h4><h5 id="建立数据库db"><a href="#建立数据库db" class="headerlink" title="建立数据库db"></a>建立数据库db</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FMDatabase *db = [FMDatabase databaseWithPath:path];</span><br></pre></td></tr></table></figure>
+<h5 id="事务开始"><a href="#事务开始" class="headerlink" title="事务开始"></a>事务开始</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[db beginTransaction];  </span><br><span class="line">BOOL isRollback = NO;</span><br></pre></td></tr></table></figure>
+<p>具体数据库操作可以包在@try中，如果捕获到异常就rollback</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@try &#123;  </span><br><span class="line">    // 数据库操作代码  </span><br><span class="line">&#125;  </span><br><span class="line">@catch (NSException *exception) &#123;  </span><br><span class="line">    isRollback = YES;  </span><br><span class="line">    [db rollback];  </span><br><span class="line">&#125;  </span><br><span class="line">@finally &#123;  </span><br><span class="line">    if (isRollback == NO) &#123;  </span><br><span class="line">        [db commit];  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://blog.csdn.net/lcpk0411/article/details/40861391" target="_blank" rel="noopener">参考文章</a></p>
 
-        
-      </div>
-      
-      
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/12/c-函数/" rel="next" title="c++函数">
+                <i class="fa fa-chevron-left"></i> c++函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/11/c-原子操作/" rel="prev" title="c++原子操作">
+                c++原子操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -408,7 +528,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#联系方式"><span class="nav-number">1.</span> <span class="nav-text">联系方式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#FMDB下使用事务方式十分简单："><span class="nav-number">1.</span> <span class="nav-text">FMDB下使用事务方式十分简单：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#建立数据库db"><span class="nav-number">1.1.</span> <span class="nav-text">建立数据库db</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#事务开始"><span class="nav-number">1.2.</span> <span class="nav-text">事务开始</span></a></li></ol></li></ol></div>
             
 
           </div>

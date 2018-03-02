@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="一般而言，我们使用自定义的类都是使用strong修饰，用copy修饰,  奔溃信息如下： 122017-05-15 12:24:23.479 test[23084:13573233] -[XiaoMing copyWithZone:]: unrecognized selector sent to instance 0x60000003a0202017-05-15 12:24:23.483 tes">
+<meta name="description" content="查看linux文件的权限：ls -l 文件名称  查看linux文件夹的权限：ls -ld 文件夹名称（所在目录）  修改文件及文件夹权限：  sudo chmod -（代表类型）×××（所有者）×××（组用户）×××（其他用户）   常用修改权限的命令：  sudo chmod 600 ××× （只有所有者有读和写的权限）   sudo chmod 644 ××× （所有者有读和写的权限，组用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自定义类使用copy关键字修饰">
-<meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2017/02/28/自定义类使用copy关键字修饰/index.html">
+<meta property="og:title" content="linux文件权限查看及修改-chmod">
+<meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2017/09/02/linux文件权限查看及修改-chmod/index.html">
 <meta property="og:site_name" content="Simon&#39;s Blogs">
-<meta property="og:description" content="一般而言，我们使用自定义的类都是使用strong修饰，用copy修饰,  奔溃信息如下： 122017-05-15 12:24:23.479 test[23084:13573233] -[XiaoMing copyWithZone:]: unrecognized selector sent to instance 0x60000003a0202017-05-15 12:24:23.483 tes">
+<meta property="og:description" content="查看linux文件的权限：ls -l 文件名称  查看linux文件夹的权限：ls -ld 文件夹名称（所在目录）  修改文件及文件夹权限：  sudo chmod -（代表类型）×××（所有者）×××（组用户）×××（其他用户）   常用修改权限的命令：  sudo chmod 600 ××× （只有所有者有读和写的权限）   sudo chmod 644 ××× （所有者有读和写的权限，组用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-01T12:51:19.324Z">
+<meta property="og:updated_time" content="2018-03-02T07:45:59.351Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自定义类使用copy关键字修饰">
-<meta name="twitter:description" content="一般而言，我们使用自定义的类都是使用strong修饰，用copy修饰,  奔溃信息如下： 122017-05-15 12:24:23.479 test[23084:13573233] -[XiaoMing copyWithZone:]: unrecognized selector sent to instance 0x60000003a0202017-05-15 12:24:23.483 tes">
+<meta name="twitter:title" content="linux文件权限查看及修改-chmod">
+<meta name="twitter:description" content="查看linux文件的权限：ls -l 文件名称  查看linux文件夹的权限：ls -ld 文件夹名称（所在目录）  修改文件及文件夹权限：  sudo chmod -（代表类型）×××（所有者）×××（组用户）×××（其他用户）   常用修改权限的命令：  sudo chmod 600 ××× （只有所有者有读和写的权限）   sudo chmod 644 ××× （所有者有读和写的权限，组用">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://www.jianshu.com/u/1975769cbce2/2017/02/28/自定义类使用copy关键字修饰/"/>
+  <link rel="canonical" href="https://www.jianshu.com/u/1975769cbce2/2017/09/02/linux文件权限查看及修改-chmod/"/>
 
 
 
 
 
-  <title>自定义类使用copy关键字修饰 | Simon's Blogs</title>
+  <title>linux文件权限查看及修改-chmod | Simon's Blogs</title>
   
 
 
@@ -292,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2017/02/28/自定义类使用copy关键字修饰/">
+    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2017/09/02/linux文件权限查看及修改-chmod/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
@@ -309,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">自定义类使用copy关键字修饰</h1>
+          <h1 class="post-title" itemprop="name headline">linux文件权限查看及修改-chmod</h1>
         
 
         <div class="post-meta">
@@ -321,8 +321,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-28T20:48:33+08:00">
-                2017-02-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-02T15:25:14+08:00">
+                2017-09-02
               </time>
             
 
@@ -359,15 +359,126 @@
       
 
       
-        <p> 一般而言，我们使用自定义的类都是使用strong修饰，用copy修饰,  奔溃信息如下：<br> <br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2017-05-15 12:24:23.479 test[23084:13573233] -[XiaoMing copyWithZone:]: unrecognized selector sent to instance 0x60000003a020</span><br><span class="line">2017-05-15 12:24:23.483 test[23084:13573233] *** Terminating app due to uncaught exception &apos;NSInvalidArgumentException&apos;, reason: &apos;-[XiaoMing copyWithZone:]: unrecognized selector sent to instance 0x60000003a020&apos;</span><br></pre></td></tr></table></figure></p>
-<p>原因是因为执行<code>[XiaoMing copyWithZone:]</code>，没有找到方法的实现。即在自定义类中实现。</p>
-<ol>
-<li>在Class @interface上声明NSCopying协议，</li>
-<li>在Class @implementation中实现协议方法<code>- (id)copyWithZone:(NSZone *)zone</code>。自定义类如下:</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  XiaoMing.h</span><br><span class="line">//  test</span><br><span class="line">//</span><br><span class="line">//  Created by SIMON on 2017/2/28.</span><br><span class="line">//  Copyright © 2017年 SIMON. All rights reserved.</span><br><span class="line">//</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">@interface XiaoMing : NSObject &lt;NSCopying&gt;</span><br><span class="line">@property (nonatomic,copy) NSString *name;</span><br><span class="line">@property (nonatomic,copy) NSString *englishName;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  XiaoMing.m</span><br><span class="line">//  test</span><br><span class="line">//</span><br><span class="line">//  Created by  SIMON on 2017/2/28.</span><br><span class="line">//  Copyright © 2017年  SIMON. All rights reserved.</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">#import &quot;XiaoMing.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation XiaoMing</span><br><span class="line"></span><br><span class="line">- (id)copyWithZone:(NSZone *)zone&#123;</span><br><span class="line">    XiaoMing *xm = [[XiaoMing allocWithZone:zone] init];</span><br><span class="line">    xm.englishName = self.englishName;</span><br><span class="line">    xm.name = self.name;</span><br><span class="line">    return xm;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  ViewController.m</span><br><span class="line">//  test</span><br><span class="line">//</span><br><span class="line">//  Created by on 2017/2/28.</span><br><span class="line">//  Copyright © 2017年 . All rights reserved.</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">#import &quot;ViewController.h&quot;</span><br><span class="line">#import &quot;XiaoMing.h&quot;</span><br><span class="line"></span><br><span class="line">@interface ViewController ()</span><br><span class="line">@property (nonatomic,copy) XiaoMing *xiaoMing;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation ViewController</span><br><span class="line"></span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    self.xiaoMing = [[XiaoMing alloc] init];</span><br><span class="line">    self.xiaoMing.englishName = @&quot;xiaoMing&quot;;</span><br><span class="line">    XiaoMing *xm = [self.xiaoMing copy];</span><br><span class="line">    NSLog(@&quot;englishName = %@&quot;,xm.englishName);</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+        <ul>
+<li><p>查看linux文件的权限：ls -l 文件名称</p>
+</li>
+<li><p>查看linux文件夹的权限：ls -ld 文件夹名称（所在目录）</p>
+</li>
+<li><p>修改文件及文件夹权限：</p>
+<blockquote>
+<p>sudo chmod -（代表类型）×××（所有者）×××（组用户）×××（其他用户）</p>
+</blockquote>
+</li>
+<li><p>常用修改权限的命令：</p>
+<blockquote>
+<p>sudo chmod 600 ××× （只有所有者有读和写的权限）</p>
+</blockquote>
+<blockquote>
+<p>sudo chmod 644 ××× （所有者有读和写的权限，组用户只有读的权限）</p>
+</blockquote>
+<blockquote>
+<p>sudo chmod 700 ××× （只有所有者有读和写以及执行的权限）</p>
+</blockquote>
+<blockquote>
+<p>sudo chmod 666 ××× （每个人都有读和写的权限）</p>
+</blockquote>
+<blockquote>
+<p>sudo chmod 777 ××× （每个人都有读和写以及执行的权限）</p>
+</blockquote>
+<hr>
+</li>
+</ul>
+<h4 id="chmod"><a href="#chmod" class="headerlink" title="========================chmod======================="></a>========================chmod=======================</h4><blockquote>
+<p>指令名称 : chmod </p>
+</blockquote>
+<blockquote>
+<p>使用权限 : 所有使用者 </p>
+</blockquote>
+<blockquote>
+<p>使用方式 : chmod [-cfvR] [–help] [–version] mode file… </p>
+</blockquote>
+<p>说明 : Linux/Unix 的档案存取权限分为三级 : 档案拥有者、群组、其他。利用 chmod 可以藉以控制档案如何被他人所存取。 </p>
+<p>把计 : </p>
+<ul>
+<li><p>mode : 权限设定字串，格式如下 : [ugoa…][[+-=][rwxX]…][,…]，其中u 表示该档案的拥有者，g 表示与该档案的拥有者属于同一个群体(group)者，o 表示其他以外的人，a 表示这三者皆是。 </p>
+<p>+ 表示增加权限、- 表示取消权限、= 表示唯一设定权限。 </p>
+<p>r 表示可读取，w 表示可写入，x 表示可执行，X 表示只有当该档案是个子目录或者该档案已经被设定过为可执行。 </p>
+<ul>
+<li>-c : 若该档案权限确实已经更改，才显示其更改动作 </li>
+<li>-f : 若该档案权限无法被更改也不要显示错误讯息 </li>
+<li>-v : 显示权限变更的详细资料 </li>
+<li>-R : 对目前目录下的所有档案与子目录进行相同的权限变更(即以递回的方式逐个变更) </li>
+<li>–help : 显示辅助说明 </li>
+<li>–version : 显示版本 </li>
+</ul>
+</li>
+</ul>
+<p>范例 :将档案 file1.txt 设为所有人皆可读取 : <code>chmod ugo+r file1.txt</code></p>
+<p>将档案 file1.txt 设为所有人皆可读取 : <code>chmod a+r file1.txt</code></p>
+<p>将档案 file1.txt 与 file2.txt 设为该档案拥有者，与其所属同一个群体者可写入，但其他以外的人则不可写入 : <code>chmod ug+w,o-w file1.txt file2.txt</code></p>
+<p>将 ex1.py 设定为只有该档案拥有者可以执行 : <code>chmod u+x ex1.py</code></p>
+<p>将目前目录下的所有档案与子目录皆设为任何人可读取 : <code>chmod -R a+r *</code></p>
+<p>此外chmod也可以用数字来表示权限如 <code>chmod 777 file</code><br>语法为：<code>chmod abc file</code></p>
+<blockquote>
+<p>其中a,b,c各为一个数字，分别表示User、Group、及Other的权限。 </p>
+</blockquote>
+<blockquote>
+<p>r=4，w=2，x=1 </p>
+</blockquote>
+<blockquote>
+<p>若要rwx属性则4+2+1=7； </p>
+</blockquote>
+<blockquote>
+<p>若要rw-属性则4+2=6； </p>
+</blockquote>
+<blockquote>
+<p>若要r-x属性则4+1=5。 </p>
+</blockquote>
+<p>范例： </p>
+<p><code>chmod a=rwx file</code>和 <code>chmod 777 file</code>效果相同 </p>
+<p><code>chmod ug=rwx,o=x file</code>和 <code>chmod 771 file</code>效果相同 </p>
+<p>若用<code>chmod 4755 filename</code>可使此程式具有root的权限 </p>
+<hr>
+<h4 id="chown"><a href="#chown" class="headerlink" title="======================== chown ======================="></a>======================== chown =======================</h4><blockquote>
+<p>指令名称 : chown </p>
+<p>使用权限 : root </p>
+<p>使用方式 : chmod [-cfhvR] [–help] [–version] user[:group] file… </p>
+</blockquote>
+<blockquote>
+<p>说明 : Linux/Unix 是多人多工作业系统，所有的档案皆有拥有者。利用 chown 可以将档案的拥有者加以改变。一般来说，这个指令只有是由系统管理者(root)所使用，一般使用者没有权限可以改变别人的档案拥有者，也没有权限可以自己的档案拥有者改设为别人。只有系统管理者(root)才有这样的权限。 </p>
+</blockquote>
+<p>把计 : </p>
+<ul>
+<li>user : 新的档案拥有者的使用者 <ul>
+<li>IDgroup : 新的档案拥有者的使用者群体(group)</li>
+<li>-c : 若该档案拥有者确实已经更改，才显示其更改动作</li>
+<li>-f : 若该档案拥有者无法被更改也不要显示错误讯息</li>
+<li>-h : 只对于连结(link)进行变更，而非该 link 真正指向的档案</li>
+<li>-v : 显示拥有者变更的详细资料</li>
+<li>-R : 对目前目录下的所有档案与子目录进行相同的拥有者变更(即以递回的方式逐个变更)</li>
+<li>–help : 显示辅助说明</li>
+<li>–version : 显示版本 </li>
+</ul>
+</li>
+</ul>
+<p>范例 : </p>
+<p>将档案 file1.txt 的拥有者设为 users 群体的使用者 jessie :<br><code>chown jessie:users file1.txt</code></p>
+<p>将目前目录下的所有档案与子目录的拥有者皆设为 users 群体的使用者 lamport :<br><code>chmod -R lamport:users *</code></p>
+<ul>
+<li>-rw——- (600) – 只有属主有读写权限。 </li>
+<li>-rw-r–r– (644) – 只有属主有读写权限；而属组用户和其他用户只有读权限。 </li>
+<li>-rwx—— (700) – 只有属主有读、写、执行权限。 </li>
+<li>-rwxr-xr-x (755) – 属主有读、写、执行权限；而属组用户和其他用户只有读、执行权限。 </li>
+<li>-rwx–x–x (711) – 属主有读、写、执行权限；而属组用户和其他用户只有执行权限。 </li>
+<li>-rw-rw-rw- (666) – 所有用户都有文件读、写权限。这种做法不可取。 </li>
+<li>-rwxrwxrwx (777) – 所有用户都有读、写、执行权限。更不可取的做法。 </li>
+</ul>
+<p>以下是对目录的两个普通设定: </p>
+<ul>
+<li>drwx—— (700) - 只有属主可在目录中读、写。 </li>
+<li>drwxr-xr-x (755) - 所有用户可读该目录，但只有属主才能改变目录中的内容。 </li>
+</ul>
+
       
     </div>
     
@@ -391,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/02/iOS-缩小静态库，ipa包大小/" rel="next" title="iOS 缩小静态库，ipa包大小">
-                <i class="fa fa-chevron-left"></i> iOS 缩小静态库，ipa包大小
+              <a href="/2017/05/14/基于xcode8自动打包python脚本/" rel="next" title="基于xcode8自动打包python脚本">
+                <i class="fa fa-chevron-left"></i> 基于xcode8自动打包python脚本
               </a>
             
           </div>
@@ -401,8 +512,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/01/clang的使用/" rel="prev" title="浅尝iOS使用clang">
-                浅尝iOS使用clang <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/27/字节序：Big-Endian-和-Little-Endian/" rel="prev" title="字节序：Big Endian 和 Little Endian">
+                字节序：Big Endian 和 Little Endian <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -455,8 +566,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -498,6 +618,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#chmod"><span class="nav-number">1.</span> <span class="nav-text">========================chmod=======================</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chown"><span class="nav-number">2.</span> <span class="nav-text">======================== chown =======================</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
