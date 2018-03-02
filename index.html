@@ -289,6 +289,561 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2018/02/05/lipo-用法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Simon's Blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/05/lipo-用法/" itemprop="url">lipo的简单用法用法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-05T13:46:58+08:00">
+                2018-02-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="lipo是管理Fat-File的工具-可以查看cpu架构-提取特定架构，整合和拆分库文件。"><a href="#lipo是管理Fat-File的工具-可以查看cpu架构-提取特定架构，整合和拆分库文件。" class="headerlink" title="lipo是管理Fat File的工具, 可以查看cpu架构, 提取特定架构，整合和拆分库文件。"></a>lipo是管理Fat File的工具, 可以查看cpu架构, 提取特定架构，整合和拆分库文件。</h4><p>  ● lipo -info xxxx.framework/xxxx或/xxxx.a<br>查看信息,支持的cpu架构列表</p>
+<p>  ● lipo -create xxxx xxxx -output xxxx<br>整合成Fat文件</p>
+<p>  ● lipo xxxx -thin cpu(armv7/arm64等) -output xxxx<br>提取特定的cpu架构的thin文件</p>
+<p>  ● lipo -remove cpu(armv7/arm64等) xxxx -output xxxx<br>移除掉特定的cpu架构的文件</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2017/11/28/虚函数表（virtual-table）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Simon's Blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/28/虚函数表（virtual-table）/" itemprop="url">虚函数表（virtual table）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T14:40:34+08:00">
+                2017-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>C++通过继承（inheritance）和虚函数（virtual function）来实现多态性，简单的说就是，将基类的指针或引用绑定到子类的实例，然后通过基类的指针或引用调用实际字累的成员函数（虚函数）。本文将介绍单继承、多继承下虚函数的实现机制。</p>
+</blockquote>
+<h3 id="一、虚函数表"><a href="#一、虚函数表" class="headerlink" title="一、虚函数表"></a>一、虚函数表</h3><blockquote>
+<p>为了支持虚函数机制，编译器为每一个拥有虚函数的类的实类创建了一个虚函数表（virtual table），这个表中有许多槽（slot），每个槽中存放的是虚函数的地址。虚函数表解决了继承、覆盖、添加虚函数的问题，保证其真实的反应实际的函数。</p>
+</blockquote>
+<blockquote>
+<p>为了能够找到virtual table，编译器在每个拥有虚函数的类中插入了一个成员指针vptr，指向虚函数表。</p>
+</blockquote>
+<p>下面是个🌰：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:	</span><br><span class="line">	  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">x</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::x()"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;	</span><br><span class="line">	  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">y</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::y()"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;	</span><br><span class="line">	  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">z</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::z()"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span><span class="params">(*pFun)</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	Base b;	</span><br><span class="line">	<span class="keyword">int</span>* vptr = (<span class="keyword">int</span>*)&amp;b;                     <span class="comment">// 虚函数表地址	</span></span><br><span class="line">	pFun func1 = (pFun)*((<span class="keyword">int</span>*)*vptr);        <span class="comment">// 第一个函数</span></span><br><span class="line">	pFun func2 = (pFun)*((<span class="keyword">int</span>*)*vptr+<span class="number">1</span>);      <span class="comment">// 第二个函数	</span></span><br><span class="line">	pFun func3 = (pFun)*((<span class="keyword">int</span>*)*vptr+<span class="number">2</span>);      <span class="comment">// 第三个函数		</span></span><br><span class="line">	func1();     <span class="comment">// 输出Base::x()	</span></span><br><span class="line">	func2();     <span class="comment">// 输出Base::y()	</span></span><br><span class="line">	func3();     <span class="comment">// 输出Base::z()	</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2017/11/27/内存对齐（Memoey-alignment）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Simon's Blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/27/内存对齐（Memoey-alignment）/" itemprop="url">内存对齐（Memoey alignment）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T14:25:28+08:00">
+                2017-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="一、什么是内存对齐"><a href="#一、什么是内存对齐" class="headerlink" title="一、什么是内存对齐"></a>一、什么是内存对齐</h3><blockquote>
+<p>也叫字节对齐，现在计算机中内存都是按照byte划分的，从理论上讲似乎对任何类型的变量的访问都可以从任何地址开始，但是实际情况是在访问特定类型变量的时候在特定的内存地址访问，这就需要各种类型数据按照一定的规则在空间上排列，而不是顺序的一个接一个的排放，这就就是对齐。</p>
+</blockquote>
+<p>举个🌰，uint32_t所占内存为4 bytes，char为1 byte。如果把它们放在一个结构体中，则所占的内存空间应该是4 + 1 = 5 bytes。而事实上，在VS2012和GCC环境下，sizeof操作的结果都是8 bytes：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span>    </span><br><span class="line">	<span class="keyword">uint32_t</span> m1;    <span class="comment">// #include&lt;stdint.h&gt;    	char m2;</span></span><br><span class="line">&#125;varray;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;    </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="keyword">sizeof</span>(varray.m1));  <span class="comment">// 输出4    </span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="keyword">sizeof</span>(varray.m2));  <span class="comment">// 输出1    </span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="keyword">sizeof</span>(varray));     <span class="comment">// 输出8    </span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/5107216-f21a233f87a91ce5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="示图"><br>上图是以4个字节为一个单位的对齐单位。</p>
+<h3 id="二、为什么要内存对齐"><a href="#二、为什么要内存对齐" class="headerlink" title="二、为什么要内存对齐"></a>二、为什么要内存对齐</h3><blockquote>
+<p>之所以要内存对齐，有两方面的原因：</p>
+</blockquote>
+<blockquote>
+<p>● 平台原因： 各个硬件平台对存储空间的处理上有很大的不同。一些平台对某些特定类型的数据只能从某些特定地址开始存取。——比如有些架构的CPU在访问一个没有进行对齐的变量的时候会发生错误，那么在这种架构下变成必须保证字节对齐。</p>
+</blockquote>
+<blockquote>
+<p>● 性能原因：内存对齐可以提高存取效率，——比如有些平台每次读都是从偶数地址开始，如果一个int型（假设为332位系统）如果存放在偶数地址开始的地方，那么一个周期就可以读出着32 bit，而如果存放在奇地址开始的地方，就需要2个读周期，并对两次独处的结果的高低字节进行拼凑才能得到32 bit的数据。</p>
+</blockquote>
+<h3 id="三、对齐的规则"><a href="#三、对齐的规则" class="headerlink" title="三、对齐的规则"></a>三、对齐的规则</h3><blockquote>
+<p>每个特定平台的编译都有自己的默认“对齐系数”，也叫“对齐模数”。你可以通过预编译命令#pragma pack(n), n = 1，2，4，8，16来改变这一系数，其中n就是你要制定的“对齐系数”。</p>
+</blockquote>
+<h4 id="1-概念："><a href="#1-概念：" class="headerlink" title="1. 概念："></a>1. 概念：</h4><p>有效对齐值：是#pragma pack指定值和结构体中最长数据类型中较小的那个。有效对齐值也叫对齐单位。<br>【注】VS、VC默认是#pragma pack(8) 而GCC默认是#pragma pack(4) ,并且GCC只支持1，2，4对齐。</p>
+<h4 id="2-规则："><a href="#2-规则：" class="headerlink" title="2. 规则："></a>2. 规则：</h4><p>1、结构体变量的首地址是有效对齐值的整数倍<br>2、结构体第一个成员的偏移量（offset）为0，以后每个成员相对于结构体首地址的offset都是该成员大小与有效对齐值中较小那个的整数倍，如有需要编译器会在成员之间加上填充字节。<br>3、结构体总大小为有效对齐址的整数倍，如有需要编译器会在最末一个成员之后加上填充字节。<br>4、结构体内类型相同的连续元素将在连续的空间内，和数组一样。</p>
+<p>下面给出几个例子帮助理解（测试环境为VS2012）：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span>    </span><br><span class="line">	<span class="keyword">int</span> i;    <span class="comment">// 4个字节    </span></span><br><span class="line">	<span class="keyword">char</span> c1;  <span class="comment">// 1个字节    </span></span><br><span class="line">	<span class="keyword">char</span> c2;  <span class="comment">// 1个字节</span></span><br><span class="line">&#125;x1;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span>    </span><br><span class="line">	<span class="keyword">char</span> c1;  <span class="comment">// 1个字节    </span></span><br><span class="line">	<span class="keyword">int</span> i;    <span class="comment">// 4个字节    </span></span><br><span class="line">	<span class="keyword">char</span> c2;  <span class="comment">// 1个字节</span></span><br><span class="line">&#125;x2;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span>    </span><br><span class="line">	<span class="keyword">char</span> c1;  <span class="comment">// 1个字节    </span></span><br><span class="line">	<span class="keyword">char</span> c2;  <span class="comment">// 1个字节    </span></span><br><span class="line">	<span class="keyword">int</span> i;    <span class="comment">// 4个字节</span></span><br><span class="line">&#125;x3;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;    </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="keyword">sizeof</span>(x1));  <span class="comment">// 输出8   </span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="keyword">sizeof</span>(x2));  <span class="comment">// 输出12   </span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="keyword">sizeof</span>(x3));  <span class="comment">// 输出8   </span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>可以看出，上面定义的三个结构体只是交换了成员声明的顺序。由于结构体中最长的数据类型为4个字节，而VS2010默认#pragma pack(8)，所以有效对齐值（对齐单位）为 4 bytes。根据前三条规则可以画出以下图：<br><img src="http://upload-images.jianshu.io/upload_images/5107216-109ebbbaf664cdec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</blockquote>
+<p>例二：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span>    </span><br><span class="line">	<span class="keyword">int</span> a;      <span class="comment">// 4个字节    </span></span><br><span class="line">	<span class="keyword">char</span> b[<span class="number">6</span>];  <span class="comment">// 6个字节    </span></span><br><span class="line">	<span class="keyword">double</span> c;   <span class="comment">// 8个字节</span></span><br><span class="line">&#125;st;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;    </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="keyword">sizeof</span>(st));  <span class="comment">// 输出24    	return 0;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面结构体中最长的数据类型 double 为 8 个字节，而VS2012中默认#pragma pack(8)，所以有效对齐值（对齐单位）为 8 bytes。根据前三条规则可以画出以下图：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5107216-dbfbe856e1a7b4ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>其中的字符数组 char b[6] 可以看做6个单独的 char 成员。</p>
+<h3 id="四、-pragma-pack-n"><a href="#四、-pragma-pack-n" class="headerlink" title="四、#pragma pack(n)"></a>四、#pragma pack(n)</h3><p>  ● 上面说到，不同平台上编译器的 pragma pack 默认值不同。而我们可以通过预编译命令#pragma pack(n)，n=1,2,4,8,16 来改变这一对齐系数。</p>
+<p>  ● <code>#pragma pack(n)</code>是通过改变有效对齐值来改变数据成员在内存中的布局，若你设定的 n 值没有影响或改变有效对齐值，则成员在内存中的布局不会改变。</p>
+<blockquote>
+<p>这时的有效对齐值（对齐单位）为1 字节，则根据对齐规则，可知成员都是连续存储的。</p>
+</blockquote>
+<p><a href="http://songlee24.github.io/2014/09/20/memory-alignment/#more" target="_blank" rel="noopener">http://songlee24.github.io/2014/09/20/memory-alignment/#more</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2017/11/27/字节序：Big-Endian-和-Little-Endian/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Simon's Blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/27/字节序：Big-Endian-和-Little-Endian/" itemprop="url">字节序：Big Endian 和 Little Endian</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T10:16:02+08:00">
+                2017-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="一、字节序"><a href="#一、字节序" class="headerlink" title="一、字节序"></a>一、字节序</h3><blockquote>
+<p>字节序，也就是字节的顺序，指的是多字节的数据在内存中的存放顺序。</p>
+</blockquote>
+<p>在几乎所有的机器上，多字节对象都被存储为连续的字节序列。例如：如果C／C++中的一个int型变量a的起始地址是&amp;a = 0x100，那么a的四个字节将被存储在存储器的0x101，0x102，0x103位置。</p>
+<p>   根据整数a在连续的4byte内存中的存储顺序，字节序被分为大端序（Big Endian）与小端序（Little Endian）两类。然后就牵涉出CPU的两大派系：<br>  ● Motorola 6800， PowerPC 970， SPARC（除V9外）等处理器采用Big Endian方式存储数据<br>  ● x86系列，VAX，PDP-11等处理器采用Little Endian方式存储数据。</p>
+<h3 id="二、大端与小端"><a href="#二、大端与小端" class="headerlink" title="二、大端与小端"></a>二、大端与小端</h3><p><img src="http://upload-images.jianshu.io/upload_images/5107216-6a0c721bd1870be9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<blockquote>
+<p>我相信上面的图已经够直观了。也就是说：<br>  ● Big Endian 是指低地址端 存放 高位字节。<br>  ● Little Endian 是指低地址端 存放 低位字节。<br>各自的优势：</p>
+<ol>
+<li>Big Endian：符号位的判定固定为第一个字节，容易判断正负。</li>
+<li>Little Endian：长度为1，2，4字节的数，排列方式都是一样的，数据类型转换非常方便。</li>
+</ol>
+</blockquote>
+<h3 id="三、为什么要注意字节序"><a href="#三、为什么要注意字节序" class="headerlink" title="三、为什么要注意字节序"></a>三、为什么要注意字节序</h3><blockquote>
+<p>如果你写的程序只在单机环境下面运行，并且不和别人的程序打交道，那么你完全可以忽略字节序的存在。</p>
+</blockquote>
+<p>但是，如果你的程序要跟别人的程序产生交互呢？ 比如，当一个 C/C++ 的程序要与一个 Java 程序交互时：</p>
+<p>  ● C/C++语言编写的程序里数据存储顺序是跟编译平台所在的CPU相关的，而现在比较普遍的 x86 处理器是 Little Endian</p>
+<p>  ● JAVA编写的程序则唯一采用 Big Endian 方式来存储数据</p>
+<blockquote>
+<p>试想，如果你的C/C++程序将变量 a = 0x12345678 的首地址传递给了Java程序，由于Java采取 Big Endian 方式存储数据，很自然的它会将你的数据翻译为 0x78563412。显然，问题就出现了！！！<br>另外，网络传输一般采用 Big Endian，也被称之为网络字节序，或网络序。当两台采用不同字节序的主机通信时，在发送数据之前都必须经过字节序的转换成为网络字节序后再进行传输。</p>
+</blockquote>
+<h3 id="四、判断机器的字节序"><a href="#四、判断机器的字节序" class="headerlink" title="四、判断机器的字节序"></a>四、判断机器的字节序</h3><p>由于 C/C++ 存储数据时的字节序依赖所在平台的CPU，所以我们可以通过C/C++程序判定机器的端序：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Endianness</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	<span class="keyword">int</span> a = <span class="number">0x12345678</span>;	</span><br><span class="line">	<span class="keyword">if</span>( *((<span class="keyword">char</span>*)&amp;a) == <span class="number">0x12</span>)		</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Big Endian"</span> &lt;&lt; <span class="built_in">endl</span>;	</span><br><span class="line">	<span class="keyword">else</span>		</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Little Endian"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="五、网络序和主机序"><a href="#五、网络序和主机序" class="headerlink" title="五、网络序和主机序"></a>五、网络序和主机序</h3><blockquote>
+<p>网络字节序：TCP/IP各层协议将字节序定义为 Big Endian，因此TCP/IP协议中使用的字节序是大端序。<br>主机字节序：整数在内存中存储的顺序，现在 Little Endian 比较普遍。（不同的 CPU 有不同的字节序）<br>在进行网络通信时 通常需要调用相应的函数进行主机序和网络序的转换。Berkeley socket API 定义了一组转换函数，用于16和32bit整数在网络序和本机字节序之间的转换。htonl，htons用于本机序转换到网络序；ntohl，ntohs用于网络序转换到本机序。</p>
+</blockquote>
+<p>转自<a href="http://songlee24.github.io/2015/05/02/endianess/" target="_blank" rel="noopener">http://songlee24.github.io/2015/05/02/endianess/</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2017/05/14/基于xcode8自动打包python脚本/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -980,9 +1535,140 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2016/10/12/urlEncode标准实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Simon's Blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/10/12/urlEncode标准实现/" itemprop="url">urlEncode标准实现</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-12T14:05:19+08:00">
+                2016-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>关于UrlEncode的实现(C++)，网上有很多不同的版本，对需要编码的字符集的选取并不统一。那么到底有没有标准呢？答案是有的，参见<a href="https://en.wikipedia.org/wiki/Percent-encoding" target="_blank" rel="noopener">wiki</a></p>
+</blockquote>
+<p> 绝对不编码的，只有字母、数字、短横线(-)、下划线(_)、点(.)和波浪号(~)，其他字符要视情况而定，所以一般性的urlencode只需保留上述字符不进行编码。</p>
+<p>下面给出实现：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">char</span> <span class="title">ToHex</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span> x)</span>   </span></span><br><span class="line"><span class="function"></span>&#123;   </span><br><span class="line">    <span class="keyword">return</span>  x &gt; <span class="number">9</span> ? x + <span class="number">55</span> : x + <span class="number">48</span>;   </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">char</span> <span class="title">FromHex</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span> x)</span>   </span></span><br><span class="line"><span class="function"></span>&#123;   </span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> y;  </span><br><span class="line">    <span class="keyword">if</span> (x &gt;= <span class="string">'A'</span> &amp;&amp; x &lt;= <span class="string">'Z'</span>) y = x - <span class="string">'A'</span> + <span class="number">10</span>;  </span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (x &gt;= <span class="string">'a'</span> &amp;&amp; x &lt;= <span class="string">'z'</span>) y = x - <span class="string">'a'</span> + <span class="number">10</span>;  </span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (x &gt;= <span class="string">'0'</span> &amp;&amp; x &lt;= <span class="string">'9'</span>) y = x - <span class="string">'0'</span>;  </span><br><span class="line">    <span class="keyword">else</span> assert(<span class="number">0</span>);  </span><br><span class="line">    <span class="keyword">return</span> y;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">UrlEncode</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; str)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> strTemp = <span class="string">""</span>;  </span><br><span class="line">    <span class="keyword">size_t</span> length = str.length();  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; length; i++)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">isalnum</span>((<span class="keyword">unsigned</span> <span class="keyword">char</span>)str[i]) ||   </span><br><span class="line">            (str[i] == <span class="string">'-'</span>) ||  </span><br><span class="line">            (str[i] == <span class="string">'_'</span>) ||   </span><br><span class="line">            (str[i] == <span class="string">'.'</span>) ||   </span><br><span class="line">            (str[i] == <span class="string">'~'</span>))  </span><br><span class="line">            strTemp += str[i];  </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (str[i] == <span class="string">' '</span>)  </span><br><span class="line">            strTemp += <span class="string">"+"</span>;  </span><br><span class="line">        <span class="keyword">else</span>  </span><br><span class="line">        &#123;  </span><br><span class="line">            strTemp += <span class="string">'%'</span>;  </span><br><span class="line">            strTemp += ToHex((<span class="keyword">unsigned</span> <span class="keyword">char</span>)str[i] &gt;&gt; <span class="number">4</span>);  </span><br><span class="line">            strTemp += ToHex((<span class="keyword">unsigned</span> <span class="keyword">char</span>)str[i] % <span class="number">16</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> strTemp;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">UrlDecode</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; str)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> strTemp = <span class="string">""</span>;  </span><br><span class="line">    <span class="keyword">size_t</span> length = str.length();  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; length; i++)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="keyword">if</span> (str[i] == <span class="string">'+'</span>) strTemp += <span class="string">' '</span>;  </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (str[i] == <span class="string">'%'</span>)  </span><br><span class="line">        &#123;  </span><br><span class="line">            assert(i + <span class="number">2</span> &lt; length);  </span><br><span class="line">            <span class="keyword">unsigned</span> <span class="keyword">char</span> high = FromHex((<span class="keyword">unsigned</span> <span class="keyword">char</span>)str[++i]);  </span><br><span class="line">            <span class="keyword">unsigned</span> <span class="keyword">char</span> low = FromHex((<span class="keyword">unsigned</span> <span class="keyword">char</span>)str[++i]);  </span><br><span class="line">            strTemp += high*<span class="number">16</span> + low;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">else</span> strTemp += str[i];  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> strTemp;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://tool.chinaz.com/tools/urlencode.aspx" target="_blank" rel="noopener">线上转换工具</a></p>
+<p><a href="http://blog.csdn.net/gemo/article/details/8468311" target="_blank" rel="noopener">摘自CSDN</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1026,7 +1712,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
