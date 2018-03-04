@@ -77,6 +77,9 @@
 
 
 
+  <meta property="fb:admins" content="https://www.facebook.com/wang.simon.564" />
+  <meta property="fb:app_id" content="" />
+
 
 
 <meta name="description" content="昨晚突然有个朋友问起coredata的使用，后来便自己写了个demo看看，发现跟Xcode7使用有些不一样，今天有时间就记下来跟大家分享下。创建工程时勾选use core data  打开工程时会发现比多一个.xcdatamodeld文件，名字和工程名一致，demo工程名为CoreDataDemo。  选中该文件 点击add Entity 可创建实体，需大写开头，可以理解为model，同时可添加属">
@@ -136,6 +139,24 @@
 
   <title>xcode8使用coredata | Simon's Blogs</title>
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
 
 
@@ -326,6 +347,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/14/xcode8使用coredata/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://www.jianshu.com/u/1975769cbce2/2017/05/14/xcode8使用coredata/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
           
 
           
@@ -403,6 +434,24 @@
 
       
       
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+
+        
+        </div>
+      
       
 
       
@@ -451,6 +500,16 @@
           
 
   
+    <div class="comments" id="comments">
+      <div class="fb-comments"
+           data-href="https://www.jianshu.com/u/1975769cbce2/2017/05/14/xcode8使用coredata/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    </div>
+
+  
 
 
 
@@ -483,7 +542,7 @@
                 alt="Simon" />
             
               <p class="site-author-name" itemprop="name">Simon</p>
-              <p class="site-description motion-element" itemprop="description">Never give up ,keep fighting</p>
+              <p class="site-description motion-element" itemprop="description">Never give up , keep fighting</p>
           </div>
 
           <nav class="site-state motion-element">

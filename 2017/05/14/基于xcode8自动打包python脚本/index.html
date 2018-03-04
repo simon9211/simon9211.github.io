@@ -77,6 +77,9 @@
 
 
 
+  <meta property="fb:admins" content="https://www.facebook.com/wang.simon.564" />
+  <meta property="fb:app_id" content="" />
+
 
 
 <meta name="description" content="最近老板兴起，想搞个快速可复制交付的东西，简言之就是在平台填些配置信息（display name，bundle id，version code），然后点点鼠标，就生成另外一个应用，一开始也是一脸懵逼，然后各种撕逼，后来还是做成了。话不多说，先来说说过程中遇到的坑们。 一、脚本  我这边选的是python脚本，这之前也是py小白，后来找了廖雪峰老师的py教程学习了下基本语法，在网上也找了些写好的脚">
@@ -131,6 +134,24 @@
 
   <title>基于xcode8自动打包python脚本 | Simon's Blogs</title>
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
 
 
@@ -321,6 +342,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/14/基于xcode8自动打包python脚本/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://www.jianshu.com/u/1975769cbce2/2017/05/14/基于xcode8自动打包python脚本/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
           
 
           
@@ -383,6 +414,24 @@
 
       
       
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+
+        
+        </div>
+      
       
 
       
@@ -431,6 +480,16 @@
           
 
   
+    <div class="comments" id="comments">
+      <div class="fb-comments"
+           data-href="https://www.jianshu.com/u/1975769cbce2/2017/05/14/基于xcode8自动打包python脚本/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    </div>
+
+  
 
 
 
@@ -472,7 +531,7 @@
                 alt="Simon" />
             
               <p class="site-author-name" itemprop="name">Simon</p>
-              <p class="site-description motion-element" itemprop="description">Never give up ,keep fighting</p>
+              <p class="site-description motion-element" itemprop="description">Never give up , keep fighting</p>
           </div>
 
           <nav class="site-state motion-element">

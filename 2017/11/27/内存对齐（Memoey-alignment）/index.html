@@ -77,6 +77,9 @@
 
 
 
+  <meta property="fb:admins" content="https://www.facebook.com/wang.simon.564" />
+  <meta property="fb:app_id" content="" />
+
 
 
 <meta name="description" content="一、什么是内存对齐 也叫字节对齐，现在计算机中内存都是按照byte划分的，从理论上讲似乎对任何类型的变量的访问都可以从任何地址开始，但是实际情况是在访问特定类型变量的时候在特定的内存地址访问，这就需要各种类型数据按照一定的规则在空间上排列，而不是顺序的一个接一个的排放，这就就是对齐。  举个🌰，uint32_t所占内存为4 bytes，char为1 byte。如果把它们放在一个结构体中，则所占的">
@@ -132,6 +135,24 @@
 
   <title>内存对齐（Memoey alignment） | Simon's Blogs</title>
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
 
 
@@ -322,6 +343,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/27/内存对齐（Memoey-alignment）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://www.jianshu.com/u/1975769cbce2/2017/11/27/内存对齐（Memoey-alignment）/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
           
 
           
@@ -408,6 +439,24 @@
 
       
       
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+
+        
+        </div>
+      
       
 
       
@@ -456,6 +505,16 @@
           
 
   
+    <div class="comments" id="comments">
+      <div class="fb-comments"
+           data-href="https://www.jianshu.com/u/1975769cbce2/2017/11/27/内存对齐（Memoey-alignment）/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    </div>
+
+  
 
 
 
@@ -497,7 +556,7 @@
                 alt="Simon" />
             
               <p class="site-author-name" itemprop="name">Simon</p>
-              <p class="site-description motion-element" itemprop="description">Never give up ,keep fighting</p>
+              <p class="site-description motion-element" itemprop="description">Never give up , keep fighting</p>
           </div>
 
           <nav class="site-state motion-element">

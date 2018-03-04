@@ -77,6 +77,9 @@
 
 
 
+  <meta property="fb:admins" content="https://www.facebook.com/wang.simon.564" />
+  <meta property="fb:app_id" content="" />
+
 
 
 <meta name="description" content="所谓的原子操作，取的就是“原子是最小的、不可分割的最小个体”的意义，它表示在多个线程访问同一个全局资源的时候，能够确保所有其他的线程都不在同一时间内访问相同的资源。也就是他确保了在同一时刻只有唯一的线程对这个资源进行访问。这有点类似互斥对象对共享资源的访问的保护，但是原子操作更加接近底层，因而效率更高。 在以往的C++标准中并没有对原子操作进行规定，我们往往是使用汇编语言，或者是借助第三方的线程库">
@@ -128,6 +131,24 @@
 
   <title>c++原子操作 | Simon's Blogs</title>
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
 
 
@@ -318,6 +339,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/10/11/c-原子操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://www.jianshu.com/u/1975769cbce2/2016/10/11/c-原子操作/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
           
 
           
@@ -390,6 +421,24 @@
 
       
       
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+
+        
+        </div>
+      
       
 
       
@@ -438,6 +487,16 @@
           
 
   
+    <div class="comments" id="comments">
+      <div class="fb-comments"
+           data-href="https://www.jianshu.com/u/1975769cbce2/2016/10/11/c-原子操作/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    </div>
+
+  
 
 
 
@@ -479,7 +538,7 @@
                 alt="Simon" />
             
               <p class="site-author-name" itemprop="name">Simon</p>
-              <p class="site-description motion-element" itemprop="description">Never give up ,keep fighting</p>
+              <p class="site-description motion-element" itemprop="description">Never give up , keep fighting</p>
           </div>
 
           <nav class="site-state motion-element">
