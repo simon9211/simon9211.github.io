@@ -82,17 +82,17 @@
 
 
 
-<meta name="description" content="职位 ：iOS中级开发工程师 坐标 ：上海 兴趣 ： 户外骑行，喜欢各种运动（羽毛球，游泳）  E-mail : simon9211@126.com Github￼ 简书 微博 Twiter">
+<meta name="description" content="title: iOS中的Block访问变量使用注意问题date: 2018-09-14 20:33:18tags:  oc coredate Xcodecategories: iOS  ##一、Block内访问局部变量 123456789int main(int argc, char * argv[]) &amp;#123;    int global = 100;    void (^myBlock)">
 <meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/about/index.html">
+<meta property="og:title" content="Simon&#39;s Blogs">
+<meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/iOS中的Block访问变量使用注意问题.html">
 <meta property="og:site_name" content="Simon&#39;s Blogs">
-<meta property="og:description" content="职位 ：iOS中级开发工程师 坐标 ：上海 兴趣 ： 户外骑行，喜欢各种运动（羽毛球，游泳）  E-mail : simon9211@126.com Github￼ 简书 微博 Twiter">
+<meta property="og:description" content="title: iOS中的Block访问变量使用注意问题date: 2018-09-14 20:33:18tags:  oc coredate Xcodecategories: iOS  ##一、Block内访问局部变量 123456789int main(int argc, char * argv[]) &amp;#123;    int global = 100;    void (^myBlock)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-02T08:21:00.467Z">
+<meta property="og:updated_time" content="2018-09-21T06:19:24.256Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于我">
-<meta name="twitter:description" content="职位 ：iOS中级开发工程师 坐标 ：上海 兴趣 ： 户外骑行，喜欢各种运动（羽毛球，游泳）  E-mail : simon9211@126.com Github￼ 简书 微博 Twiter">
+<meta name="twitter:title" content="Simon&#39;s Blogs">
+<meta name="twitter:description" content="title: iOS中的Block访问变量使用注意问题date: 2018-09-14 20:33:18tags:  oc coredate Xcodecategories: iOS  ##一、Block内访问局部变量 123456789int main(int argc, char * argv[]) &amp;#123;    int global = 100;    void (^myBlock)">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://www.jianshu.com/u/1975769cbce2/about/"/>
+  <link rel="canonical" href="https://www.jianshu.com/u/1975769cbce2/iOS中的Block访问变量使用注意问题.html"/>
 
 
 
 
 
-  <title>关于我 | Simon's Blogs</title>
+  <title> | Simon's Blogs</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -275,7 +275,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">关于我</h1>
+	<h1 class="post-title" itemprop="name headline"></h1>
 
 
 
@@ -287,15 +287,50 @@
       <div class="post-body">
         
         
-          <p>职位 ：iOS中级开发工程师</p>
-<p>坐标 ：上海</p>
-<p>兴趣 ： 户外骑行，喜欢各种运动（羽毛球，游泳）</p>
-<hr>
-<p>E-mail : <a href="mailto:simon9211@126.com" target="_blank" rel="noopener">simon9211@126.com</a></p>
-<p><a href="https://github.com/simon9211" target="_blank" rel="noopener">Github</a>￼</p>
-<p><a href="https://www.jianshu.com/u/1975769cbce2">简书</a></p>
-<p><a href="https://weibo.com/p/1005053164113847" target="_blank" rel="noopener">微博</a></p>
-<p><a href="https://twitter.com/simonwwwwww" target="_blank" rel="noopener">Twiter</a></p>
+          <hr>
+<p>title: iOS中的Block访问变量使用注意问题<br>date: 2018-09-14 20:33:18<br>tags:</p>
+<ul>
+<li>oc</li>
+<li>coredate</li>
+<li>Xcode<br>categories: iOS</li>
+</ul>
+<p>##一、Block内访问局部变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char * argv[]) &#123;</span><br><span class="line">    int global = 100;</span><br><span class="line">    void (^myBlock)() = ^&#123;</span><br><span class="line">        NSLog(@&quot;global = %d&quot;, global);</span><br><span class="line">    &#125;;</span><br><span class="line">    // 控制台输出 global = 100</span><br><span class="line">    myBlock();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###a、在声明block后，调用block之前对局部变量修改，block里面扑获的值仍是修改之前的值</p>
+<blockquote>
+<p>在Block定义时便是将局部变量的值传给Block变量所指向的结构体,因此在调用Block之前对局部变量进行修改并不会影响Block内部的值,同时内部的值也是不可修改的</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char * argv[]) &#123;</span><br><span class="line">    int global = 100;</span><br><span class="line">    void (^myBlock)() = ^&#123;</span><br><span class="line">        NSLog(@&quot;global = %d&quot;, global);</span><br><span class="line">    &#125;;</span><br><span class="line">    global = 101;</span><br><span class="line">	 // 控制台输出修改之前的 global = 100[</span><br><span class="line">    myBlock();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###b、在block中不可以直接修改局部变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char * argv[]) &#123;</span><br><span class="line">    int global = 100;</span><br><span class="line">    void (^myBlock)() = ^&#123;</span><br><span class="line">        // 提示错误</span><br><span class="line">        global ++;</span><br><span class="line">        NSLog(@&quot;global = %d&quot;, global);</span><br><span class="line">    &#125;;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<font color="#ff0000"><code>main.m:17:16: Variable is not assignable (missing __block type specifier)</code></font>
+
+
+<p>###c、__block修饰</p>
+<blockquote>
+<p>以上错误提示需要我们用<strong>block对变量进行修饰，修饰后无报错且修改成功。<br>在局部变量前使用</strong>block修饰,在Block定义时便是将局部变量的指针传给Block变量所指向的结构体,因此在调用Block之前对局部变量进行修改会影响Block内部的值,同时内部的值也是可以修改的</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char * argv[]) &#123;</span><br><span class="line">    __block int global = 100;</span><br><span class="line">    void (^myBlock)() = ^&#123;</span><br><span class="line">        // 控制台输出 global = 101</span><br><span class="line">        global ++;</span><br><span class="line">        NSLog(@&quot;global = %d&quot;, global);</span><br><span class="line">    &#125;;</span><br><span class="line">    myBlock();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>a中变量用__block修饰后，调用block之前对局部变量修改，block里面扑获的值是修改之后的值。</p>
+</blockquote>
+<p>##二、Block内访问全局变量</p>
+<blockquote>
+<p>全局变量所占用的内存只有一份,供所有函数共同调用,在Block定义时并未将全局变量的值或者指针传给Block变量所指向的结构体,因此在调用Block之前对局部变量进行修改会影响Block内部的值,同时内部的值也是可以修改的</p>
+</blockquote>
+<p>###a、在声明block后，调用block之前对局全局变量修改，block里面扑获的值是修改之后的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int global = 100;</span><br><span class="line">int main(int argc, char * argv[]) &#123;</span><br><span class="line">    void (^myBlock)() = ^&#123;</span><br><span class="line">        // 控制台输出 global = 101</span><br><span class="line">        NSLog(@&quot;global = %d&quot;, global);</span><br><span class="line">    &#125;;</span><br><span class="line">    global = 101;</span><br><span class="line">    myBlock();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###b、在block中可以直接修改全局变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int global = 100;</span><br><span class="line">int main(int argc, char * argv[]) &#123;</span><br><span class="line">    void (^myBlock)() = ^&#123;</span><br><span class="line">        global ++;</span><br><span class="line">        // 控制台输出 global = 101</span><br><span class="line">        NSLog(@&quot;global = %d&quot;, global);</span><br><span class="line">    &#125;;</span><br><span class="line">    myBlock();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>##三、Block内访问静态变量</p>
+<p>###a、在block内可以访问静态变量。</p>
+<p>###b、在声明block之后、调用Block之前对静态变量进行修改,在调用block时静态变量值是修改之后的新值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char * argv[]) &#123;</span><br><span class="line">    static int global = 100;</span><br><span class="line">    void (^myBlock)() = ^&#123;</span><br><span class="line">        // 控制台输出 global = 101</span><br><span class="line">        NSLog(@&quot;global = %d&quot;, global);</span><br><span class="line">    &#125;;</span><br><span class="line">    global = 101;</span><br><span class="line">    myBlock();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###c、在block中可以直接修改全局变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char * argv[]) &#123;</span><br><span class="line">    static int global = 100;</span><br><span class="line">    void (^myBlock)() = ^&#123;</span><br><span class="line">        global ++;</span><br><span class="line">        // 控制台输出 global = 101</span><br><span class="line">        NSLog(@&quot;global = %d&quot;, global);</span><br><span class="line">    &#125;;</span><br><span class="line">    myBlock();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>总结：对于block使用和修改变量，主要还是看block里面扑获的是变量的值还是变量的指针。局部变量扑获的是值，全局和静态则是指针。另外使用block要注意的地方就是循环引用导致的内存泄漏问题。</p>
+</blockquote>
+<p><a href="https://mp.weixin.qq.com/s/GLHGZzdygl6qqQh8IclqCA" target="_blank" rel="noopener">参考文章</a></p>
 
         
       </div>
@@ -318,7 +353,7 @@
   
     <div class="comments" id="comments">
       <div class="fb-comments"
-           data-href="https://www.jianshu.com/u/1975769cbce2/about/index.html"
+           data-href="https://www.jianshu.com/u/1975769cbce2/iOS中的Block访问变量使用注意问题.html"
            data-numposts="10"
            data-width="100%"
            data-colorscheme="light">
