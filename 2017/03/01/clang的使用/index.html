@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-5a3b9a40f448f2d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-eedf81d49d9d3533.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-f61d7db3bdb092e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-03-02T10:14:28.645Z">
+<meta property="og:updated_time" content="2018-09-21T07:10:15.885Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅尝iOS使用clang">
 <meta name="twitter:description" content="【注】本文是个人学习clang时做的一些笔记和整理，分享一下仅供参考，文中多处摘自参考文章。    好想有个能千变万化的编译器,没错就是它,就是它. —–Clang  简介   clang是一个c，c++、oc语言的轻量编译器，源码发布于BSD 协议下。  终端用户特色 快速编译和较少内存占用 有诊断功能 兼容gcc   一、查看oc中c语言的实现源码 使用vim编辑器测试 打开vim 建立.c">
@@ -430,7 +430,7 @@
 <h3 id="二、编译oc"><a href="#二、编译oc" class="headerlink" title="二、编译oc"></a>二、编译oc</h3><ul>
 <li>同样创建测试代码文件，test.m</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">        int main(int argc, const char * argv[]) &#123;</span><br><span class="line">         @autoreleasepool &#123;</span><br><span class="line">           // insert code here...</span><br><span class="line">        NSLog(@&quot;你好世界!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        return 0;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line">        <span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">         <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">           <span class="comment">// insert code here...</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"你好世界!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>输出可执行文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang -fobjc-arc -framework Foundation test.m -o outputname</span><br></pre></td></tr></table></figure>
 </li>
@@ -447,8 +447,8 @@
 </ul>
 </blockquote>
 <blockquote>
-<h4 id="总结-Clang是一个C-编写、基于LLVM、发布于LLVM-BSD许可证下的C-C-Objective-C-Objective-C-编译器。它与GNU-C语言规范几乎完全兼容-同时Clang的使用简单方便-值得我们学习"><a href="#总结-Clang是一个C-编写、基于LLVM、发布于LLVM-BSD许可证下的C-C-Objective-C-Objective-C-编译器。它与GNU-C语言规范几乎完全兼容-同时Clang的使用简单方便-值得我们学习" class="headerlink" title="总结: Clang是一个C++编写、基于LLVM、发布于LLVM BSD许可证下的C/C++/Objective-C/Objective-C++编译器。它与GNU C语言规范几乎完全兼容;同时Clang的使用简单方便,值得我们学习."></a>总结: Clang是一个C++编写、基于LLVM、发布于LLVM BSD许可证下的C/C++/Objective-C/Objective-C++编译器。它与GNU C语言规范几乎完全兼容;同时Clang的使用简单方便,值得我们学习.</h4></blockquote>
-<h4 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h4><p><a href="http://www.jianshu.com/p/30ec92f1e707">clang查看Objective-C中C语言实现源码</a></p>
+<h4 id="总结-Clang是一个C-编写、基于LLVM、发布于LLVM-BSD许可证下的C-C-objectivec-objectivec-编译器。它与GNU-C语言规范几乎完全兼容-同时Clang的使用简单方便-值得我们学习"><a href="#总结-Clang是一个C-编写、基于LLVM、发布于LLVM-BSD许可证下的C-C-objectivec-objectivec-编译器。它与GNU-C语言规范几乎完全兼容-同时Clang的使用简单方便-值得我们学习" class="headerlink" title="总结: Clang是一个C++编写、基于LLVM、发布于LLVM BSD许可证下的C/C++/objectivec/objectivec++编译器。它与GNU C语言规范几乎完全兼容;同时Clang的使用简单方便,值得我们学习."></a>总结: Clang是一个C++编写、基于LLVM、发布于LLVM BSD许可证下的C/C++/objectivec/objectivec++编译器。它与GNU C语言规范几乎完全兼容;同时Clang的使用简单方便,值得我们学习.</h4></blockquote>
+<h4 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h4><p><a href="http://www.jianshu.com/p/30ec92f1e707">clang查看objectivec中C语言实现源码</a></p>
 <p><a href="http://www.jianshu.com/p/076ab2340121">iOS 浅谈Clang的使用</a></p>
 
       
@@ -690,7 +690,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、查看oc中c语言的实现源码"><span class="nav-number"></span> <span class="nav-text">一、查看oc中c语言的实现源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、编译oc"><span class="nav-number"></span> <span class="nav-text">二、编译oc</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#总结-Clang是一个C-编写、基于LLVM、发布于LLVM-BSD许可证下的C-C-Objective-C-Objective-C-编译器。它与GNU-C语言规范几乎完全兼容-同时Clang的使用简单方便-值得我们学习"><span class="nav-number">1.</span> <span class="nav-text">总结: Clang是一个C++编写、基于LLVM、发布于LLVM BSD许可证下的C/C++/Objective-C/Objective-C++编译器。它与GNU C语言规范几乎完全兼容;同时Clang的使用简单方便,值得我们学习.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考文章"><span class="nav-number">2.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、查看oc中c语言的实现源码"><span class="nav-number"></span> <span class="nav-text">一、查看oc中c语言的实现源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、编译oc"><span class="nav-number"></span> <span class="nav-text">二、编译oc</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#总结-Clang是一个C-编写、基于LLVM、发布于LLVM-BSD许可证下的C-C-objectivec-objectivec-编译器。它与GNU-C语言规范几乎完全兼容-同时Clang的使用简单方便-值得我们学习"><span class="nav-number">1.</span> <span class="nav-text">总结: Clang是一个C++编写、基于LLVM、发布于LLVM BSD许可证下的C/C++/objectivec/objectivec++编译器。它与GNU C语言规范几乎完全兼容;同时Clang的使用简单方便,值得我们学习.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考文章"><span class="nav-number">2.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
             
 
           </div>
