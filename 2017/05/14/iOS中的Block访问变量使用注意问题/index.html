@@ -85,8 +85,8 @@
 <meta name="description" content="昨晚突然有个朋友问起coredata的使用，后来便自己写了个demo看看，发现跟Xcode7使用有些不一样，今天有时间就记下来跟大家分享下。创建工程时勾选use core data  打开工程时会发现比多一个.xcdatamodeld文件，名字和工程名一致，demo工程名为CoreDataDemo。  选中该文件 点击add Entity 可创建实体，需大写开头，可以理解为model，同时可添加属">
 <meta name="keywords" content="oc,coredate,Xcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="xcode8使用coredata">
-<meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2017/05/14/xcode8使用coredata/index.html">
+<meta property="og:title" content="iOS中的Block访问变量使用注意问题">
+<meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2017/05/14/iOS中的Block访问变量使用注意问题/index.html">
 <meta property="og:site_name" content="Simon&#39;s Blogs">
 <meta property="og:description" content="昨晚突然有个朋友问起coredata的使用，后来便自己写了个demo看看，发现跟Xcode7使用有些不一样，今天有时间就记下来跟大家分享下。创建工程时勾选use core data  打开工程时会发现比多一个.xcdatamodeld文件，名字和工程名一致，demo工程名为CoreDataDemo。  选中该文件 点击add Entity 可创建实体，需大写开头，可以理解为model，同时可添加属">
 <meta property="og:locale" content="zh-Hans">
@@ -97,9 +97,9 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-3323e9c7dbad8777.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-a60144bce30aad6d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-99ad7dd6081f41ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-03-02T10:18:53.244Z">
+<meta property="og:updated_time" content="2018-09-21T03:46:23.843Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xcode8使用coredata">
+<meta name="twitter:title" content="iOS中的Block访问变量使用注意问题">
 <meta name="twitter:description" content="昨晚突然有个朋友问起coredata的使用，后来便自己写了个demo看看，发现跟Xcode7使用有些不一样，今天有时间就记下来跟大家分享下。创建工程时勾选use core data  打开工程时会发现比多一个.xcdatamodeld文件，名字和工程名一致，demo工程名为CoreDataDemo。  选中该文件 点击add Entity 可创建实体，需大写开头，可以理解为model，同时可添加属">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5107216-86cd4a09bb81884c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="https://www.jianshu.com/u/1975769cbce2/2017/05/14/xcode8使用coredata/"/>
+  <link rel="canonical" href="https://www.jianshu.com/u/1975769cbce2/2017/05/14/iOS中的Block访问变量使用注意问题/"/>
 
 
 
 
 
-  <title>xcode8使用coredata | Simon's Blogs</title>
+  <title>iOS中的Block访问变量使用注意问题 | Simon's Blogs</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -291,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2017/05/14/xcode8使用coredata/">
+    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2017/05/14/iOS中的Block访问变量使用注意问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
@@ -308,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">xcode8使用coredata</h1>
+          <h1 class="post-title" itemprop="name headline">iOS中的Block访问变量使用注意问题</h1>
         
 
         <div class="post-meta">
@@ -361,8 +361,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/14/xcode8使用coredata/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://www.jianshu.com/u/1975769cbce2/2017/05/14/xcode8使用coredata/" itemprop="commentCount">0</span> comments
+                <a href="/2017/05/14/iOS中的Block访问变量使用注意问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://www.jianshu.com/u/1975769cbce2/2017/05/14/iOS中的Block访问变量使用注意问题/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -467,8 +467,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/02/iOS计算app启动时间/" rel="next" title="iOS计算app启动时间">
-                <i class="fa fa-chevron-left"></i> iOS计算app启动时间
+              <a href="/2017/05/14/xcode8使用coredata/" rel="next" title="xcode8使用coredata">
+                <i class="fa fa-chevron-left"></i> xcode8使用coredata
               </a>
             
           </div>
@@ -477,8 +477,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/14/iOS中的Block访问变量使用注意问题/" rel="prev" title="iOS中的Block访问变量使用注意问题">
-                iOS中的Block访问变量使用注意问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/14/基于xcode8自动打包python脚本/" rel="prev" title="基于xcode8自动打包python脚本">
+                基于xcode8自动打包python脚本 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -511,7 +511,7 @@
   
     <div class="comments" id="comments">
       <div class="fb-comments"
-           data-href="https://www.jianshu.com/u/1975769cbce2/2017/05/14/xcode8使用coredata/"
+           data-href="https://www.jianshu.com/u/1975769cbce2/2017/05/14/iOS中的Block访问变量使用注意问题/"
            data-numposts="10"
            data-width="100%"
            data-colorscheme="light">
