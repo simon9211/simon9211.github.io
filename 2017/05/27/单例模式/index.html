@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="c,urlEncode," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -82,18 +82,17 @@
 
 
 
-<meta name="description" content="关于UrlEncode的实现(C++)，网上有很多不同的版本，对需要编码的字符集的选取并不统一。那么到底有没有标准呢？答案是有的，参见wiki   绝对不编码的，只有字母、数字、短横线(-)、下划线(_)、点(.)和波浪号(~)，其他字符要视情况而定，所以一般性的urlencode只需保留上述字符不进行编码。 下面给出实现： 12345678910111213141516171819202122">
-<meta name="keywords" content="c,urlEncode">
+<meta name="description" content="###单例模式的概念  单例模式是一种常见的软件设计模式。在它的核心结构中只包含一个称之为单例的特殊类。通过单例模式可以保证系统中一个类只有一个实例且该实例易于外界访问，从而方便对实例个数的控制并节约系统资源。如果希望在系统中某个类的对象只能存在一个，单例模式是最好的解决方案。  ###单例模式的几种创建方法1、非线程安全写法 1234567+ (instancetype)shareBaiduLo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="urlEncode标准实现">
-<meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2016/10/12/urlEncode标准实现/index.html">
+<meta property="og:title" content="单例模式">
+<meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2017/05/27/单例模式/index.html">
 <meta property="og:site_name" content="Simon&#39;s Blogs">
-<meta property="og:description" content="关于UrlEncode的实现(C++)，网上有很多不同的版本，对需要编码的字符集的选取并不统一。那么到底有没有标准呢？答案是有的，参见wiki   绝对不编码的，只有字母、数字、短横线(-)、下划线(_)、点(.)和波浪号(~)，其他字符要视情况而定，所以一般性的urlencode只需保留上述字符不进行编码。 下面给出实现： 12345678910111213141516171819202122">
+<meta property="og:description" content="###单例模式的概念  单例模式是一种常见的软件设计模式。在它的核心结构中只包含一个称之为单例的特殊类。通过单例模式可以保证系统中一个类只有一个实例且该实例易于外界访问，从而方便对实例个数的控制并节约系统资源。如果希望在系统中某个类的对象只能存在一个，单例模式是最好的解决方案。  ###单例模式的几种创建方法1、非线程安全写法 1234567+ (instancetype)shareBaiduLo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-02T10:18:00.507Z">
+<meta property="og:updated_time" content="2018-09-27T08:36:49.779Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="urlEncode标准实现">
-<meta name="twitter:description" content="关于UrlEncode的实现(C++)，网上有很多不同的版本，对需要编码的字符集的选取并不统一。那么到底有没有标准呢？答案是有的，参见wiki   绝对不编码的，只有字母、数字、短横线(-)、下划线(_)、点(.)和波浪号(~)，其他字符要视情况而定，所以一般性的urlencode只需保留上述字符不进行编码。 下面给出实现： 12345678910111213141516171819202122">
+<meta name="twitter:title" content="单例模式">
+<meta name="twitter:description" content="###单例模式的概念  单例模式是一种常见的软件设计模式。在它的核心结构中只包含一个称之为单例的特殊类。通过单例模式可以保证系统中一个类只有一个实例且该实例易于外界访问，从而方便对实例个数的控制并节约系统资源。如果希望在系统中某个类的对象只能存在一个，单例模式是最好的解决方案。  ###单例模式的几种创建方法1、非线程安全写法 1234567+ (instancetype)shareBaiduLo">
 
 
 
@@ -123,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://www.jianshu.com/u/1975769cbce2/2016/10/12/urlEncode标准实现/"/>
+  <link rel="canonical" href="https://www.jianshu.com/u/1975769cbce2/2017/05/27/单例模式/"/>
 
 
 
 
 
-  <title>urlEncode标准实现 | Simon's Blogs</title>
+  <title>单例模式 | Simon's Blogs</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -283,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2016/10/12/urlEncode标准实现/">
+    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2017/05/27/单例模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
@@ -300,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">urlEncode标准实现</h1>
+          <h1 class="post-title" itemprop="name headline">单例模式</h1>
         
 
         <div class="post-meta">
@@ -312,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-12T14:05:19+08:00">
-                2016-10-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-27T13:52:08+08:00">
+                2017-05-27
               </time>
             
 
@@ -323,28 +322,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -353,8 +330,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/12/urlEncode标准实现/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://www.jianshu.com/u/1975769cbce2/2016/10/12/urlEncode标准实现/" itemprop="commentCount">0</span> comments
+                <a href="/2017/05/27/单例模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://www.jianshu.com/u/1975769cbce2/2017/05/27/单例模式/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -382,14 +359,34 @@
       
 
       
-        <blockquote>
-<p>关于UrlEncode的实现(C++)，网上有很多不同的版本，对需要编码的字符集的选取并不统一。那么到底有没有标准呢？答案是有的，参见<a href="https://en.wikipedia.org/wiki/Percent-encoding" target="_blank" rel="noopener">wiki</a></p>
+        <p>###单例模式的概念</p>
+<blockquote>
+<p>单例模式是一种常见的软件设计模式。在它的核心结构中只包含一个称之为单例的特殊类。通过单例模式可以保证系统中一个类只有一个实例且该实例易于外界访问，从而方便对实例个数的控制并节约系统资源。如果希望在系统中某个类的对象只能存在一个，单例模式是最好的解决方案。</p>
 </blockquote>
-<p> 绝对不编码的，只有字母、数字、短横线(-)、下划线(_)、点(.)和波浪号(~)，其他字符要视情况而定，所以一般性的urlencode只需保留上述字符不进行编码。</p>
-<p>下面给出实现：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">char</span> <span class="title">ToHex</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span> x)</span>   </span></span><br><span class="line"><span class="function"></span>&#123;   </span><br><span class="line">    <span class="keyword">return</span>  x &gt; <span class="number">9</span> ? x + <span class="number">55</span> : x + <span class="number">48</span>;   </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">char</span> <span class="title">FromHex</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span> x)</span>   </span></span><br><span class="line"><span class="function"></span>&#123;   </span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> y;  </span><br><span class="line">    <span class="keyword">if</span> (x &gt;= <span class="string">'A'</span> &amp;&amp; x &lt;= <span class="string">'Z'</span>) y = x - <span class="string">'A'</span> + <span class="number">10</span>;  </span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (x &gt;= <span class="string">'a'</span> &amp;&amp; x &lt;= <span class="string">'z'</span>) y = x - <span class="string">'a'</span> + <span class="number">10</span>;  </span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (x &gt;= <span class="string">'0'</span> &amp;&amp; x &lt;= <span class="string">'9'</span>) y = x - <span class="string">'0'</span>;  </span><br><span class="line">    <span class="keyword">else</span> assert(<span class="number">0</span>);  </span><br><span class="line">    <span class="keyword">return</span> y;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">UrlEncode</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; str)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> strTemp = <span class="string">""</span>;  </span><br><span class="line">    <span class="keyword">size_t</span> length = str.length();  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; length; i++)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">isalnum</span>((<span class="keyword">unsigned</span> <span class="keyword">char</span>)str[i]) ||   </span><br><span class="line">            (str[i] == <span class="string">'-'</span>) ||  </span><br><span class="line">            (str[i] == <span class="string">'_'</span>) ||   </span><br><span class="line">            (str[i] == <span class="string">'.'</span>) ||   </span><br><span class="line">            (str[i] == <span class="string">'~'</span>))  </span><br><span class="line">            strTemp += str[i];  </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (str[i] == <span class="string">' '</span>)  </span><br><span class="line">            strTemp += <span class="string">"+"</span>;  </span><br><span class="line">        <span class="keyword">else</span>  </span><br><span class="line">        &#123;  </span><br><span class="line">            strTemp += <span class="string">'%'</span>;  </span><br><span class="line">            strTemp += ToHex((<span class="keyword">unsigned</span> <span class="keyword">char</span>)str[i] &gt;&gt; <span class="number">4</span>);  </span><br><span class="line">            strTemp += ToHex((<span class="keyword">unsigned</span> <span class="keyword">char</span>)str[i] % <span class="number">16</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> strTemp;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">UrlDecode</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; str)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> strTemp = <span class="string">""</span>;  </span><br><span class="line">    <span class="keyword">size_t</span> length = str.length();  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; length; i++)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="keyword">if</span> (str[i] == <span class="string">'+'</span>) strTemp += <span class="string">' '</span>;  </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (str[i] == <span class="string">'%'</span>)  </span><br><span class="line">        &#123;  </span><br><span class="line">            assert(i + <span class="number">2</span> &lt; length);  </span><br><span class="line">            <span class="keyword">unsigned</span> <span class="keyword">char</span> high = FromHex((<span class="keyword">unsigned</span> <span class="keyword">char</span>)str[++i]);  </span><br><span class="line">            <span class="keyword">unsigned</span> <span class="keyword">char</span> low = FromHex((<span class="keyword">unsigned</span> <span class="keyword">char</span>)str[++i]);  </span><br><span class="line">            strTemp += high*<span class="number">16</span> + low;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">else</span> strTemp += str[i];  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> strTemp;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="http://tool.chinaz.com/tools/urlencode.aspx" target="_blank" rel="noopener">线上转换工具</a></p>
-<p><a href="http://blog.csdn.net/gemo/article/details/8468311" target="_blank" rel="noopener">摘自CSDN</a></p>
+<p>###单例模式的几种创建方法<br>1、非线程安全写法</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">instancetype</span>)shareBaiduLocation &#123;</span><br><span class="line">    <span class="keyword">static</span> BaiduLocation *location = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">if</span> (location == <span class="literal">nil</span>) &#123;</span><br><span class="line">        location = [[BaiduLocation alloc] init];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> location;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2、线程安全写法</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">instancetype</span>)shareBaiduLocation &#123;</span><br><span class="line">    <span class="keyword">static</span> BaiduLocation *location = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">@synchronized</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (location == <span class="literal">nil</span>) &#123;</span><br><span class="line">            location = [[BaiduLocation alloc] init];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> location;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3、initialize方法程序运行只执行一次</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)initialize &#123;</span><br><span class="line">    <span class="keyword">static</span> BaiduLocation *location = <span class="literal">nil</span>;</span><br><span class="line">    <span class="comment">// 判断非子类调用</span></span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> <span class="keyword">class</span>] == [BaiduLocation <span class="keyword">class</span>]) &#123;</span><br><span class="line">        location = [[BaiduLocation alloc] init];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4、线程安全写法(推荐写法，性能优于<code>synchronized</code>)</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">instancetype</span>)shareBaiduLocation &#123;</span><br><span class="line">    <span class="keyword">static</span> BaiduLocation *location = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">        location = [[BaiduLocation alloc] init];</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> location;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>####<code>synchronized</code>和<code>dispatch_once</code>异同</p>
+<blockquote>
+<p>dispatch_once 性能远优于 synchronized，测试发现消耗仅为1/3，</p>
+</blockquote>
+<p>根据注释文档，objc_sync_enter会根据需要给每个传进来的对象创建一个互斥锁并lock，然后objc_sync_exit的时候unlock，这样就可以通过这个锁来实现多线程的安全访问，所以结合苹果文档可以认为。</p>
+<p>简单来说，调用objc_sync_enter(obj)时，会根据obj指针在哈希表sDataLists对应的链表SyncList，然后在链表中查询对应obj的SyncData对象，如果查询不到则创建一个新的SyncData对象（包含创建跟obj相关的递归互斥锁）并添加到链表中，然后使用SyncData对象上锁；调用objc_sync_exit(obj)时，使用SyncData对象解锁，因此通过这个锁便可确保@synchronized之间的代码线程安全。</p>
+<hr>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="built_in">dispatch_once</span>(<span class="built_in">dispatch_once_t</span> *predicate, dispatch_block_t block);</span><br></pre></td></tr></table></figure>
+<p><code>dispatch_once</code></p>
+<p>根据官方文档,<code>dispatch_once</code>可以用来初始化一些全局的数据，它能够确保block代码在app的生命周期内仅被运行一次，而且还是线程安全的，不需要额外加锁；<code>predicate</code>必须指向一个全局或者静态的变量，不过使用<code>predicate</code>的话结果是未定义的，不过<code>predicate</code>有啥作用，如何实现<code>block</code>在整个生命周期执行一次？那我们只能从源码查找(源码地址：once)。不过在这之前先简要介绍一下:</p>
+<p><code>bool __sync_bool_compare_and_swap (type ptr, type oldval type newval, …)</code>提供原子的比较和交换操作，如果当前值ptr == oldval，就将newval写入<em>ptr，当比较赋值操作成功后返回true</em>__sync_synchronize (…)调用这个函数会产生一个full memory barrier ，用于保证CPU按照我们代码编写的顺序来执行代码，比如：</p>
+<p>让我们来看看dispatch_once是如何确保block只执行一次。简单来说，当线程A在调用执行block并设置predicate为DISPATCH_ONCE_DONE(~0l)期间，如果有其他线程也在调用disptach_once，则这些线程会等待，各线程对应的信号量会加入到信号量链表中，等predicate设置为DISPATCH_ONCE_DONE后，也就是block执行完了，会根据信号量链表唤醒各个线程使其继续执行。</p>
+<blockquote>
+<p>不过有一种临界情况，假如线程A在执行block，但是创建单例对象obj还未完成，这时候线程B获取该obj对象，此时obj＝nil，而线程B在线程A将predicate设为DISPATCH_ONCE_DONE之后读取predicate，这是线程B会认为单例对象已经初始化完成，然后使用空的obj对象，这就会导致错误发生。因此dispatch_once会在执行完block之后会执行dispatch_atomic_maximally_synchronizing_barrier()调用，这个调用会执行一些cpuid指令，确保线程A创建单例对象obj以及置predicate为DISPATCH_ONCE_DONE的时间TimeA大于线程B进入block并读取predicate值的时间TimeB。</p>
+</blockquote>
+<p>@synchronized采用的是递归互斥锁来实现线程安全，而dispatch_once的内部则使用了很多原子操作来替代锁，以及通过信号量来实现线程同步，而且有很多针对处理器优化的地方，甚至在if判断语句上也做了优化(逼格有点高)，使得其效率有很大的提升，虽然其源码很短，但里面包含的东西却很多，所以苹果也推荐使用dispatch_once来创建单例。通过这个简短的dispatch_once，你也可以清楚为什么GCD的性能会这么高了，感兴趣可以再去看看libdispatch的其它源码。。</p>
 
       
     </div>
@@ -404,14 +401,6 @@
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/c/" rel="tag"># c</a>
-          
-            <a href="/tags/urlEncode/" rel="tag"># urlEncode</a>
-          
-        </div>
       
 
       
@@ -440,8 +429,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/11/c-原子操作/" rel="next" title="c++原子操作">
-                <i class="fa fa-chevron-left"></i> c++原子操作
+              <a href="/2017/05/14/基于xcode8自动打包python脚本/" rel="next" title="基于xcode8自动打包python脚本">
+                <i class="fa fa-chevron-left"></i> 基于xcode8自动打包python脚本
               </a>
             
           </div>
@@ -450,8 +439,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/10/initialize-load/" rel="prev" title="initialize && load">
-                initialize && load <i class="fa fa-chevron-right"></i>
+              <a href="/2017/09/02/linux文件权限查看及修改-chmod/" rel="prev" title="linux文件权限查看及修改-chmod">
+                linux文件权限查看及修改-chmod <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -484,7 +473,7 @@
   
     <div class="comments" id="comments">
       <div class="fb-comments"
-           data-href="https://www.jianshu.com/u/1975769cbce2/2016/10/12/urlEncode标准实现/"
+           data-href="https://www.jianshu.com/u/1975769cbce2/2017/05/27/单例模式/"
            data-numposts="10"
            data-width="100%"
            data-colorscheme="light">
