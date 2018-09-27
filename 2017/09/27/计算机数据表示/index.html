@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Xcode,python,自动化打包," />
+  <meta name="keywords" content="c++,数据表示," />
 
 
 
@@ -82,21 +82,27 @@
 
 
 
-<meta name="description" content="最近老板兴起，想搞个快速可复制交付的东西，简言之就是在平台填些配置信息（display name，bundle id，version code），然后点点鼠标，就生成另外一个应用，一开始也是一脸懵逼，然后各种撕逼，后来还是做成了。话不多说，先来说说过程中遇到的坑们。 一、脚本  我这边选的是python脚本，这之前也是py小白，后来找了廖雪峰老师的py教程学习了下基本语法，在网上也找了些写好的脚">
-<meta name="keywords" content="Xcode,python,自动化打包">
+<meta name="description" content="各种数值在计算机中表示的形式称为机器数，其特点是采用二进制计数制，数的符号用0和1表示，小数点则隐含，表示不占位置。机器数对应的实际数值称为数的真值。     机器数有无符号数和带符号数之分。无符号数表示正数，在机器数中没有符号位。对于无符号数，若约定小数点的位置在机器数的最低位之后，则是纯整数:若约定小数点的位詈在机器数的最高位之前，则是纯小数。对于带符号数，机器数的最高位是表示正、负的符号">
+<meta name="keywords" content="c++,数据表示">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于xcode8自动打包python脚本">
-<meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2017/05/14/基于xcode8自动打包python脚本/index.html">
+<meta property="og:title" content="计算机数据表示">
+<meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2017/09/27/计算机数据表示/index.html">
 <meta property="og:site_name" content="Simon&#39;s Blogs">
-<meta property="og:description" content="最近老板兴起，想搞个快速可复制交付的东西，简言之就是在平台填些配置信息（display name，bundle id，version code），然后点点鼠标，就生成另外一个应用，一开始也是一脸懵逼，然后各种撕逼，后来还是做成了。话不多说，先来说说过程中遇到的坑们。 一、脚本  我这边选的是python脚本，这之前也是py小白，后来找了廖雪峰老师的py教程学习了下基本语法，在网上也找了些写好的脚">
+<meta property="og:description" content="各种数值在计算机中表示的形式称为机器数，其特点是采用二进制计数制，数的符号用0和1表示，小数点则隐含，表示不占位置。机器数对应的实际数值称为数的真值。     机器数有无符号数和带符号数之分。无符号数表示正数，在机器数中没有符号位。对于无符号数，若约定小数点的位置在机器数的最低位之后，则是纯整数:若约定小数点的位詈在机器数的最高位之前，则是纯小数。对于带符号数，机器数的最高位是表示正、负的符号">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-a9e1c4cb93cd49cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5107216-ed751cfeb830bb93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-03-02T10:10:30.292Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5107216-be3c9d06a975fce2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5107216-d3c3200a0718d572.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5107216-6345e3838100cc74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5107216-5ce018d77fb96f3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5107216-509bafa8ddedd5c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5107216-e56b1134f18bfd77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5107216-37b0aec1fc0b3c67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5107216-26512c544e76a0a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-09-27T02:15:36.311Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于xcode8自动打包python脚本">
-<meta name="twitter:description" content="最近老板兴起，想搞个快速可复制交付的东西，简言之就是在平台填些配置信息（display name，bundle id，version code），然后点点鼠标，就生成另外一个应用，一开始也是一脸懵逼，然后各种撕逼，后来还是做成了。话不多说，先来说说过程中遇到的坑们。 一、脚本  我这边选的是python脚本，这之前也是py小白，后来找了廖雪峰老师的py教程学习了下基本语法，在网上也找了些写好的脚">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5107216-a9e1c4cb93cd49cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="计算机数据表示">
+<meta name="twitter:description" content="各种数值在计算机中表示的形式称为机器数，其特点是采用二进制计数制，数的符号用0和1表示，小数点则隐含，表示不占位置。机器数对应的实际数值称为数的真值。     机器数有无符号数和带符号数之分。无符号数表示正数，在机器数中没有符号位。对于无符号数，若约定小数点的位置在机器数的最低位之后，则是纯整数:若约定小数点的位詈在机器数的最高位之前，则是纯小数。对于带符号数，机器数的最高位是表示正、负的符号">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/5107216-be3c9d06a975fce2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -126,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="https://www.jianshu.com/u/1975769cbce2/2017/05/14/基于xcode8自动打包python脚本/"/>
+  <link rel="canonical" href="https://www.jianshu.com/u/1975769cbce2/2017/09/27/计算机数据表示/"/>
 
 
 
 
 
-  <title>基于xcode8自动打包python脚本 | Simon's Blogs</title>
+  <title>计算机数据表示 | Simon's Blogs</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -286,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2017/05/14/基于xcode8自动打包python脚本/">
+    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2017/09/27/计算机数据表示/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
@@ -303,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">基于xcode8自动打包python脚本</h1>
+          <h1 class="post-title" itemprop="name headline">计算机数据表示</h1>
         
 
         <div class="post-meta">
@@ -315,8 +321,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-14T20:43:54+08:00">
-                2017-05-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T07:52:19+08:00">
+                2017-09-27
               </time>
             
 
@@ -338,8 +344,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/计算机/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
                   </a>
                 </span>
 
@@ -356,8 +362,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/14/基于xcode8自动打包python脚本/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://www.jianshu.com/u/1975769cbce2/2017/05/14/基于xcode8自动打包python脚本/" itemprop="commentCount">0</span> comments
+                <a href="/2017/09/27/计算机数据表示/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://www.jianshu.com/u/1975769cbce2/2017/09/27/计算机数据表示/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -385,16 +391,65 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/5107216-a9e1c4cb93cd49cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>最近老板兴起，想搞个快速可复制交付的东西，简言之就是在平台填些配置信息（display name，bundle id，version code），然后点点鼠标，就生成另外一个应用，一开始也是一脸懵逼，然后各种撕逼，后来还是做成了。话不多说，先来说说过程中遇到的坑们。</p>
-<h4 id="一、脚本"><a href="#一、脚本" class="headerlink" title="一、脚本"></a>一、脚本</h4><p>  我这边选的是python脚本，这之前也是py小白，后来找了<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">廖雪峰老师的py教程</a>学习了下基本语法，在网上也找了些写好的脚本，但是貌似xcode8以后就有点变动了。主要是参照<a href="http://liumh.com/2015/11/25/ios-auto-archive-ipa/" target="_blank" rel="noopener">CaryaLiu大神的写的py脚本</a>。<br> down下来（大神文章中有下载）填下相关参数直接放在项目中跑，最后一步export failed<br><img src="http://upload-images.jianshu.io/upload_images/5107216-ed751cfeb830bb93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="">执行脚本export failed</p>
-<pre><code>./autobuild.py -p Test.xcodeproj -s Test 执行脚本及相关参数
-</code></pre><p><em>Error Domain=IDEDistributionErrorDomain Code=14 “No applicable devices found.” UserInfo={NSLocalizedDescription=No applicable devices found.}</em><br>后来几经百度，Google找到了<a href="http://stackoverflow.com/questions/43094380/whats-the-replacement-for-xcodes-packageapplication" target="_blank" rel="noopener">大神的回答</a>，就稍稍的修改了下脚本，因为我这边demo没有用cocoapods，所以就是buildProject,workspace类似修改即可。</p>
-<p>修改前：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exportArchive</span><span class="params">(scheme, archivePath)</span>:</span></span><br><span class="line">	exportDirectory = buildExportDirectory(scheme)</span><br><span class="line">	exportCmd = <span class="string">"xcodebuild -exportArchive -archivePath %s -exportPath %s -exportOptionsPlist %s"</span> %(archivePath, exportDirectory, EXPORT_OPTIONS_PLIST)</span><br><span class="line">	process = subprocess.Popen(exportCmd, shell=<span class="keyword">True</span>)</span><br><span class="line">	(stdoutdata, stderrdata) = process.communicate()</span><br><span class="line"></span><br><span class="line">	signReturnCode = process.returncode</span><br><span class="line">	<span class="keyword">if</span> signReturnCode != <span class="number">0</span>:</span><br><span class="line">		<span class="keyword">print</span> <span class="string">"export %s failed"</span> %(scheme)</span><br><span class="line">		<span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		<span class="keyword">return</span> exportDirectory</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">buildProject</span><span class="params">(project, scheme)</span>:</span></span><br><span class="line">	archivePath = buildArchivePath(scheme)</span><br><span class="line">	<span class="keyword">print</span> <span class="string">"archivePath: "</span> + archivePath</span><br><span class="line">	archiveCmd = <span class="string">'xcodebuild -project %s -scheme %s -configuration %s archive -archivePath %s -destination generic/platform=iOS'</span> %(project, scheme, CONFIGURATION, archivePath)</span><br><span class="line">	process = subprocess.Popen(archiveCmd, shell=<span class="keyword">True</span>)</span><br><span class="line">	process.wait()</span><br><span class="line"></span><br><span class="line">	archiveReturnCode = process.returncode</span><br><span class="line">	<span class="keyword">if</span> archiveReturnCode != <span class="number">0</span>:</span><br><span class="line">		<span class="keyword">print</span> <span class="string">"archive workspace %s failed"</span> %(workspace)</span><br><span class="line">		cleanArchiveFile(archivePath)</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		exportDirectory = exportArchive(scheme, archivePath)</span><br><span class="line">		cleanArchiveFile(archivePath)</span><br><span class="line">		<span class="keyword">if</span> exportDirectory != <span class="string">""</span>:		</span><br><span class="line">			ipaPath = getIpaPath(exportDirectory)</span><br><span class="line">			uploadIpaToPgyer(ipaPath)</span><br></pre></td></tr></table></figure>
-<p>修改后：将脚本之前的默认导出路径改在了工程目录build下面</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exportArchive</span><span class="params">(scheme, archivePath)</span>:</span></span><br><span class="line">        exportDirectory = buildExportDirectory(scheme)</span><br><span class="line">        exportCmd = <span class="string">"pushd build &amp;&amp; mkdir ./Payload &amp;&amp; cp  -R `pwd`/%s-iphoneos/%s.app  ./Payload &amp;&amp; zip -qyr %s.ipa ./Payload &amp;&amp; rm -r ./Payload &amp;&amp; popd"</span> %(CONFIGURATION,scheme,exportDirectory)</span><br><span class="line">	process = subprocess.Popen(exportCmd, shell=<span class="keyword">True</span>)</span><br><span class="line">	(stdoutdata, stderrdata) = process.communicate()</span><br><span class="line"></span><br><span class="line">	signReturnCode = process.returncode</span><br><span class="line">	<span class="keyword">if</span> signReturnCode != <span class="number">0</span>:</span><br><span class="line">		<span class="keyword">print</span> <span class="string">"export %s failed"</span> %(scheme)</span><br><span class="line">		<span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		<span class="keyword">return</span> exportDirectory</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">buildProject</span><span class="params">(project, scheme)</span>:</span></span><br><span class="line">	archivePath = buildArchivePath(scheme)</span><br><span class="line">	<span class="keyword">print</span> <span class="string">"archivePath: "</span> + archivePath</span><br><span class="line">	archiveCmd = <span class="string">'xcodebuild -project %s -target %s -configuration %s'</span> %(project, scheme, CONFIGURATION)</span><br><span class="line">	process = subprocess.Popen(archiveCmd, shell=<span class="keyword">True</span>)</span><br><span class="line">	process.wait()</span><br><span class="line"></span><br><span class="line">	archiveReturnCode = process.returncode</span><br><span class="line">	<span class="keyword">if</span> archiveReturnCode != <span class="number">0</span>:</span><br><span class="line">		<span class="keyword">print</span> <span class="string">"archive workspace %s failed"</span> %(workspace)</span><br><span class="line">		cleanArchiveFile(archivePath)</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		exportDirectory = exportArchive(scheme, archivePath)</span><br><span class="line">		cleanArchiveFile(archivePath)</span><br><span class="line">		<span class="keyword">if</span> exportDirectory != <span class="string">""</span>:		</span><br><span class="line">			ipaPath = getIpaPath(exportDirectory)</span><br><span class="line">			uploadIpaToPgyer(ipaPath)</span><br></pre></td></tr></table></figure>
-<p>修改之后便可在工程目录下生成相应ipa文件。<br>第一次发文，写的比较凌乱，见谅语文是数学老师教的，如有疏漏多指教！！<br>后期有时间再分享下打包前修改工程配置参数。</p>
+        <blockquote>
+<ul>
+<li>各种数值在计算机中表示的形式称为机器数，其特点是采用二进制计数制，数的符号用0和1表示，小数点则隐含，表示不占位置。机器数对应的实际数值称为数的真值。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>机器数有无符号数和带符号数之分。无符号数表示正数，在机器数中没有符号位。对于无符号数，若约定小数点的位置在机器数的最低位之后，则是纯整数:若约定小数点的位詈在机器数的最高位之前，则是纯小数。对于带符号数，机器数的最高位是表示正、负的符号位，其余位则表示数值。若约定小数点的位置在机器数的最低数值位之后，则是纯整数;若约定小数点的位置在机器数的最高数值位之前(符号位之后),则是纯小数。</li>
+<li>为了便于运算，带符号的机器数可采用原码、反码和补码等不同的编码方法，机器数的这些编码方法称为码制。</li>
+</ul>
+</blockquote>
+<p>###原码、反码、补码和移码</p>
+<p>####1、原码<br><img src="https://upload-images.jianshu.io/upload_images/5107216-be3c9d06a975fce2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="原码表示法"></p>
+<blockquote>
+<p>🌰、若机器字长n等于8，分别给出+1， -1， +127， -127， +45， -45， +0.5， -0.5的原码表示：</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/5107216-d3c3200a0718d572.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="原码表示"><br>原码表示法中，最高位表示符号位，0表示正号，1表示负号，其余的n-1位表示数值的绝对值。数字0有2种表示方式[+0] = 0 000 0000<br>[-0]= 1 000 0000</p>
+<p>2、反码<br><img src="https://upload-images.jianshu.io/upload_images/5107216-6345e3838100cc74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="反码表示法"><br>上面🌰用反码表示如下：<br><img src="https://upload-images.jianshu.io/upload_images/5107216-5ce018d77fb96f3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="反码"><br>反码表示法中，最高位表示符号位，0表示正号，1表示负号。正数的反码与原码相同，负数的反码则是原码的绝对值按位取反。数字0的反码有2种表示方式[+0] = 0 000 0000 ，[-0]= 1 111 1111</p>
+<p>3、补码<br><img src="https://upload-images.jianshu.io/upload_images/5107216-509bafa8ddedd5c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="补码"><br>上面🌰用补码表示如下：<br><img src="https://upload-images.jianshu.io/upload_images/5107216-e56b1134f18bfd77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="补码"><br>在补码表示中，最高位表示符号位，0表示正号，1表示负号。正数的补码与原码、反码相同，负数的补码等于其反码的末尾加1。<br>数字0的补码[+0] = [-0] = 0000 0000</p>
+<p>4、移码<br><img src="https://upload-images.jianshu.io/upload_images/5107216-37b0aec1fc0b3c67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="移码"><br>上面🌰用移码表示如下：<br><img src="https://upload-images.jianshu.io/upload_images/5107216-26512c544e76a0a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="移码"></p>
+<blockquote>
+<p>###为什么在计算机中，负数用补码表示呢？为什么不直接用原码表示？如单字节-5：<code>1000 0101</code>。</p>
+</blockquote>
+<p>####我想从软件上考虑，原因有两个</p>
+<h5 id="1、表示范围"><a href="#1、表示范围" class="headerlink" title="1、表示范围"></a>1、表示范围</h5><blockquote>
+<p>拿单字节整数来说，无符号型，其表示范围是[0,255]，总共表示了256个数据。有符号型，其表示范围是[-128,127]。</p>
+</blockquote>
+<ul>
+<li>先看无符号，0表示为0000 0000，255表示为1111 1111，刚好满足了要求，可以表示256个数据。</li>
+<li>再看有符号的，若是用原码表示，0表示为0000 000。因为咱们有符号，所以应该也有个负0（虽然它还是0）：1000 0000。<blockquote>
+<p>那我们看看这样还能够满足我们的要求，表示256个数据么？</p>
+<blockquote>
+<ul>
+<li>正数，没问题，127是0111 1111，1是0000 0001，当然其它的应该也没有问题。</li>
+<li>负数呢，-1是1000 0001，那么把负号去掉，最大的数是111 1111，也就是127，所以负数中最小能表示的数据是-127。</li>
+</ul>
+</blockquote>
+<ul>
+<li>这样似乎不太对劲，该如何去表示-128？貌似直接用原码无法表示，而我们却有两个0。如果我们把其中的一个0指定为-128，不行么？这也是一个想法，不过有两个问题：</li>
+</ul>
+<blockquote>
+<p>一是它与-127的跨度过大；</p>
+</blockquote>
+<blockquote>
+<p>二是在用硬件进行运算时不方便。</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>所以，计算机中，负数是采用补码表示。</p>
+<blockquote>
+<p>如 单字节-1，原码为1000 0001，反码为1111 1110，补码为1111 1111，计算机中的单字节-1就表示为1111 1111。单字节-127，原码是1111 1111，反码1000 0000，补码是1000 0001，计算机中单字节-127表示为1000 0001。单字节-128，原码貌似表示不出来，除了符号为，最大的数只能是127了，其在计算机中的表示为1000 0000。</p>
+</blockquote>
+</blockquote>
+<p>#####2、大小的习惯</p>
+<blockquote>
+<p>也可以从数据大小上来理解。还是以单字节数据为例。有符号数中，正数的范围是[1,127]，最大的是127，不考虑符号为，其表示为111 1111；最小的是1，不考虑符号为，其表示为000 0001。<br>　　负数中，最大的是-1，我们就用111 1111表示其数值部分。后面的数据依次减1。减到000 0001的时候，我们用它标示了-127。再减去1，就变成000 0000了。还好我们有符号位，所以有两个0。把其中带符号的0拿过来，表示-128，刚好可以满足表示范围[由此可见-128实际上就是-0]。<br>计算机中的1000 0000可以表示无符号的128，也可以表示有符号的-128(-0).</p>
+</blockquote>
 
       
     </div>
@@ -412,11 +467,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Xcode/" rel="tag"># Xcode</a>
+            <a href="/tags/c/" rel="tag"># c++</a>
           
-            <a href="/tags/python/" rel="tag"># python</a>
-          
-            <a href="/tags/自动化打包/" rel="tag"># 自动化打包</a>
+            <a href="/tags/数据表示/" rel="tag"># 数据表示</a>
           
         </div>
       
@@ -447,8 +500,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/14/xcode8使用coredata/" rel="next" title="xcode8使用coredata">
-                <i class="fa fa-chevron-left"></i> xcode8使用coredata
+              <a href="/2017/09/02/linux文件权限查看及修改-chmod/" rel="next" title="linux文件权限查看及修改-chmod">
+                <i class="fa fa-chevron-left"></i> linux文件权限查看及修改-chmod
               </a>
             
           </div>
@@ -457,8 +510,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/02/linux文件权限查看及修改-chmod/" rel="prev" title="linux文件权限查看及修改-chmod">
-                linux文件权限查看及修改-chmod <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/27/字节序：Big-Endian-和-Little-Endian/" rel="prev" title="字节序：Big Endian 和 Little Endian">
+                字节序：Big Endian 和 Little Endian <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -491,7 +544,7 @@
   
     <div class="comments" id="comments">
       <div class="fb-comments"
-           data-href="https://www.jianshu.com/u/1975769cbce2/2017/05/14/基于xcode8自动打包python脚本/"
+           data-href="https://www.jianshu.com/u/1975769cbce2/2017/09/27/计算机数据表示/"
            data-numposts="10"
            data-width="100%"
            data-colorscheme="light">
@@ -633,7 +686,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、脚本"><span class="nav-number">1.</span> <span class="nav-text">一、脚本</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、表示范围"><span class="nav-number">1.</span> <span class="nav-text">1、表示范围</span></a></li></ol></div>
             
 
           </div>
