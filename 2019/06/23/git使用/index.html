@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="c++,函数,虚函数," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -82,18 +82,17 @@
 
 
 
-<meta name="description" content="C++通过继承（inheritance）和虚函数（virtual function）来实现多态性，简单的说就是，将基类的指针或引用绑定到子类的实例，然后通过基类的指针或引用调用实际字累的成员函数（虚函数）。本文将介绍单继承、多继承下虚函数的实现机制。  一、虚函数表 为了支持虚函数机制，编译器为每一个拥有虚函数的类的实类创建了一个虚函数表（virtual table），这个表中有许多槽（slot">
-<meta name="keywords" content="c++,函数,虚函数">
+<meta name="description" content="常用git checkout branchname 切换分支 git checkout -- &amp;lt;file&amp;gt; 当文件修改后未add，将修改重置，即忽略本次修改。使用git stash 将本地修改保存后git stash clear将修改清除 等效 git reset HEAD test 将git add test步骤回退，即将不需要add的文件回退 git stash 保存本地的修改，并">
 <meta property="og:type" content="article">
-<meta property="og:title" content="虚函数表（virtual table）">
-<meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2017/11/28/虚函数表（virtual-table）/index.html">
+<meta property="og:title" content="git使用">
+<meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2019/06/23/git使用/index.html">
 <meta property="og:site_name" content="Simon&#39;s Blogs">
-<meta property="og:description" content="C++通过继承（inheritance）和虚函数（virtual function）来实现多态性，简单的说就是，将基类的指针或引用绑定到子类的实例，然后通过基类的指针或引用调用实际字累的成员函数（虚函数）。本文将介绍单继承、多继承下虚函数的实现机制。  一、虚函数表 为了支持虚函数机制，编译器为每一个拥有虚函数的类的实类创建了一个虚函数表（virtual table），这个表中有许多槽（slot">
+<meta property="og:description" content="常用git checkout branchname 切换分支 git checkout -- &amp;lt;file&amp;gt; 当文件修改后未add，将修改重置，即忽略本次修改。使用git stash 将本地修改保存后git stash clear将修改清除 等效 git reset HEAD test 将git add test步骤回退，即将不需要add的文件回退 git stash 保存本地的修改，并">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-02T10:08:44.864Z">
+<meta property="og:updated_time" content="2019-06-23T04:46:32.565Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="虚函数表（virtual table）">
-<meta name="twitter:description" content="C++通过继承（inheritance）和虚函数（virtual function）来实现多态性，简单的说就是，将基类的指针或引用绑定到子类的实例，然后通过基类的指针或引用调用实际字累的成员函数（虚函数）。本文将介绍单继承、多继承下虚函数的实现机制。  一、虚函数表 为了支持虚函数机制，编译器为每一个拥有虚函数的类的实类创建了一个虚函数表（virtual table），这个表中有许多槽（slot">
+<meta name="twitter:title" content="git使用">
+<meta name="twitter:description" content="常用git checkout branchname 切换分支 git checkout -- &amp;lt;file&amp;gt; 当文件修改后未add，将修改重置，即忽略本次修改。使用git stash 将本地修改保存后git stash clear将修改清除 等效 git reset HEAD test 将git add test步骤回退，即将不需要add的文件回退 git stash 保存本地的修改，并">
 
 
 
@@ -123,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://www.jianshu.com/u/1975769cbce2/2017/11/28/虚函数表（virtual-table）/"/>
+  <link rel="canonical" href="https://www.jianshu.com/u/1975769cbce2/2019/06/23/git使用/"/>
 
 
 
 
 
-  <title>虚函数表（virtual table） | Simon's Blogs</title>
+  <title>git使用 | Simon's Blogs</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -283,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2017/11/28/虚函数表（virtual-table）/">
+    <link itemprop="mainEntityOfPage" href="https://www.jianshu.com/u/1975769cbce2/2019/06/23/git使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Simon">
@@ -300,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">虚函数表（virtual table）</h1>
+          <h1 class="post-title" itemprop="name headline">git使用</h1>
         
 
         <div class="post-meta">
@@ -312,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T14:40:34+08:00">
-                2017-11-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-23T12:45:43+08:00">
+                2019-06-23
               </time>
             
 
@@ -323,28 +322,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index">
-                    <span itemprop="name">c++</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -353,8 +330,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/11/28/虚函数表（virtual-table）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://www.jianshu.com/u/1975769cbce2/2017/11/28/虚函数表（virtual-table）/" itemprop="commentCount">0</span> comments
+                <a href="/2019/06/23/git使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://www.jianshu.com/u/1975769cbce2/2019/06/23/git使用/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -382,17 +359,69 @@
       
 
       
-        <blockquote>
-<p>C++通过继承（inheritance）和虚函数（virtual function）来实现多态性，简单的说就是，将基类的指针或引用绑定到子类的实例，然后通过基类的指针或引用调用实际字累的成员函数（虚函数）。本文将介绍单继承、多继承下虚函数的实现机制。</p>
-</blockquote>
-<h3 id="一、虚函数表"><a href="#一、虚函数表" class="headerlink" title="一、虚函数表"></a>一、虚函数表</h3><blockquote>
-<p>为了支持虚函数机制，编译器为每一个拥有虚函数的类的实类创建了一个虚函数表（virtual table），这个表中有许多槽（slot），每个槽中存放的是虚函数的地址。虚函数表解决了继承、覆盖、添加虚函数的问题，保证其真实的反应实际的函数。</p>
-</blockquote>
-<blockquote>
-<p>为了能够找到virtual table，编译器在每个拥有虚函数的类中插入了一个成员指针vptr，指向虚函数表。</p>
-</blockquote>
-<p>下面是个🌰：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:	</span><br><span class="line">	  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">x</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::x()"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;	</span><br><span class="line">	  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">y</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::y()"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;	</span><br><span class="line">	  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">z</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::z()"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span><span class="params">(*pFun)</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	Base b;	</span><br><span class="line">	<span class="keyword">int</span>* vptr = (<span class="keyword">int</span>*)&amp;b;                     <span class="comment">// 虚函数表地址	</span></span><br><span class="line">	pFun func1 = (pFun)*((<span class="keyword">int</span>*)*vptr);        <span class="comment">// 第一个函数</span></span><br><span class="line">	pFun func2 = (pFun)*((<span class="keyword">int</span>*)*vptr+<span class="number">1</span>);      <span class="comment">// 第二个函数	</span></span><br><span class="line">	pFun func3 = (pFun)*((<span class="keyword">int</span>*)*vptr+<span class="number">2</span>);      <span class="comment">// 第三个函数		</span></span><br><span class="line">	func1();     <span class="comment">// 输出Base::x()	</span></span><br><span class="line">	func2();     <span class="comment">// 输出Base::y()	</span></span><br><span class="line">	func3();     <span class="comment">// 输出Base::z()	</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3><p><code>git checkout branchname</code> 切换分支</p>
+<p><code>git checkout -- &lt;file&gt;</code> 当文件修改后未add，将修改重置，即忽略本次修改。使用<code>git stash</code> 将本地修改保存后<code>git stash clear</code>将修改清除 等效</p>
+<p><code>git reset HEAD test</code> 将<code>git add test</code>步骤回退，即将不需要add的文件回退</p>
+<p><code>git stash</code> 保存本地的修改，并且工作区重置</p>
+<p><code>git stash pop</code> 将缓存堆栈中的第一个stash删除，并将对应修改应用到当前的工作目录下。</p>
+<p><code>git stash apply</code> 将缓存堆栈中的stash多次应用到工作目录中，但并不删除stash拷贝</p>
+<p><code>git stash list</code> 查看本地保存记录列表</p>
+<p><code>git stash clear</code>清除本地保存记录列表</p>
+<p><code>不小心commit了一个不应该commit的修改，但是还没有push，想撤销那个commit</code></p>
+<p>a)<code>git log</code> 查看所有commit记录，找到该commit的上一次commit_id</p>
+<p>b)<code>git reset --hard commit_id</code> </p>
+<p>【该操作会将commit的修改的内容不会保留】</p>
+<p><code>git reset --soft [commit_id]</code> 就可以回滚到某一个commit，然后保留下修改的内容</p>
+<p>撤销某次已经push到origin master<br>先撤回commit</p>
+<h3 id="config"><a href="#config" class="headerlink" title="config"></a>config</h3><p>b)<code>git config --list</code> 查看配置，默认<code>--global</code>,<code>--loacl</code>,<code>--system</code> </p>
+<p>配置用户名/邮箱<br><code>git config --global user.name &#39;Simon&#39;</code><br><code>git config --global user.email &#39;Simon9211@126.com&#39;</code>  </p>
+<h3 id="暂存区-stash"><a href="#暂存区-stash" class="headerlink" title="暂存区 stash"></a>暂存区 stash</h3><p>把文件a.m更改为b.m<br><code>git mv a.m b.m</code><br><code>git add b.m</code><br><code>git rm a.m</code><br><code>git commit -m&quot;change file name as b&quot;</code></p>
+<p>等效于上面<br><code>gir mv a.m b.m</code></p>
+<p><code>git reset --hard</code> 清除暂存区未提交的记录</p>
+<h3 id="查看git历史"><a href="#查看git历史" class="headerlink" title="查看git历史"></a>查看git历史</h3><h4 id="git-log-所有"><a href="#git-log-所有" class="headerlink" title="git log 所有"></a><code>git log</code> 所有</h4><p>`Merge: 0ad280d 14aafbe Author: xiwang wang <a href="mailto:&#115;&#x69;&#x6d;&#111;&#x6e;&#x39;&#50;&#x31;&#49;&#x40;&#49;&#50;&#54;&#x2e;&#x63;&#111;&#109;" target="_blank" rel="noopener">&#115;&#x69;&#x6d;&#111;&#x6e;&#x39;&#50;&#x31;&#49;&#x40;&#49;&#50;&#54;&#x2e;&#x63;&#111;&#109;</a><br>Date:   Mon Apr 23 12:55:02 2018 +0800</p>
+<pre><code>aaa
+</code></pre><p>commit 0ad280dd73fbc1ba950b6a30bad56950ef0524ce</p>
+<h4 id="git-log-oneline"><a href="#git-log-oneline" class="headerlink" title="git log --oneline"></a><code>git log --oneline</code></h4><p><code>37ad4b0 (HEAD -&gt; master, origin/master, origin/HEAD) aaa</code></p>
+<h4 id="git-log-n2-oneline-显示最近两次记录"><a href="#git-log-n2-oneline-显示最近两次记录" class="headerlink" title="git log -n2 --oneline  显示最近两次记录"></a><code>git log -n2 --oneline</code>  显示最近两次记录</h4><p><code>git log --all</code> 显示所有分支记录</p>
+<p><code>git log --oneline --all -n4 --graph</code>  <code>graph</code> 图形化</p>
+<p><code>git cat-file -p b28ab89aae18a7</code> 查看文件对象内容</p>
+<p><code>git cat-file -t b28ab89aae18a7</code> 查看文件树内容</p>
+<p><code>git init watch_git_objects</code></p>
+<p><code>git checkout b28ab89aae18a7</code> 分离头指针(回滚) </p>
+<h3 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h3><p><code>git diff b28ab8 aae18a7</code> 比较两次commit的差异 </p>
+<p><code>git diff HEAD HEAD^1</code> 比较HEAD指向提交和上一次（父亲）提交差异。<code>HEAD^</code>,<code>HEAD^1</code>,<code>HEAD~</code>,<code>HEAD~1</code> 父亲 <code>HEAD^1^1</code>，<code>HEAD^^</code>,<code>HEAD~2</code> 父亲的父亲</p>
+<h3 id="Branch"><a href="#Branch" class="headerlink" title="Branch"></a>Branch</h3><p><code>git branch -av</code> 查看所有分支</p>
+<p><code>git branch newbranch</code>创建新分支</p>
+<p><code>git checkout -b newBranch</code>  创建并切换至新分支</p>
+<p><code>git branch -d branchname</code> 删除分支</p>
+<p><code>git branch -D branchname</code>即使没有merge，也能删除分支</p>
+<h3 id="修改commit信息"><a href="#修改commit信息" class="headerlink" title="修改commit信息"></a>修改commit信息</h3><p><code>git commit --amend</code> 修改最近一次提交信息记录</p>
+<p><code>git rebase -i 0ad280dd73fb</code> 修改指定的commit信息</p>
+<p>1、pick为不改，</p>
+<p>2、reword表示修改,</p>
+<p>3、squash表示将commit合并到上一次commit，但是不会将commit信息丢弃，fixup则会丢弃，需连续的commit。间隔的提交需手动将其连续</p>
+<p><code>git diff --cached</code> 比较暂存区和HEAD所含文件的差异</p>
+<p><code>git reset HEAD</code> 将暂存区恢复与HEAD一致</p>
+<p><code>git reset HEAD --filename</code>将指定文件的暂存区恢复与HEAD一致</p>
+<p><code>git checkout --filename</code>将工作区恢复成原来的样子</p>
+<h3 id="本地备份"><a href="#本地备份" class="headerlink" title="本地备份"></a>本地备份</h3><p><code>--bare</code> 不拷贝工作区域</p>
+<p><code>git clone --bare /Users/xiwangwang/Documents/iOS/gitRepository/AirSandboxSwift/.git ya.git</code> 哑协议</p>
+<p><code>git clone --bare file:///Users/xiwangwang/Documents/iOS/gitRepository/AirSandboxSwift/.git zhineng.git</code>智能协议</p>
+<h3 id="远端备份"><a href="#远端备份" class="headerlink" title="远端备份"></a>远端备份</h3><h3 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h3><p>先pull</p>
+<p>1、多人协作开发，修改不同文件，push前先fetch远端分支，后merge，再push</p>
+<p><code>git fetch github</code> 拉取远端分支</p>
+<p><code>git merge github/feature/branch</code> 合并代码</p>
+<p><code>git push</code></p>
+<p>2、多人协作开发，修改同一文件不同区域同一，能自动merge</p>
+<p><code>git fetch</code> 拉取远端分支</p>
+<p><code>git merge github/feature/branch</code>  合并代码</p>
+<p><code>git push</code></p>
+<p>3、多人协作开发，修改同一文件同一区域，不能自动merge</p>
+<p><code>git fetch</code> 拉取远端分支</p>
+<p><code>git pull</code> 拉取head-first代码 解决冲突</p>
+<p><code>git commit -am&quot;reslove reflects&quot;</code> 提交解决冲突</p>
+<p><code>git merge github/feature/branch</code>  合并代码</p>
+<p>4、A修改文件名后 提交，B修改名字之前的文件内容<br> 先pull后 自动将文件内容修改更新的已修改名称文件</p>
 
       
     </div>
@@ -407,16 +436,6 @@
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/c/" rel="tag"># c++</a>
-          
-            <a href="/tags/函数/" rel="tag"># 函数</a>
-          
-            <a href="/tags/虚函数/" rel="tag"># 虚函数</a>
-          
-        </div>
       
 
       
@@ -445,8 +464,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/27/内存对齐（Memoey-alignment）/" rel="next" title="内存对齐（Memoey alignment）">
-                <i class="fa fa-chevron-left"></i> 内存对齐（Memoey alignment）
+              <a href="/2018/09/21/DFS-TS-LRU/" rel="next" title="DFS,TS,LRU">
+                <i class="fa fa-chevron-left"></i> DFS,TS,LRU
               </a>
             
           </div>
@@ -454,10 +473,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/05/lipo-用法/" rel="prev" title="lipo的简单用法用法">
-                lipo的简单用法用法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -489,7 +504,7 @@
   
     <div class="comments" id="comments">
       <div class="fb-comments"
-           data-href="https://www.jianshu.com/u/1975769cbce2/2017/11/28/虚函数表（virtual-table）/"
+           data-href="https://www.jianshu.com/u/1975769cbce2/2019/06/23/git使用/"
            data-numposts="10"
            data-width="100%"
            data-colorscheme="light">
@@ -631,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、虚函数表"><span class="nav-number">1.</span> <span class="nav-text">一、虚函数表</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用"><span class="nav-number">1.</span> <span class="nav-text">常用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#config"><span class="nav-number">2.</span> <span class="nav-text">config</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#暂存区-stash"><span class="nav-number">3.</span> <span class="nav-text">暂存区 stash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看git历史"><span class="nav-number">4.</span> <span class="nav-text">查看git历史</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#git-log-所有"><span class="nav-number">4.1.</span> <span class="nav-text">git log 所有</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-log-oneline"><span class="nav-number">4.2.</span> <span class="nav-text">git log --oneline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-log-n2-oneline-显示最近两次记录"><span class="nav-number">4.3.</span> <span class="nav-text">git log -n2 --oneline  显示最近两次记录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HEAD"><span class="nav-number">5.</span> <span class="nav-text">HEAD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Branch"><span class="nav-number">6.</span> <span class="nav-text">Branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改commit信息"><span class="nav-number">7.</span> <span class="nav-text">修改commit信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地备份"><span class="nav-number">8.</span> <span class="nav-text">本地备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远端备份"><span class="nav-number">9.</span> <span class="nav-text">远端备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#merge"><span class="nav-number">10.</span> <span class="nav-text">merge</span></a></li></ol></div>
             
 
           </div>
