@@ -1,7 +1,7 @@
  {
   "applinks": {
     "details": [{
-      "paths": ["*"],
+      "paths": ["/app/*"],
       "appID": "22L8F5N2ZA.com.sinapay.SinaPayApp"
     }],
       "apps": []
