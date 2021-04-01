@@ -82,17 +82,17 @@
 
 
 
-<meta name="description" content="1、内存分类关于RAM &amp;amp; ROM二者就是具体的存储空间，统称为存储器。RAM与ROM协同工作内存分区： 可以分为5个区2、虚拟内存关于Swap机制（移动端不支持）：程序运行举例（CPU RAM ROM之间协同）3、系统内存分配4、常见的内存优化问题5、内存优化的一些方法关于自动释放池 1、内存分类Clean Memory: 在闪存中有备份，能够再次读取。主要包括system framew">
+<meta name="description" content="1、内存分类  Clean Memory: 在闪存中有备份，能够再次读取。主要包括system framework、binary executeable of your app、memory mapped files。当app和一个framework关联时，Clean Memory将会增加framework二进制文件大小，但是大多数情况下，只有部分会加载进物理内存     Dirty Memory">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS内存优化相关">
 <meta property="og:url" content="https://www.jianshu.com/u/1975769cbce2/2017/09/30/iOS内存优化相关/index.html">
 <meta property="og:site_name" content="Simon&#39;s Blogs">
-<meta property="og:description" content="1、内存分类关于RAM &amp;amp; ROM二者就是具体的存储空间，统称为存储器。RAM与ROM协同工作内存分区： 可以分为5个区2、虚拟内存关于Swap机制（移动端不支持）：程序运行举例（CPU RAM ROM之间协同）3、系统内存分配4、常见的内存优化问题5、内存优化的一些方法关于自动释放池 1、内存分类Clean Memory: 在闪存中有备份，能够再次读取。主要包括system framew">
+<meta property="og:description" content="1、内存分类  Clean Memory: 在闪存中有备份，能够再次读取。主要包括system framework、binary executeable of your app、memory mapped files。当app和一个framework关联时，Clean Memory将会增加framework二进制文件大小，但是大多数情况下，只有部分会加载进物理内存     Dirty Memory">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-21T05:57:46.976Z">
+<meta property="og:updated_time" content="2021-04-01T10:14:01.344Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS内存优化相关">
-<meta name="twitter:description" content="1、内存分类关于RAM &amp;amp; ROM二者就是具体的存储空间，统称为存储器。RAM与ROM协同工作内存分区： 可以分为5个区2、虚拟内存关于Swap机制（移动端不支持）：程序运行举例（CPU RAM ROM之间协同）3、系统内存分配4、常见的内存优化问题5、内存优化的一些方法关于自动释放池 1、内存分类Clean Memory: 在闪存中有备份，能够再次读取。主要包括system framew">
+<meta name="twitter:description" content="1、内存分类  Clean Memory: 在闪存中有备份，能够再次读取。主要包括system framework、binary executeable of your app、memory mapped files。当app和一个framework关联时，Clean Memory将会增加framework二进制文件大小，但是大多数情况下，只有部分会加载进物理内存     Dirty Memory">
 
 
 
@@ -381,46 +381,231 @@
       
 
       
-        <p>1、内存分类<br>关于RAM &amp; ROM<br>二者就是具体的存储空间，统称为存储器。<br>RAM与ROM协同工作<br>内存分区： 可以分为5个区<br>2、虚拟内存<br>关于Swap机制（移动端不支持）：<br>程序运行举例（CPU RAM ROM之间协同）<br>3、系统内存分配<br>4、常见的内存优化问题<br>5、内存优化的一些方法<br>关于自动释放池</p>
-<p>1、内存分类<br>Clean Memory: 在闪存中有备份，能够再次读取。主要包括system framework、binary executeable of your app、memory mapped files。当app和一个framework关联时，Clean Memory将会增加framework二进制文件大小，但是大多数情况下，只有部分会加载进物理内存<br>Dirty Memory：所有非Clean Memory，系统无法回收，包括Heap allocation、caches、decompressed images。如果内存有压力，系统就会卸载部分Clean Memory，当下次需要分配内存时，系统就会重新回收它们。对于Dirty Memory，系统不能卸载，iOS也没有置换机制（Swap），所以Dirty Memory会一直占用物理内存，直到超过了限制，然后app就会被杀死（oom），系统就会回收Dirty Memory。</p>
-<p>虚拟内存层面： virtual memory = clean memory + dirty memory<br>物理内存层面： resident memory = dirty memory + clean memory that loaded in physical memory </p>
-<p>virtual memory == （clean memory + dirty memory）&gt; resident memory &gt; dirty memory</p>
-<p>参考：<a href="https://stackoverflow.com/questions/13437365/what-is-resident-and-dirty-memory-of-ios" target="_blank" rel="noopener">https://stackoverflow.com/questions/13437365/what-is-resident-and-dirty-memory-of-ios</a>!<br>           <a href="https://stackoverflow.com/questions/13437365/what-is-resident-and-dirty-memory-of-ios" target="_blank" rel="noopener">https://stackoverflow.com/questions/13437365/what-is-resident-and-dirty-memory-of-ios</a>!</p>
-<p>关于RAM &amp; ROM<br>二者就是具体的存储空间，统称为存储器。<br>RAM（random access memory）：运行内存，CPU可以直接访问，读写速度非常快，但是不能掉电存储，它又分为：<br>动态DRAM，速度慢一点，需要定期的刷新（充电），我们常说的内存条，介个稍微低一点，手机中的运行内存也就是指它<br>静态SRAM，速度快，我们常说的一级缓存，二级缓存就是指它，当然价格也高一点<br>ROM（read only memory）：存储性内存，可以掉电存储，例如SD卡，Flash（机械磁盘也可以简单的理解为ROM）。用的多的：NandFlash，还有NorFlash，现在用的已经比较少了（两者主要区别是前者空间大，便宜，后者可以直接运行程序，读取速度快）<br>由于RAM类型不具备掉电存储能力（即一停止供电数据全没了，重新上电后全是乱码，所以需要初始化），所以APP程序一般都存放于ROM中，RAM的访问速速远高于ROM，价格也要高。</p>
-<p>RAM与ROM协同工作<br>由于RAM不能掉电存储，所以app程序，刷机包，下载的文件等都是在ROM里面存储。</p>
-<p>手机里面使用的ROM基本都是NandFlash，CPU是不能直接访问的，而是需要文件系统／驱动程序（嵌入式的EMC）将其读到RAM里面，CPU才可以访问。另外，RAM的速度也比NandFlash快。</p>
-<p>内存分区： 可以分为5个区<br>内存指的是RAM<br>栈区（stack）：系统数据结构，快速高效但是数据不灵活，先进后出。一般由编译器操作，或者说是系统管理，会存一些局部变量，函数跳转时现场保护（寄存器保存与恢复），这些系统都会帮我们自动实现，无需我们人工干预。所以大量的局部变量 ，深递归，函数循环调用都可能耗尽内存而造成程序崩溃。向低地址扩展<br>堆区（heap）：一般由程序员管理，比如alloc申请内存，free释放内存。我们创建的对象也都放在这里。如果程序员不释放，程序结束时，可能由操作系统回收。优点是灵活方便，数据适应面广泛，但是效率有一定降低，先进先出，堆有一个记录空闲地址的链表负责管理。向高地址扩展<br>全局区（静态区static）：全局变量和静态变量的存储是放在一块的，初始化的全局变量和静态变量在一块区域（data段），未初始化的全局变量和静态变量放在相邻的另外一块区域（.bss段），程序结束后系统释放。<br>常量区：常量字符串就是放在这里，还有const常量<br>代码区：存放代码，APP程序会拷贝到这里，程序员在ROM里面存储。</p>
-<p>2、虚拟内存<br>程序指令必须在物理内存内，这样使得程序的大小被限制在物理内存的大小以内。事实上，很多情况并不需要将整个程序放到内存中。举个例子：</p>
-<p>// clean memory<br>char <em>buf = malloc(100</em>1024*1024)</p>
-<p>// dirty memory<br>for(int i=0; i &lt; 3<em>1024</em>1024; ++i){<br>    buf[i] = rand()<br>}</p>
-<p>首先申请了100M的虚拟内存，但是你申请了没用时，操作系统就不会给你分配物理内存。后来在循环内进行读写，操作系统就会分配3M的物理内存，其他97M是在虚拟内存。<br>可以通过Instrument启动Allocations工具验证。</p>
+        <h4 id="1、内存分类"><a href="#1、内存分类" class="headerlink" title="1、内存分类"></a>1、内存分类</h4><blockquote>
+<ul>
+<li>Clean Memory: 在闪存中有备份，能够再次读取。主要包括system framework、binary executeable of your app、memory mapped files。当app和一个framework关联时，Clean Memory将会增加framework二进制文件大小，但是大多数情况下，只有部分会加载进物理内存</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Dirty Memory：所有非Clean Memory，系统无法回收，包括Heap allocation、caches、decompressed images。如果内存有压力，系统就会卸载部分Clean Memory，当下次需要分配内存时，系统就会重新回收它们。对于Dirty Memory，系统不能卸载，iOS也没有置换机制（Swap），所以Dirty Memory会一直占用物理内存，直到超过了限制，然后app就会被杀死（oom），系统就会回收Dirty Memory。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>虚拟内存层面： virtual memory = clean memory + dirty memory</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>物理内存层面： resident memory = dirty memory + clean memory that loaded in physical memory virtual memory == （clean memory + dirty memory）&gt; resident memory &gt; dirty memory</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>参考：<a href="https://stackoverflow.com/questions/13437365/what-is-resident-and-dirty-memory-of-ios" target="_blank" rel="noopener">https://stackoverflow.com/questions/13437365/what-is-resident-and-dirty-memory-of-ios</a>!</p>
+</blockquote>
+<h5 id="关于RAM-amp-ROM"><a href="#关于RAM-amp-ROM" class="headerlink" title="关于RAM &amp; ROM"></a>关于RAM &amp; ROM</h5><p>二者就是具体的存储空间，统称为存储器。</p>
+<blockquote>
+<p>RAM（random access memory）：运行内存，CPU可以直接访问，读写速度非常快，但是不能掉电存储，它又分为：</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>动态DRAM，速度慢一点，需要定期的刷新（充电），我们常说的内存条，介个稍微低一点，手机中的运行内存也就是指它</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>静态SRAM，速度快，我们常说的一级缓存，二级缓存就是指它，当然价格也高一点</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>ROM（read only memory）：存储性内存，可以掉电存储，例如SD卡，Flash（机械磁盘也可以简单的理解为ROM）。用的多的：NandFlash，还有NorFlash，现在用的已经比较少了（两者主要区别是前者空间大，便宜，后者可以直接运行程序，读取速度快）由于RAM类型不具备掉电存储能力（即一停止供电数据全没了，重新上电后全是乱码，所以需要初始化），所以APP程序一般都存放于ROM中，RAM的访问速速远高于ROM，价格也要高。</p>
+</blockquote>
+<blockquote>
+<p>RAM与ROM协同工作</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>由于RAM不能掉电存储，所以app程序，刷机包，下载的文件等都是在ROM里面存储。手机里面使用的ROM基本都是NandFlash，CPU是不能直接访问的，而是需要文件系统／驱动程序（嵌入式的EMC）将其读到RAM里面，CPU才可以访问。另外，RAM的速度也比NandFlash快。</li>
+</ul>
+</blockquote>
+<h5 id="内存分区：-可以分为5个区"><a href="#内存分区：-可以分为5个区" class="headerlink" title="内存分区： 可以分为5个区"></a>内存分区： 可以分为5个区</h5><blockquote>
+<p>内存指的是RAM</p>
+</blockquote>
+<blockquote>
+<ol>
+<li>栈区（stack）：系统数据结构，快速高效但是数据不灵活，先进后出。一般由编译器操作，或者说是系统管理，会存一些局部变量，函数跳转时现场保护（寄存器保存与恢复），这些系统都会帮我们自动实现，无需我们人工干预。所以大量的局部变量 ，深递归，函数循环调用都可能耗尽内存而造成程序崩溃。向低地址扩展</li>
+<li>堆区（heap）：一般由程序员管理，比如alloc申请内存，free释放内存。我们创建的对象也都放在这里。如果程序员不释放，程序结束时，可能由操作系统回收。优点是灵活方便，数据适应面广泛，但是效率有一定降低，先进先出，堆有一个记录空闲地址的链表负责管理。向高地址扩展</li>
+<li>全局区（静态区static）：全局变量和静态变量的存储是放在一块的，初始化的全局变量和静态变量在一块区域（data段），未初始化的全局变量和静态变量放在相邻的另外一块区域（.bss段），程序结束后系统释放。</li>
+<li>常量区：常量字符串就是放在这里，还有const常量</li>
+<li>代码区：存放代码，APP程序会拷贝到这里，程序员在ROM里面存储。</li>
+</ol>
+</blockquote>
+<p>####虚拟内存</p>
+<blockquote>
+<p>程序指令必须在物理内存内，这样使得程序的大小被限制在物理内存的大小以内。事实上，很多情况并不需要将整个程序放到内存中。举个例子：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// clean memory</span><br><span class="line">char *buf = malloc(100*1024*1024)</span><br><span class="line"></span><br><span class="line">// dirty memory</span><br><span class="line">for(int i=0; i &lt; 3*1024*1024; ++i)&#123;</span><br><span class="line">    buf[i] = rand()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>首先申请了<code>100M</code>的虚拟内存，但是你申请了没用时，操作系统就不会给你分配物理内存。后来在循环内进行读写，操作系统就会分配3M的物理内存，其他97M是在虚拟内存。可以通过Instrument启动Allocations工具验证。</p>
+</blockquote>
+<blockquote>
 <p>所以虚拟内存的使用，使得程序不再受物理内存空间的限制，程序的地址不一定在内存上，也可能在辅存上，用户可以为一个巨大的虚拟空间地址编写程序。</p>
-<p>我们的程序访问的都是逻辑地址空间（也叫虚拟地址），逻辑地址需要经过转换之后才可以访问到物理内存。虚拟内存到物理内存的映射是怎样的呢？<br>主要是两个寄存器在中间起到了强大的作用，界限寄存器用来判断是否越界，如果没有越界就会加上基址寄存器的知，转为物理内存地址。<br>寄存器属于CPU部分。</p>
-<p>桌面系统中很少应用因为内存过多二被kill掉，但是iOS会。<br>对于桌面操作系统，是具有丰富的辅存的，我们的操作系统可以使用置换机制（Swap）。比如我物理内存紧张了，我就把我现在不用的进程暂时置换到磁盘中，腾出空间给新的进程，这样就相当于使用磁盘来扩展物理内存。但是对于移动设备（苹果、安卓），无swap机制，主要由于地洞设备的闪存容量有限，并且闪存的频繁读写很降低寿命。对于iOS使用的就是kill掉优先级低的进程。</p>
-<p>关于Swap机制（移动端不支持）：<br>Linux支持虚拟内存，虚拟内存是指用磁盘当作RAM的扩展（也就是硬盘存储）。这样就显得内存增大了。</p>
+</blockquote>
+<blockquote>
+<p>我们的程序访问的都是逻辑地址空间（也叫虚拟地址），逻辑地址需要经过转换之后才可以访问到物理内存。虚拟内存到物理内存的映射是怎样的呢？</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>主要是两个寄存器在中间起到了强大的作用，界限寄存器用来判断是否越界，如果没有越界就会加上基址寄存器的值，转为物理内存地址。寄存器属于CPU部分。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>桌面系统中很少应用因为内存过多二被kill掉，但是iOS会。</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>对于桌面操作系统，是具有丰富的辅存的，我们的操作系统可以使用置换机制（Swap）。比如我物理内存紧张了，我就把我现在不用的进程暂时置换到磁盘中，腾出空间给新的进程，这样就相当于使用磁盘来扩展物理内存。但是对于移动设备（苹果、安卓），无swap机制，主要由于地洞设备的闪存容量有限，并且闪存的频繁读写很降低寿命。对于iOS使用的就是kill掉优先级低的进程。</li>
+</ul>
+</blockquote>
+<h5 id="关于Swap机制（移动端不支持）："><a href="#关于Swap机制（移动端不支持）：" class="headerlink" title="关于Swap机制（移动端不支持）："></a>关于Swap机制（移动端不支持）：</h5><blockquote>
+<p>Linux支持虚拟内存，虚拟内存是指用磁盘当作RAM的扩展（也就是硬盘存储）。这样就显得内存增大了。</p>
+</blockquote>
+<blockquote>
 <p>举例子：启动一个程序，它会被加在到内存(也叫物理内存)，假设它占内存1G，当运行一段时间后，它的内存在内存的占用量会减少到几十M。</p>
+</blockquote>
+<blockquote>
 <p>原因：<br>磁盘内部有一部分区域叫做交换空间(swap Space)，用作虚拟内存的硬盘，内存管理单元(MMU)会将内存中暂时不用的内存块内容写在硬盘上（交换空间），当需要时再从swap Space中读取到内存。这样内存就会空闲出来内存去做别的事情。</p>
+</blockquote>
+<blockquote>
 <p>一般，在交换空间中的页面首先被换入内存；如果此时没有足够的物理内存来容纳他们又将被交换出来（到其他的交换空间中）。如果没有足够的虚拟内存来容纳所有这些页面，Linux就会波动而不正常；但经过一段较长的时间Linux会恢复，但此时系统已不可用了。</p>
+</blockquote>
+<blockquote>
 <p>缺点：<br>在虚拟空间读取内容到内存效率特别低，要慢数千倍，如果有固态硬盘会好很多</p>
+</blockquote>
+<blockquote>
 <p>虚拟内存地址空间：<br>32位： 4GB<br>64位： 16GB</p>
+</blockquote>
+<blockquote>
 <p>程序运行举例（CPU RAM ROM之间协同）</p>
+</blockquote>
+<blockquote>
 <p>手机上的所有程序都都是依赖操作系统，运行在虚拟内存上的，每一个APP都会以为自己拥有所有的虚拟内存。比如一个手机，它是32位操作系统（一般也是32位总线），真实的物理内存为2G：</p>
+</blockquote>
+<blockquote>
 <p>那么他的寻址空间为4G（2^32），对于APP来说，它觉得自己拥有4G的内存，虽然这是不可能的（或者说同一时间是不可能的），但是，操作系统只要保证APP当时用刀的地址空间有真实的物理地址对应就可以，APP也不需要知道那对应的2G真实物理内存具体在哪里。不要求4G的虚拟内存同一时间都有真实的物理内存相对应，当然那也是不可能的，因为只有2G的物理内存。</p>
+</blockquote>
+<blockquote>
 <p>当我们点击手机屏幕APP的Icon启动一个APP（例如微信）时<br>操作系统会为微信开辟4G的虚拟内存空间(开辟真实的物理内存，对应一部分到4G的虚拟内存)<br>操作系统会把存储在ROM里面微信的部分代码(受空间所限，不可能全部拷贝)，拷贝到上一步开辟的4G内存空间的代码区，如上图<br>然后CPU就可以访问RAM来运行微信的程序了<br>假设通过微信我们下载了一个100M的视频，那么会从服务器一点一点的下载到RAM，然后再从RAM写到ROM存储。这样才能保证，我们关掉微信并再次打开时视频还在<br>假设隔一段时间，我们要看视频，程序会将它从ROM读到RAM然后解码播放</p>
-<p>作者：时间已静止<br>链接：<a href="http://www.jianshu.com/p/d85a5e56c505">http://www.jianshu.com/p/d85a5e56c505</a><br>來源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。<br>3、系统内存分配<br>根据Apple官方文档，操作系统的内存主要分为Used Memory、Free Memory。<br>Used Memory又分为Wired Memory、Active Memory、Inactive Memory，同时提到了一个Purgeable Memory，暂且归类为Active memory。<br>Free Memory：未使用的RAM容量，随时可以被应用分配使用<br>Wired Memory： 用来存放内核代码和数据结构，它主要为内核服务，如负责网络、文件系统之类的；对于应用、framework、一些用户级别的软件是没有办法分配内存的。但是应用程序也会对Wired Memory的分配有所影响。<br>Active Memory： 活跃的内存，正在被使用或很短时间内被使用过<br>Inactive Memory：最近被使用过，但是目前处于不活跃状态。<br>例如，如果您使用了邮件然后退出，则邮件曾经使用的 RAM 会标记为“不活 跃”内存。“不活跃”内存可供其他应用软件使用，就像“可用”内存一样。但是，如果在其他应用软件占用邮件的“不活跃”内存之前打开了邮件，邮件的打开速度会更快，因为其“不活跃”内存会转换为“活跃”内存，而不是从较慢的驱动器进行载入。<br>Purgeable Memory：这个是查阅资料发现的，同时第三方库中有统计此内存的大小，所以记录一下。可以理解为可释放的内存，主要是大对象或大内存块才可以使用的内存，此内存会在内存紧张的时候自动释放掉。测试验证测代码iOS-System-Services/System Services/Utilities/SSMemoryInfo.m</p>
-<p>4、常见的内存优化问题<br>多个页面无法成功dealloc，内存没有被释方（delegate未使用weak修饰）<br>在ViewDidDisAppear中，发现retainCount为6，证明这个vc还存在引用计数，不释放原因主要是self被delegate强引用，<br>某页面成功dealloc，但是仍有内存残留<br>imageName读取图片的方法会缓存在内存中，所以大图用imageWithContentsOfFile<br>TIPs1：.xcassets里的图片无法用imageWithContentsOfFile读取；<br>TIPs2：imageWithContentsOfFile读取图片需要加文件后缀名如png，jpg等；</p>
-<p>5、内存优化的一些方法</p>
-<p>使用懒加载：试图控制器对象通过alloc和init来创建，但是视图控制器对象不会在创建的那一刻马上创建相应的视图，而是等到需要使用的时候才通过loadView来创建，这样的走法能提高内存的使用率。比如某个标签有很多UIViewController对象，那么对于任何一个UIViewController对象的视图，只有相应的标签被选中时才会被创建出来。针对于此，正确的使用懒加载技术，将对象的创建延迟并在多处复用可以很好的减少内存的消耗。更多的view意味着更多的渲染，也就是更多的哦CPU和内存消耗，对于嵌套了很多的view在UIScrollView里面的app更是如此，不要一次创建所有的subView，而是当需要时才创建，当它们完成了使命，把它们放进一个可重用的队列中，避免了不划算的内存分配。</p>
-<p>复用和单例：在一个面向对象的语言，数据的抽象化、继承、封装、多态等特性使得一个系统可以在更高层次上提供复用性。抽象化和继承关系使得概念和定义可以复用，多态使得实现和应用可以复用，抽象化和封装可以保持和促进系统的可维护性。一些objects的初始化很慢，比如NSDateFormatter和NSCalendar，又不可避免地需要使用它们，比如从JSON或者XML中解析数据。想要避免使用这个对象的瓶颈就需要重用他们，可以通过添加属性到你的class里或者创建静态变量来实现。使用静态变量，对象会在你的app运行时一直存在于内存中，和单例(singleton)很相似，这个需要注意。</p>
-<p>避免使用复杂的XIB和Storyboards：尽量少用，因为在性能上和包大小上使用xib和storyboard比原码都会存在差异的。加载一个xib的时候所有内容都会被加载到内存里，包括任何图片，如果一个即刻用不到的 view，这就浪费了宝贵的内存资源了，Storyboard相对而言会好一点，只会实例化一个vc，后期用到其他的再实例。</p>
-<p>选择正确的数据结构：数据结构是计算机存储、组织数据的方式，是互相之间存在一种或多种特定关系的数据元素的集合。数据结构分为逻辑结构、存储结构（物理结构）和数据的运算。数据的逻辑结构是从具体问题抽象出来的数学模型，是描述数据元素及其关系的数学特性的，有时也把逻辑结构简称为数据结构。根据数据元素间关系的不同特性，通常有下列四类基本的结构：<br>集合结构，该结构的数据元素间的关系是“属于同一集合”；<br>线性结构，该结构的数据元素之间存在着一对一的关系；<br>树形结构：该结构的数据元素之前存在着一对多的关系<br>图形结构：改结构的数据元素之前存在着多对多的关系，也成网状结构<br>一个数据结构有两个要素，一个是数据元素的集合，另一个是关系的集合。在形式上，数据结构通常可以采用一个二元组来表示。通常情况下，精心选择的数据结构可以带来更高的运行火灾存储效率。选择对业务场景最            适合的类或者对象是写出更高效代码的基础，处理数据集时这句话尤其正确，一些常见的数据集包括：Arrays，Dictionaries，Sets。<br>Arrays是有序的一组值。使用index查询很快，使用value查表很慢，插入／删除很慢。<br>Dictionaries存储键值对，用=键查找比较快。<br>Sets是无需的一组值，用值来查找很快，插入／删除很快。</p>
-<p>views设置为不透明，当opaque为NO的时候，图层的的半透明取决于图片和其本身合成的涂层为结果，可提高性能。</p>
-<p>gzip/zip压缩：当从服务端下载相关资源时，可通过gzip／zip压缩后下载，使得内存更小，下载数独更快！</p>
-<p>数据缓存：对于cell的行高要缓存起来，使得reload数据时，效率也极高。而对于网络数据，可以做本地化处理。</p>
-<p>一些objects的初始化很慢，比如NSDateFormatter 和NSCalendar。然而你又不可避免的使用它们，比如从JSON和XML中解析数据。想要避免使用这个对象的瓶颈你就需要重用它们，可以通过添加属性到你的class里或者创建静态变量来实现。如果你选用第二种方式，对象会在你的app运行时一直存在于内存中（存在于静态区），和单例很相似。 注意：设置一个NSDateFormatter的速度差不多和创建新的一样慢</p>
-<p>减少使用Web特性，UIWebView会造成内存泄漏，反复加载某个webView时，内存会一直增加，WKWebView优化后好了很多</p>
-<p>使用AutoReleasePool：NSAutoreleasePool负责释放block中autoreleased objects。一般情况下它会自动被UIKit调用。但是有些状况下你也需要手动去创建它。假如你创建很多临时对象，你会发现内存一直在减少直到这些对象被release的时候。这是因为只有当UIKit用光了autorelease Pool的时候Memory才会被释放。好消息是你自己可以创建临时的autorelease对象来避免这个行为；比如for循环<br>加载图片是否缓存图片：常见的从bundle中加载图片的方式有两种，一个是imageNamed，另一个时imageWithContentOfFile。既然有两种方式那它们之间有什么差别呢？先说第一种方式他的优点是当加载是它会缓存图片。相反imageWithContentOfFile的仅仅加载图片。如果你加载一个大的图片而且仅仅使用一次的话就没必要缓存图片。</p>
-<p>关于自动释放池<br>（1）自动释放池被置于一个堆栈中，虽然它们通常被称为被“嵌套”的。当您创建一个新的自动释放池时，它被添加到堆栈的顶部。当自动释放池被回收时，它们从堆栈中被删除。当一个对象收到送autorelease消息时，它被添加到当前线程的目前处于栈顶的自动释放池中。你不能向自动释放池发送autorelease或retain消息。Application Kit会在一个事件周期（或事件循环迭代）的开端—比如鼠标按下事件—自动创建一个自动释放池，并且在事件周期的结尾释放它，因此您的代码通常不必关心。 有三种情况您应该使用你自己的自动释放池：<br>如果您正在编写一个不是基于Application Kit的程序，比如命令行工具，则没有对自动释放池的内置支持；您必须自己创建它们。<br>如果您生成了一个从属线程，则一旦该线程开始执行，您必须立即创建您自己的自动释放池；否则，您将会泄漏对象。<br>如果您编写了一个循环，其中创建了许多临时对象，您可以在循环内部创建一个自动释放池，以便在下次迭代之前销毁这些<br>对象。这可以帮助减少应用程序的最大内存占用量。<br>对于ARC的项目，只需要将上面的NSAutoreleasePool改为@autoreleasepool {}即可。</p>
+</blockquote>
+<h4 id="系统内存分配"><a href="#系统内存分配" class="headerlink" title="系统内存分配"></a>系统内存分配</h4><blockquote>
+<p>根据Apple官方文档，操作系统的内存主要分为<code>Used Memory</code>、<code>Free Memory</code>。</p>
+</blockquote>
+<blockquote>
+<ol>
+<li>Used Memory又分为<code>Wired Memory</code>、<code>Active Memory</code>、<code>Inactive Memory</code>，同时提到了一个<code>Purgeable Memory</code>，暂且归类为<code>Active memory</code>。</li>
+</ol>
+</blockquote>
+<blockquote>
+<blockquote>
+<ul>
+<li>Wired Memory： 用来存放内核代码和数据结构，它主要为内核服务，如负责网络、文件系统之类的；对于应用、framework、一些用户级别的软件是没有办法分配内存的。但是应用程序也会对Wired Memory的分配有所影响。</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<ul>
+<li>Active Memory： 活跃的内存，正在被使用或很短时间内被使用过</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<ul>
+<li>Inactive Memory：最近被使用过，但是目前处于不活跃状态。<br>例如，如果您使用了邮件然后退出，则邮件曾经使用的 RAM 会标记为“不活 跃”内存。“不活跃”内存可供其他应用软件使用，就像“可用”内存一样。但是，如果在其他应用软件占用邮件的“不活跃”内存之前打开了邮件，邮件的打开速度会更快，因为其“不活跃”内存会转换为“活跃”内存，而不是从较慢的驱动器进行载入。</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<ul>
+<li>Purgeable Memory：这个是查阅资料发现的，同时第三方库中有统计此内存的大小，所以记录一下。可以理解为可释放的内存，主要是大对象或大内存块才可以使用的内存，此内存会在内存紧张的时候自动释放掉。测试验证测代码iOS-System-Services/System Services/Utilities/SSMemoryInfo.m</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<ol>
+<li>Free Memory：未使用的RAM容量，随时可以被应用分配使用</li>
+</ol>
+</blockquote>
+<h4 id="常见的内存优化问题"><a href="#常见的内存优化问题" class="headerlink" title="常见的内存优化问题"></a>常见的内存优化问题</h4><blockquote>
+<p>多个页面无法成功dealloc，内存没有被释方（delegate未使用weak修饰）<br>在ViewDidDisAppear中，发现retainCount为6，证明这个vc还存在引用计数，不释放原因主要是self被delegate强引用，</p>
+</blockquote>
+<blockquote>
+<p>某页面成功dealloc，但是仍有内存残留<br>imageName读取图片的方法会缓存在内存中，所以大图用imageWithContentsOfFile<br>TIPs1：.xcassets里的图片无法用imageWithContentsOfFile读取；<br>TIPs2：imageWithContentsOfFile读取图片需要加文件后缀名如png，jpg等；</p>
+</blockquote>
+<h4 id="内存优化的一些方法"><a href="#内存优化的一些方法" class="headerlink" title="内存优化的一些方法"></a>内存优化的一些方法</h4><blockquote>
+<ol>
+<li>使用懒加载：试图控制器对象通过alloc和init来创建，但是视图控制器对象不会在创建的那一刻马上创建相应的视图，而是等到需要使用的时候才通过loadView来创建，这样的走法能提高内存的使用率。比如某个标签有很多UIViewController对象，那么对于任何一个UIViewController对象的视图，只有相应的标签被选中时才会被创建出来。针对于此，正确的使用懒加载技术，将对象的创建延迟并在多处复用可以很好的减少内存的消耗。更多的view意味着更多的渲染，也就是更多的哦CPU和内存消耗，对于嵌套了很多的view在UIScrollView里面的app更是如此，不要一次创建所有的subView，而是当需要时才创建，当它们完成了使命，把它们放进一个可重用的队列中，避免了不划算的内存分配。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol>
+<li>复用和单例：在一个面向对象的语言，数据的抽象化、继承、封装、多态等特性使得一个系统可以在更高层次上提供复用性。抽象化和继承关系使得概念和定义可以复用，多态使得实现和应用可以复用，抽象化和封装可以保持和促进系统的可维护性。一些objects的初始化很慢，比如NSDateFormatter和NSCalendar，又不可避免地需要使用它们，比如从JSON或者XML中解析数据。想要避免使用这个对象的瓶颈就需要重用他们，可以通过添加属性到你的class里或者创建静态变量来实现。使用静态变量，对象会在你的app运行时一直存在于内存中，和单例(singleton)很相似，这个需要注意。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol>
+<li>避免使用复杂的XIB和Storyboards：尽量少用，因为在性能上和包大小上使用xib和storyboard比原码都会存在差异的。加载一个xib的时候所有内容都会被加载到内存里，包括任何图片，如果一个即刻用不到的 view，这就浪费了宝贵的内存资源了，Storyboard相对而言会好一点，只会实例化一个vc，后期用到其他的再实例。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol>
+<li>选择正确的数据结构：数据结构是计算机存储、组织数据的方式，是互相之间存在一种或多种特定关系的数据元素的集合。数据结构分为逻辑结构、存储结构（物理结构）和数据的运算。数据的逻辑结构是从具体问题抽象出来的数学模型，是描述数据元素及其关系的数学特性的，有时也把逻辑结构简称为数据结构。根据数据元素间关系的不同特性，通常有下列四类基本的结构：<blockquote>
+<ul>
+<li>集合结构，该结构的数据元素间的关系是“属于同一集合”；</li>
+<li>线性结构，该结构的数据元素之间存在着一对一的关系；</li>
+<li>树形结构：该结构的数据元素之前存在着一对多的关系</li>
+<li>图形结构：改结构的数据元素之前存在着多对多的关系，也成网状结构</li>
+</ul>
+</blockquote>
+一个数据结构有两个要素，一个是数据元素的集合，另一个是关系的集合。在形式上，数据结构通常可以采用一个二元组来表示。通常情况下，精心选择的数据结构可以带来更高的运行火灾存储效率。选择对业务场景最            适合的类或者对象是写出更高效代码的基础，处理数据集时这句话尤其正确，一些常见的数据集包括：Arrays，Dictionaries，Sets。<br>Arrays是有序的一组值。使用index查询很快，使用value查表很慢，插入／删除很慢。<br>Dictionaries存储键值对，用=键查找比较快。<br>Sets是无需的一组值，用值来查找很快，插入／删除很快。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol>
+<li>views设置为不透明，当opaque为NO的时候，图层的的半透明取决于图片和其本身合成的涂层为结果，可提高性能。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol>
+<li>gzip/zip压缩：当从服务端下载相关资源时，可通过gzip／zip压缩后下载，使得内存更小，下载数独更快！</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol>
+<li>数据缓存：对于cell的行高要缓存起来，使得reload数据时，效率也极高。而对于网络数据，可以做本地化处理。一些objects的初始化很慢，比如NSDateFormatter 和NSCalendar。然而你又不可避免的使用它们，比如从JSON和XML中解析数据。想要避免使用这个对象的瓶颈你就需要重用它们，可以通过添加属性到你的class里或者创建静态变量来实现。如果你选用第二种方式，对象会在你的app运行时一直存在于内存中（存在于静态区），和单例很相似。 注意：设置一个NSDateFormatter的速度差不多和创建新的一样慢</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol>
+<li>减少使用Web特性，UIWebView会造成内存泄漏，反复加载某个webView时，内存会一直增加，WKWebView优化后好了很多</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol>
+<li>使用AutoReleasePool：NSAutoreleasePool负责释放block中autoreleased objects。一般情况下它会自动被UIKit调用。但是有些状况下你也需要手动去创建它。假如你创建很多临时对象，你会发现内存一直在减少直到这些对象被release的时候。这是因为只有当UIKit用光了autorelease Pool的时候Memory才会被释放。好消息是你自己可以创建临时的autorelease对象来避免这个行为；比如for循环</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol>
+<li>加载图片是否缓存图片：常见的从bundle中加载图片的方式有两种，一个是imageNamed，另一个时imageWithContentOfFile。既然有两种方式那它们之间有什么差别呢？先说第一种方式他的优点是当加载是它会缓存图片。相反imageWithContentOfFile的仅仅加载图片。如果你加载一个大的图片而且仅仅使用一次的话就没必要缓存图片。</li>
+</ol>
+</blockquote>
+<h4 id="关于自动释放池"><a href="#关于自动释放池" class="headerlink" title="关于自动释放池"></a>关于自动释放池</h4><blockquote>
+<p>自动释放池被置于一个堆栈中，虽然它们通常被称为被“嵌套”的。当您创建一个新的自动释放池时，它被添加到堆栈的顶部。当自动释放池被回收时，它们从堆栈中被删除。当一个对象收到送autorelease消息时，它被添加到当前线程的目前处于栈顶的自动释放池中。你不能向自动释放池发送autorelease或retain消息。Application Kit会在一个事件周期（或事件循环迭代）的开端—比如鼠标按下事件—自动创建一个自动释放池，并且在事件周期的结尾释放它，因此您的代码通常不必关心。 有三种情况您应该使用你自己的自动释放池：<br>如果您正在编写一个不是基于Application Kit的程序，比如命令行工具，则没有对自动释放池的内置支持；您必须自己创建它们。<br>如果您生成了一个从属线程，则一旦该线程开始执行，您必须立即创建您自己的自动释放池；否则，您将会泄漏对象。<br>如果您编写了一个循环，其中创建了许多临时对象，您可以在循环内部创建一个自动释放池，以便在下次迭代之前销毁这些<br>对象。这可以帮助减少应用程序的最大内存占用量。<br>对于ARC的项目，只需要将上面的NSAutoreleasePool改为@autoreleasepool {}即可。</p>
+</blockquote>
 
       
     </div>
@@ -537,8 +722,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -630,6 +824,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、内存分类"><span class="nav-number">1.</span> <span class="nav-text">1、内存分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#关于RAM-amp-ROM"><span class="nav-number">1.1.</span> <span class="nav-text">关于RAM &amp; ROM</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#内存分区：-可以分为5个区"><span class="nav-number">1.2.</span> <span class="nav-text">内存分区： 可以分为5个区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于Swap机制（移动端不支持）："><span class="nav-number">1.3.</span> <span class="nav-text">关于Swap机制（移动端不支持）：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#系统内存分配"><span class="nav-number">2.</span> <span class="nav-text">系统内存分配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的内存优化问题"><span class="nav-number">3.</span> <span class="nav-text">常见的内存优化问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存优化的一些方法"><span class="nav-number">4.</span> <span class="nav-text">内存优化的一些方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于自动释放池"><span class="nav-number">5.</span> <span class="nav-text">关于自动释放池</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
